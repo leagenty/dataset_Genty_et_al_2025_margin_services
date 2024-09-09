@@ -1,0 +1,157 @@
+---
+title: "pedoclimatic_pca"
+author: "Léa Genty"
+date: "2024-01-22"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(hrbrthemes)
+library(viridis)
+library(FactoMineR)
+library(lubridate)
+library(factoextra)
+library(corrplot)
+library(lme4)
+library(MuMIn)
+library(MASS)
+library(AICcmodavg)
+library(car)
+library(RColorBrewer)
+library(ggpubr)
+library(ggsignif)
+library(ggcorrplot)
+```
+
+# 1. Open data
+```{r}
+agroenvi <- read.csv(file="3. Pedoclim data/3.2. Clean pedoclimatic variables/Raw/Agroenvironnement.csv",sep=";",fileEncoding="latin1")
+sol_var <- read.csv(file="3. Pedoclim data/3.2. Clean pedoclimatic variables/Raw/clean_soil_var.csv",sep=",") %>% 
+  dplyr::select(-X)
+
+id_code <- agroenvi %>% 
+  dplyr::select(id_parcelle,code_parcelle,region_biogeo) %>% 
+  distinct()
+
+clim <- read.csv(file="3. Pedoclim data/3.2. Clean pedoclimatic variables/Raw/2023-07-12_Sol_climat.csv",sep=";") %>% 
+  left_join(id_code) %>% 
+  dplyr::select(id_parcelle,temp_moy_an,temp_range_an,  precip_an, precip_season) %>% 
+  mutate(id_parcelle=as.character(id_parcelle))
+```
+
+# 2. Cleaning soil data
+## 2.1. Keeping only old soil data for plots without measurements
+```{r}
+soil_old <- agroenvi %>% 
+  dplyr::select(id_parcelle,Soil_Nitrogen,Soil_CEC,Soil_Clay_content,Soil_Ph_h2o,Soil_organic_carbon_content,Soil_Sand_content,Soil_Silt_content) %>% 
+  distinct() %>% 
+  filter(!id_parcelle %in% sol_var$id_parcelle) %>% 
+  mutate(Soil_CEC=as.numeric(Soil_CEC),
+         Soil_Clay_content=as.numeric(Soil_Clay_content),
+         Soil_Nitrogen=as.numeric(Soil_Nitrogen),
+         Soil_Ph_h2o=as.numeric(Soil_Ph_h2o),
+         Soil_Sand_content=as.numeric(Soil_Sand_content),
+         Soil_Silt_content=as.numeric(Soil_Silt_content),
+         Soil_organic_carbon_content=as.numeric(Soil_organic_carbon_content))
+```
+
+## 2.2. Both datasets at the same unit and types of variables
+```{r}
+sol_new <- sol_var %>% 
+  mutate(Soil_Sand_content=sables_fins+sables_grossiers,
+         Soil_Silt_content = limons_grossiers+limons_fins) %>% 
+  rename(
+         Soil_Nitrogen=N_tot,
+         Soil_CEC=CEC_a,
+         Soil_Clay_content = argiles,
+         Soil_organic_carbon_content = C_orga,
+         Soil_Ph_h2o = pH
+         ) %>% 
+  dplyr::select(-sables_fins,-sables_grossiers,-limons_grossiers,-limons_fins,-CEC_b,-phosphore_mg_kg) %>% 
+  mutate(Soil_Ph_h2o=Soil_Ph_h2o*10,
+         Soil_Nitrogen= Soil_Nitrogen*100,
+         Soil_organic_carbon_content=Soil_organic_carbon_content*10)  %>% 
+  mutate(Soil_Clay_content=as.numeric(Soil_Clay_content),
+         Soil_Silt_content=as.numeric(Soil_Silt_content),
+         Soil_Sand_content=as.numeric(Soil_Sand_content))
+```
+Pour new :
+C orga g/kg
+1/1000
+= 10 dg / kg
+--> Faire x10
+
+Azote Dumas g/kg 
+1/1000
+= 100 cg / kg
+--> Faire x100
+
+CEC mEq.kg
+
+pour data old voir https://soilgrids.org/
+C orga : dg/kg
+1/10 000
+
+Azote : cg/kg
+1/100 000
+
+CEC : mmol(c)/kg
+
+1 g = 10 dg
+1 g = 100 cg
+
+## 2.3. Verifying old datas with correlations
+```{r}
+sol_new1 <- sol_var %>% 
+  mutate(Soil_Sand_Content1=sables_fins+sables_grossiers,
+         Soil_Silt_content1 = limons_grossiers+limons_fins) %>% 
+  rename(
+         Soil_Nitrogen1=N_tot,
+         Soil_CEC1=CEC_a,
+         Soil_Clay_content1 = argiles,
+         Soil_organic_carbon_content1 = C_orga,
+         Soil_Ph_h2o1 = pH
+         ) %>% 
+  dplyr::select(-sables_fins,-sables_grossiers,-limons_grossiers,-limons_fins,-CEC_b,-phosphore_mg_kg) %>% 
+  mutate(Soil_Ph_h2o1=Soil_Ph_h2o1*10,
+         Soil_Nitrogen1= Soil_Nitrogen1*100,
+         Soil_organic_carbon_content1=Soil_organic_carbon_content1*10) %>% 
+  mutate(id_parcelle=as.integer(id_parcelle))
+
+sol_tot <- agroenvi %>% 
+  filter(id_parcelle %in% sol_var$id_parcelle) %>% 
+  left_join(sol_new1) %>% 
+dplyr::select(id_parcelle,Soil_Sand_Content1,Soil_Silt_content1,Soil_Clay_content1,Soil_Nitrogen1,Soil_CEC1,Soil_organic_carbon_content1,Soil_Ph_h2o1,Soil_Sand_content,Soil_Silt_content,Soil_Clay_content,Soil_Nitrogen,Soil_CEC,Soil_organic_carbon_content,Soil_Ph_h2o)
+
+cor.test(sol_tot$Soil_Nitrogen,sol_tot$Soil_Nitrogen1) #0.15 ***
+cor.test(sol_tot$Soil_CEC,sol_tot$Soil_CEC1) # -0.12 ***
+cor.test(sol_tot$Soil_Clay_content,sol_tot$Soil_Clay_content1) #0.49 ***
+cor.test(sol_tot$Soil_Silt_content,sol_tot$Soil_Silt_content1) #0.63 ***
+cor.test(sol_tot$Soil_Sand_content,sol_tot$Soil_Sand_Content1) #0.7 ***
+cor.test(sol_tot$Soil_Ph_h2o,sol_tot$Soil_Ph_h2o1) # 0.6 ***
+cor.test(sol_tot$Soil_organic_carbon_content,sol_tot$Soil_organic_carbon_content1) # 0.26 ***
+```
+Not good for Soil_Nitrogen, Soil_CEC and Soil_organic_carbon_content
+
+Good for texture and pH
+
+## 2.4. Adding new data and climatic data in the agroenvi dataset
+```{r}
+sol_tot <- soil_old %>% 
+  mutate(id_parcelle=as.character(id_parcelle)) %>% 
+  rbind(sol_new)
+
+agroenvi_new <- agroenvi %>% 
+  dplyr::select(-Soil_Nitrogen,-Soil_CEC,-Soil_Clay_content,-Soil_Ph_h2o,-Soil_organic_carbon_content,-Soil_Sand_content,-Soil_Silt_content) %>% 
+  mutate(id_parcelle=as.character(id_parcelle)) %>% 
+  left_join(sol_tot) %>% 
+  left_join(clim) %>% 
+  mutate(temp_moy_an = temp_moy_an/10,
+         temp_range_an = temp_range_an/10)
+
+#write.csv(agroenvi_new, file= "3. Pedoclim data/3.2. Clean pedoclimatic variables/Processed/Agroenvironnement_new.csv")
+```

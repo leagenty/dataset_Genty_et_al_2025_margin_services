@@ -1,0 +1,94 @@
+---
+title: "cleaning_soil_data"
+author: "Léa Genty"
+date: "2024-01-22"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(corrplot)
+library(hrbrthemes)
+library(viridis)
+```
+
+# 1. Open data and rename columns
+```{r}
+sol <- read.csv(file="G:/dataset_Genty_et_al_2025_margin_services/3. Pedoclim data/3.1. Cleaning soil data/Raw/ResultatsAnalyseSol_500ENI_2022_Final_newnames.csv",sep=";") %>% 
+  dplyr::select(2,4,7:25) %>% 
+  rename(N_tot = Azote.Dumas.g.kg,
+         CEC_a = Capacite.d.Echange.Cationique..CEC..mEq.kg,
+         calc_actif_a = Calcaire.actif..CaCO3....Methode.A.g.kg,
+         mat_orga = Matieres.Organiques..Carbone.x.1.73..g.kg,
+         calc_tot = Calcaire.total..CaCO3..g.kg,
+         pH = pH.eau.pH.units.No.unit,
+         CEC_b = Capacite.d.Echange.Cationique..CEC..mEq.100.g,
+         C_orga = Carbone.organique.g.kg,
+         granulo = Granulometrie...Pratique.de.la.decarbonatation.No.unit.No.unit,
+         cuivre = Cuivre..Cu..mg.kg,
+         phosphore_mg_kg = Phosphore.Olsen..P2O5..mg.kg,
+         cuivre_extract = Cuivre.extractible.EDTA..Cu..mg.kg,
+         phosphore_g_kg = Phosphore.Olsen..P2O5..g.kg,
+         calc_actif_b = Calcaire.actif..CaCO3....Methode.B.g.kg) %>% 
+  mutate(CEC_a=as.numeric(CEC_a))
+```
+
+# 2. Selection of variables
+
+## 2.1. Correlation matrix 
+```{r}
+corr_sol <- sol %>%
+  dplyr::select(id_parcelle,N_tot,limons_grossiers,CEC_a,argiles,limons_fins,sables_fins,pH,CEC_b,sables_grossiers,C_orga,phosphore_g_kg) %>% 
+  column_to_rownames("id_parcelle") %>% 
+  drop_na
+
+M = cor(corr_sol)
+corrplot(M, method="number", type="lower")
+```
+Corr > 0.5 :
+mat_orga et N_tot = 0.9
+CEC_b et argiles = 0.91
+C_orga et N_tot = 0.9
+Les 2 phosphore 
+C_orga et mat_orga
+
+Je retire :
+- mat_orga
+- phosphore_g_kg
+
+Selected variables for analysis :
+```{r}
+sol_var <- corr_sol %>% 
+  dplyr::select(-mat_orga,-phosphore_g_kg) %>% 
+  rownames_to_column("id_parcelle")
+```
+
+## 2.2. First visualizations :
+```{r}
+summary(sol_var)
+
+dens_fun <- function(var, name) {
+  
+  ggplot(sol_var, aes(x = var)) +
+    geom_density(fill="#458B74", color="#458B74", alpha=0.8) +
+    labs(x = name,
+         title = name)
+}
+
+sol_var %>% 
+  dplyr::select(where(is.numeric)) %>% 
+  map2(.y = names(.),
+       ~ dens_fun(.x, .y)
+  )
+
+```
+
+
+# 3. Save clean data frame
+```{r}
+#write.csv(sol_var,file="3. Pedoclim data/3.1. Cleaning soil data/Processed/clean_soil_var.csv")
+```
+

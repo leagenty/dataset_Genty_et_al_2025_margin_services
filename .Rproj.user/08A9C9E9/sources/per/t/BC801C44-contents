@@ -1,0 +1,465 @@
+---
+title: "clustering_pedoclim_lands"
+author: "Léa Genty"
+date: "2024-01-25"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(missMDA)
+library(tidyverse)
+library(hrbrthemes)
+library(viridis)
+library(FactoMineR)
+library(lubridate)
+library(factoextra)
+library(corrplot)
+library(lme4)
+library(MuMIn)
+library(MASS)
+library(AICcmodavg)
+library(car)
+library(RColorBrewer)
+library(ggpubr)
+library(ggsignif)
+library(ggcorrplot)
+library(janitor)
+library(RVAideMemoire)
+library(chisq.posthoc.test)
+```
+
+# 1. Opening data
+```{r}
+agroenvi <- read.csv(file="3. Pedoclim data/3.3. Field clustering/Raw/Agroenvironnement_new.csv",sep=";")
+
+
+id_code <- agroenvi %>% 
+  dplyr::select(id_parcelle,code_parcelle,region_biogeo) %>% 
+  distinct() 
+```
+
+# 2. Select variables
+```{r}
+var_clust <- agroenvi %>% 
+  dplyr::select(id_parcelle,Soil_Sand_content,Soil_Silt_content,Soil_Clay_content,Soil_Nitrogen,Soil_CEC,Soil_organic_carbon_content,Soil_Ph_h2o,Soil_Bulk_density,temp_moy_an,temp_range_an,  precip_an, precip_season,xPCA_pays,  ShannonCultureTOT , Bordure_Adj_BandeHerbeuse, Bordure_Adj_Zone_humide ,Bordure_Adj_Prairie , Bordure_Adj_Autres,Bordure_Adj_HaieBois,Bordure_Adj_BatiRoute,Bordure_Adj_Culture) %>% 
+  distinct() %>% 
+  mutate(id_parcelle=as.factor(id_parcelle)) %>% 
+  group_by(id_parcelle) %>% 
+  summarize_all(mean) %>% 
+  ungroup() %>% 
+  column_to_rownames("id_parcelle")
+
+name_var <-agroenvi %>% 
+  dplyr::select(id_parcelle,Soil_Sand_content,Soil_Silt_content,Soil_Clay_content,Soil_Nitrogen,Soil_CEC,Soil_organic_carbon_content,Soil_Ph_h2o,Soil_Bulk_density,temp_moy_an,temp_range_an,  precip_an, precip_season,xPCA_pays,  ShannonCultureTOT , Bordure_Adj_BandeHerbeuse, Bordure_Adj_Zone_humide ,Bordure_Adj_Prairie , Bordure_Adj_Autres,Bordure_Adj_HaieBois,Bordure_Adj_BatiRoute,Bordure_Adj_Culture) %>% 
+  distinct() %>% 
+  mutate(id_parcelle=as.factor(id_parcelle)) %>% 
+  group_by(id_parcelle) %>% 
+  summarize_all(mean) %>% 
+  ungroup() %>% 
+  dplyr::select(id_parcelle)
+
+biogeo <- agroenvi %>% 
+  dplyr::select(region_biogeo, id_parcelle) %>%
+  distinct() %>% 
+  mutate(id_parcelle=as.factor(id_parcelle))
+```
+
+
+# 3. Impute missing data
+https://delladata.fr/imputation-donnees-manquantes-missmda/ mais nécessaire de faire ça avant
+https://www.youtube.com/watch?v=bdD9P3fGb70
+```{r}
+ncomp <- estim_ncpPCA(var_clust,method.cv="Kfold") 
+ncomp
+res.imp <- imputePCA(var_clust, ncp = ncomp$ncp)
+
+res.imp$completeObs # le nouveau tableau de données avec les données manquantes estimées
+
+var_clust_imp <- as_tibble(res.imp$completeObs) %>% 
+  cbind(name_var) %>% 
+  relocate("id_parcelle") %>% 
+  left_join(biogeo) 
+
+
+#write.csv(var_clust_imp, file="3. Pedoclim data/3.3. Field clustering/Processed/var_agroenvi_input.csv")
+```
+
+Retirer variables autocorrélées au-delà de 0.5
+```{r}
+var_clust2 <- var_clust_imp %>% 
+  dplyr::select(-region_biogeo)
+corr <- cor(var_clust2, use="complete.obs")
+ggcorrplot(corr, method = "circle", hc.order = TRUE)
+```
+Silt & Sand 0.6
+Clay & Sand -0.5
+--> j'enlève Silt & Clay
+
+N & C organique -0.8
+--> j'enlève C organique
+
+CEC & Clay 0.7
+N & CEC 0.7
+--> j'enlève CEC
+
+precip saisonnalité & T° moy 0.7
+--> j'enlève precip saisonn
+
+Runner l'ACP
+```{r}
+var_clust_imp_selected <- var_clust_imp %>% 
+  dplyr::select(-Soil_CEC, -Soil_organic_carbon_content,-Soil_Silt_content,-Soil_Clay_content,-precip_season)%>% 
+  mutate_if(is.numeric, scale) %>% 
+  column_to_rownames("id_parcelle")
+
+res.pca <- PCA(var_clust_imp_selected,quali.sup = 17)
+fviz_pca_biplot(res.pca, 
+                axes =c(1,2),
+                col.var = "black", 
+              habillage = as.factor(var_clust_imp_selected$region_biogeo))
+fviz_pca_biplot(res.pca, 
+                axes =c(1,3),
+                col.var = "black", 
+              habillage = as.factor(var_clust_imp_selected$region_biogeo))
+fviz_eig(res.pca)
+
+fviz_pca_var(res.pca, 
+                axes =c(1,3),
+             col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel=TRUE)
+
+r <- dimdesc(res.pca, axes = c(1,2), proba = 0.05)
+r$Dim.1
+r$Dim.2
+Grr <- dimdesc(res.pca, axes = c(3,4), proba = 0.05)
+r$Dim.3
+r$Dim.4
+```
+--> Dim 1 14.2%
+
+Bcp de grandes cultures dans le paysage, densité sol élevée et cultures différentes
+Sols non sableux, T° peu élevées, précipitations élevées
+
+
+                        correlation      p.value
+xPCA_pays                 0.6426311 9.125076e-64
+Soil_Bulk_density         0.6226758 7.196640e-59
+ShannonCultureTOT         0.4678803 1.643914e-30
+Soil_Ph_h2o               0.4540172 1.290261e-28
+temp_moy_an              -0.3741845 2.945970e-19
+precip_an                -0.5525520 3.559231e-44
+Soil_Sand_content        -0.5569144 5.461003e-45
+
+                    Estimate      p.value
+region_biogeo=BPN  1.4850386 4.263513e-16
+region_biogeo=BPS  1.3128384 3.158203e-09
+region_biogeo=ZNE  0.9516442 2.176313e-05
+region_biogeo=ZM  -0.3912637 1.004543e-03
+region_biogeo=C   -1.1125320 4.090259e-04
+region_biogeo=ZSO -0.1836000 7.083487e-05
+region_biogeo=MC  -1.2061272 4.370971e-09
+region_biogeo=MA  -0.9025146 3.024030e-10
+
+--> Dim 2 12.8%
+
+T° moy et range, ph, sables élevés
+N sol bas, peu de grandes cultures dans le paysage
+
+                          correlation      p.value
+temp_moy_an                 0.5035803 8.280255e-36
+Soil_Ph_h2o                 0.4860910 3.903099e-33
+Soil_Sand_content           0.4676939 1.745587e-30
+temp_range_an               0.4666727 2.423273e-30
+Soil_Bulk_density           0.4473153 9.908696e-28
+precip_an                  -0.3676098 1.356695e-18
+xPCA_pays                  -0.5220790 8.258583e-39
+Soil_Nitrogen              -0.5631488 3.570712e-46
+
+                    Estimate      p.value
+region_biogeo=ZM   2.1054373 8.710600e-32
+region_biogeo=C    0.7823087 9.555874e-03
+region_biogeo=BPN -1.0232830 5.106924e-09
+region_biogeo=MA  -1.9003479 9.863957e-20
+
+--> Dim 3 10.4%
+Paysages avec bcp de bandes herbeuses, de haies et bois, de cultures, de routes et de bâtiments
+T° moyennes annuelles basses
+
+
+                          correlation      p.value
+Bordure_Adj_BandeHerbeuse   0.6863629 6.959024e-76
+Bordure_Adj_HaieBois        0.5996787 1.198108e-53
+Bordure_Adj_Culture         0.5458018 6.132426e-43
+Bordure_Adj_BatiRoute       0.5314402 2.120544e-40
+temp_moy_an                -0.3405699 5.059826e-16
+
+                    Estimate      p.value
+region_biogeo=ZNE  0.7397889 3.543046e-08
+region_biogeo=BPS  0.5520197 6.045236e-04
+region_biogeo=MC   0.6194005 1.524695e-02
+region_biogeo=MA   0.4326892 3.229865e-02
+region_biogeo=BPN -0.2819145 4.927767e-03
+region_biogeo=ZSO -0.3653828 1.331018e-04
+region_biogeo=C   -1.3003428 9.944400e-05
+region_biogeo=ZM  -0.9304572 1.291945e-07
+
+# 4. Clustering of pedoclimatic regions
+```{r}
+var_clust2 <- var_clust_imp %>% 
+  dplyr::select(-region_biogeo)
+
+cah <-HCPC(res.pca,nb.clust=3)
+fviz_cluster(cah,
+             repel=F,
+             show.clust.cent=T,
+             palette="jco",
+             ggtheme=theme_minimal(),
+             main="Factor map")
+cah$desc.var$quanti
+cah$desc.axes$quanti 
+cah$desc.ind$para 
+cah$desc.ind$dist
+
+id_code2 <- id_code %>% 
+  mutate(id_parcelle=as.factor(id_parcelle))
+
+clusters_pc_pays <- as_tibble(cah$data.clust) %>% 
+  cbind(name_var) %>% 
+  left_join(id_code2) %>% 
+  relocate(id_parcelle,code_parcelle,region_biogeo)
+
+summary(clusters_pc_pays$clust)
+
+#write.csv(clusters_type_culture2.csv,file="3. Pedoclim data/4.3. Field clustering/Processed/pedoclim_clusters2.csv")
+
+
+kruskal.test(Soil_Sand_content ~clust,data=clusters_pc_pays)
+pairwise.wilcox.test(clusters_pc_pays$Soil_Sand_content,clusters_pc_pays$clust, p.adjust.method = "bonferroni")
+```
+
+# 5. Plotting clusters vs region biogeo
+```{r}
+#clusters_pc_pays <- read.csv(file="3. Pedoclim data/3.3. Field clustering/Processed/pedoclim_clusters2.csv")
+
+cluster_number <- clusters_pc_pays %>% 
+  dplyr::select(id_parcelle,clust) %>% 
+  distinct()
+
+#write.csv(cluster_number,file="4. Pedoclim data/3.3. Field clustering/Processed/cluster_number2.csv")
+```
+
+
+## 5.1. Group 1
+```{r}
+clusters_pc_pays <- clusters_pc_pays %>% 
+  mutate(region_biogeo=as.factor(region_biogeo),
+         clust=as.factor(clust))
+
+clust1 <- clusters_pc_pays %>% 
+  filter(clust=="1")
+
+
+clust1_cam <- clust1 %>% 
+ dplyr::select(region_biogeo) %>% 
+  mutate(region_biogeo=as.factor(region_biogeo),
+         numb=1) %>% 
+  group_by(region_biogeo) %>% 
+  mutate(count = sum(numb)) %>% 
+  dplyr::select(-numb) %>% 
+  distinct()%>%
+  ungroup()%>% 
+  mutate(tot = sum(count),
+    prop_raw  = count / tot*100,
+    prop = round(prop_raw)) %>% 
+  arrange(desc(prop)) %>% 
+  dplyr::select(1,2,5) 
+
+
+
+ggplot(clust1_cam, aes(x = "", y = prop, fill = region_biogeo)) +
+  geom_bar(width = 1, stat = "identity", color = "white") +
+  coord_polar("y", start = 0)+
+ scale_fill_manual(values=c("ZSO"="cadetblue3","BPS"="#458B00","ZM"="#9F79EE","MC"="#CD5B45","ZNE"="#9AFF9A","BPN"="darkolivegreen","MA"="cadetblue1","BRSJ"="darkorange1","A"="#CD6600","C"="#BF3EFF"))+
+  theme_void() 
+
+```
+"C"="#BF3EFF"
+
+bps --> vert clair
+bpn --> vert foncé
+ZNE --> vert canard
+ZM --> mauve
+C --> violet
+A --> orange
+BRSJ --> jaune-orange
+MC --> rouge-orange
+MA --> bleu foncé
+ZSO --> bleu clair
+
+## 5.2. Group 2
+```{r}
+clust2 <- clusters_pc_pays %>% 
+  filter(clust=="2")
+summary(clust2)
+summary(clusters_pc_pays)
+
+clust2_cam <- clust2 %>% 
+ dplyr::select(region_biogeo) %>% 
+  mutate(region_biogeo=as.factor(region_biogeo),
+         numb=1) %>% 
+  group_by(region_biogeo) %>% 
+  mutate(count = sum(numb)) %>% 
+  dplyr::select(-numb) %>% 
+  distinct()%>%
+  ungroup()%>% 
+  mutate(tot = sum(count),
+    prop_raw  = count / tot*100,
+    prop = round(prop_raw)) %>% 
+  arrange(desc(prop)) %>% 
+  dplyr::select(1,2,5) 
+
+ 
+
+ggplot(clust2_cam, aes(x = "", y = prop, fill = region_biogeo)) +
+  geom_bar(width = 1, stat = "identity", color = "white") +
+  coord_polar("y", start = 0)+
+ scale_fill_manual(values=c("ZSO"="cadetblue3","BPS"="#458B00","ZM"="#9F79EE","C"="#BF3EFF","MC"="#CD5B45","ZNE"="#9AFF9A","BPN"="darkolivegreen","MA"="cadetblue1","BRSJ"="darkorange1","A"="#CD6600"))+
+  theme_void() 
+
+```
+
+## 5.3. Group 3
+```{r}
+clust3 <- clusters_pc_pays %>% 
+  filter(clust=="3")
+summary(clust3)
+summary(clusters_pc_pays)
+
+clust3_cam <- clust3 %>% 
+ dplyr::select(region_biogeo) %>% 
+  mutate(region_biogeo=as.factor(region_biogeo),
+         numb=1) %>% 
+  group_by(region_biogeo) %>% 
+  mutate(count = sum(numb)) %>% 
+  dplyr::select(-numb) %>% 
+  distinct()%>%
+  ungroup()%>% 
+  mutate(tot = sum(count),
+    prop_raw  = count / tot*100,
+    prop = round(prop_raw)) %>% 
+  arrange(desc(prop)) %>% 
+  dplyr::select(1,2,5) 
+
+ 
+
+ggplot(clust3_cam, aes(x = "", y = prop, fill = region_biogeo)) +
+  geom_bar(width = 1, stat = "identity", color = "white") +
+  coord_polar("y", start = 0)+
+ scale_fill_manual(values=c("ZSO"="cadetblue3","BPS"="#458B00","ZM"="#9F79EE","C"="#BF3EFF","MC"="#CD5B45","ZNE"="#9AFF9A","BPN"="darkolivegreen","MA"="cadetblue1","BRSJ"="darkorange1","A"="#CD6600"))+
+  theme_void() 
+
+```
+
+## 5.4. Nb parcelles par zone biogéo pour comparaison
+```{r}
+tot_parc <- clusters_pc_pays %>% 
+ dplyr::select(region_biogeo) %>% 
+  mutate(region_biogeo=as.factor(region_biogeo),
+         numb=1) %>% 
+  group_by(region_biogeo) %>% 
+  mutate(count = sum(numb)) %>% 
+  dplyr::select(-numb) %>% 
+  distinct()%>%
+  ungroup()%>% 
+  mutate(tot = sum(count),
+    prop_raw  = count / tot*100,
+    prop = round(prop_raw)) %>% 
+  arrange(desc(prop)) %>% 
+  dplyr::select(1,2,5) 
+
+ 
+
+ggplot(tot_parc, aes(x = "", y = prop, fill = region_biogeo)) +
+  geom_bar(width = 1, stat = "identity", color = "white") +
+  coord_polar("y", start = 0)+
+ scale_fill_manual(values=c("ZSO"="cadetblue3","BPS"="#458B00","ZM"="#9F79EE","C"="#BF3EFF","MC"="#CD5B45","ZNE"="#9AFF9A","BPN"="darkolivegreen","MA"="cadetblue1","BRSJ"="darkorange1","A"="#CD6600"))+
+  theme_void() 
+
+```
+
+# 6. Liens clusters agriculture
+
+# 6.1. Représentativité clusters selon cultures
+```{r}
+clust_cult <- agroenvi %>% 
+  dplyr::select(id_parcelle,plante_reference) %>% 
+  distinct() %>% 
+  left_join(clusters_pc_pays) %>% 
+  dplyr::select(id_parcelle,plante_reference,clust) %>% 
+  mutate(plante_reference=as.factor(plante_reference)) %>% filter(clust==3) 
+summary(clust_cult$plante_reference)
+
+clust_type_culture <- read.csv(file="3. Pedoclim data/3.3. Field clustering/Processed/clusters_type_culture2.csv",sep=";") %>% 
+  mutate(clust=as.factor(clust)) %>% 
+  filter(clust!="tot") %>% 
+  column_to_rownames("clust")
+chisq.test(clust_type_culture)
+chisq.posthoc.test(clust_type_culture)
+```
+ tot
+    Ble   Maïs Salade  Vigne 
+ nb 217    157     57    105 
+  % 40      30    10     20
+
+clust1
+  Ble   Maïs Salade  Vigne 
+    42     34      7      8
+    46     37      8      9  
+    
+clust2
+   Ble   Maïs Salade  Vigne 
+    15     30     32     82 
+    9.5   19      20    51.5
+
+clust3
+   Ble   Maïs Salade  Vigne 
+   160     93     18     15 
+   56     32.5    6.25    5.25   
+   
+   
+   
+# 6.2. IFT et bio selon clusters
+```{r}
+bio <- read.csv(file="3. Pedoclim data/3.3. Field clustering/Raw/dea_type_prod_traite_Lea.csv",sep=";") %>% 
+  mutate(id_parcelle=as.factor(id_parcelle))
+
+clust_prat <- clust_cult %>% 
+  mutate(id_parcelle=as.factor(id_parcelle)) %>% 
+  left_join(bio) %>% 
+  distinct() %>% 
+# %>%  dplyr::select(id_parcelle) %>% get_dupes(clust_prat) 
+  # pour check si doublons, ok
+  dplyr::select(-plante_reference) %>% 
+  mutate(type_production=as.factor(type_production)) %>% 
+  mutate(numb=1) %>% 
+  group_by(clust,type_production) %>% 
+  mutate(nb=sum(numb)) %>% 
+  dplyr::select(-id_parcelle,-numb) %>% 
+  distinct() %>% 
+  pivot_wider(names_from = type_production,values_from=nb) %>% 
+   mutate(clust=as.numeric(clust)) 
+clust_prat2 <- arrange(clust_prat,clust) 
+clust_prat <- clust_prat2  %>% 
+  mutate(clust=as.factor(clust)) %>% 
+  column_to_rownames("clust")
+
+chisq.test(clust_prat)
+
+```
+
+
+

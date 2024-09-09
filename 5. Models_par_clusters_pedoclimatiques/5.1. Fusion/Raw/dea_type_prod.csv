@@ -1,0 +1,1759 @@
+ID_Parcelle;code_parcelle;date_type_production;type_production
+520;12ENICA08001;2016-01-01;Conventionnel
+235;12ENICA08002;2012-01-01;Conventionnel
+235;12ENICA08002;2016-01-01;Conventionnel
+49;12ENICA08003;2012-01-01;Conventionnel
+49;12ENICA08003;2016-01-01;Conventionnel
+229;12ENICA08004;2012-01-01;Conventionnel
+230;12ENICA10001;2012-01-01;Conventionnel
+202;12ENICA10002;2012-01-01;Conventionnel
+113;12ENICA10003;2012-01-01;Conventionnel
+21;12ENICA10004;2012-01-01;Conventionnel
+282;12ENICA10005;2012-01-01;Conventionnel
+508;12ENICA51001;2012-01-01;Conventionnel
+283;12ENICA51002;2012-01-01;Conventionnel
+286;12ENICA51003;2012-01-01;Conventionnel
+255;12ENICA51004;2012-01-01;Biologique
+280;12ENICA51005;2012-01-01;Conventionnel
+281;12ENICA51006;2012-01-01;Conventionnel
+110;12ENICA51007;2012-01-01;Conventionnel
+224;12ENICA51008;2012-01-01;Biologique
+24;12ENICA51009;2012-01-01;Biologique
+109;12ENICA51010;2012-01-01;Conventionnel
+108;12ENICA51011;2012-01-01;Conventionnel
+114;12ENICA51012;2012-01-01;Conventionnel
+510;12ENICA52001;2012-01-01;Conventionnel
+310;12ENICA52002;2012-01-01;Conventionnel
+310;12ENICA52002;2013-01-01;Conventionnel
+310;12ENICA52002;2014-01-01;Conventionnel
+310;12ENICA52002;2015-01-01;Conventionnel
+310;12ENICA52002;2016-01-01;Conventionnel
+310;12ENICA52002;2017-01-01;Conventionnel
+310;12ENICA52002;2018-01-01;Conventionnel
+310;12ENICA52002;2019-01-01;Conventionnel
+310;12ENICA52002;2020-01-01;Conventionnel
+310;12ENICA52002;2021-01-01;Conventionnel
+310;12ENICA52002;2022-01-01;Conventionnel
+2;12ENICA52003;2012-01-01;Biologique
+14;12ENICA52004;2012-01-01;Biologique
+285;12ENICA52005;2012-01-01;Conventionnel
+285;12ENICA52005;2018-01-01;Biologique
+271;12ENICA52006;2012-01-01;Conventionnel
+540;14170-CA14-01;2020-01-01;Conventionnel
+540;14170-CA14-01;2021-01-01;Conventionnel
+540;14170-CA14-01;2022-01-01;Conventionnel
+478;14170-CA14-02;2012-01-01;Conventionnel
+366;14170-CREPAN14-01;2012-01-01;Conventionnel
+366;14170-CREPAN14-01;2022-01-01;Conventionnel
+115;14170-CREPAN14-02;2012-01-01;Conventionnel
+115;14170-CREPAN14-02;2020-01-01;En conversion bio
+115;14170-CREPAN14-02;2021-01-01;Biologique
+115;14170-CREPAN14-02;2022-01-01;Biologique
+117;14170-CREPAN14-03;2012-01-01;Conventionnel
+117;14170-CREPAN14-03;2020-01-01;En conversion bio
+117;14170-CREPAN14-03;2021-01-01;Biologique
+117;14170-CREPAN14-03;2022-01-01;Biologique
+228;14170-CREPAN14-04;2012-01-01;Conventionnel
+228;14170-CREPAN14-04;2020-01-01;En conversion bio
+228;14170-CREPAN14-04;2021-01-01;Biologique
+228;14170-CREPAN14-04;2022-01-01;Biologique
+116;14170-CREPAN14-05;2012-01-01;Conventionnel
+116;14170-CREPAN14-05;2020-01-01;En conversion bio
+116;14170-CREPAN14-05;2021-01-01;Biologique
+116;14170-CREPAN14-05;2022-01-01;Biologique
+95;14170-CREPAN14-06;2012-01-01;Biologique
+95;14170-CREPAN14-06;2013-01-01;Biologique
+95;14170-CREPAN14-06;2014-01-01;Biologique
+95;14170-CREPAN14-06;2015-01-01;Biologique
+95;14170-CREPAN14-06;2016-01-01;Biologique
+95;14170-CREPAN14-06;2017-01-01;Biologique
+95;14170-CREPAN14-06;2018-01-01;Biologique
+95;14170-CREPAN14-06;2019-01-01;Biologique
+94;14170-CREPAN14-07;2012-01-01;Biologique
+94;14170-CREPAN14-07;2013-01-01;Biologique
+94;14170-CREPAN14-07;2014-01-01;Biologique
+94;14170-CREPAN14-07;2015-01-01;Biologique
+94;14170-CREPAN14-07;2016-01-01;Biologique
+94;14170-CREPAN14-07;2017-01-01;Biologique
+94;14170-CREPAN14-07;2018-01-01;Biologique
+94;14170-CREPAN14-07;2019-01-01;Biologique
+94;14170-CREPAN14-07;2020-01-01;Biologique
+94;14170-CREPAN14-07;2021-01-01;Biologique
+94;14170-CREPAN14-07;2022-01-01;Biologique
+548;14170-CREPAN14-08;2018-01-01;Biologique
+548;14170-CREPAN14-08;2019-01-01;Biologique
+548;14170-CREPAN14-08;2020-01-01;Biologique
+548;14170-CREPAN14-08;2021-01-01;Biologique
+548;14170-CREPAN14-08;2022-01-01;Conventionnel
+577;14190_FNEN_1;2023-01-01;Biologique
+429;14355-AGRIAL-01;2012-01-01;Conventionnel
+112;14355-AGRIAL-02;2012-01-01;Conventionnel
+112;14355-AGRIAL-02;2022-01-01;Conventionnel
+554;14680_CREPAN14_09;2020-01-01;En conversion bio
+554;14680_CREPAN14_09;2021-01-01;Biologique
+554;14680_CREPAN14_09;2022-01-01;Biologique
+37;14ENICA08005;2012-01-01;Conventionnel
+225;14ENICA51013;2012-01-01;Biologique
+503;15ENICA51014;2012-01-01;Conventionnel
+526;16ENICA10006;2016-01-01;Conventionnel
+405;27044_CA27_02;2012-01-01;Conventionnel
+395;27044_CA27_03;2012-01-01;Conventionnel
+395;27044_CA27_03;2013-01-01;Conventionnel
+395;27044_CA27_03;2014-01-01;Conventionnel
+395;27044_CA27_03;2015-01-01;Conventionnel
+395;27044_CA27_03;2016-01-01;Conventionnel
+395;27044_CA27_03;2017-01-01;Conventionnel
+395;27044_CA27_03;2018-01-01;Conventionnel
+395;27044_CA27_03;2019-01-01;Conventionnel
+395;27044_CA27_03;2020-01-01;Conventionnel
+395;27044_CA27_03;2021-01-01;Conventionnel
+395;27044_CA27_03;2022-01-01;Conventionnel
+534;27044-CA27-04;2017-01-01;Conventionnel
+534;27044-CA27-04;2018-01-01;Conventionnel
+534;27044-CA27-04;2019-01-01;Conventionnel
+534;27044-CA27-04;2020-01-01;Conventionnel
+534;27044-CA27-04;2021-01-01;Conventionnel
+534;27044-CA27-04;2022-01-01;Conventionnel
+427;27079 - LEGTA Chambray - 01;2012-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2013-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2014-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2015-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2016-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2017-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2018-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2019-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2020-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2021-01-01;Biologique
+427;27079 - LEGTA Chambray - 01;2022-01-01;Biologique
+419;27079 - LEGTA Chambray - 02;2012-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2013-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2014-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2015-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2016-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2017-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2018-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2019-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2020-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2020-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2021-01-01;Conventionnel
+419;27079 - LEGTA Chambray - 02;2022-01-01;Conventionnel
+232;27079 - LEGTA Chambray - 03;2015-01-01;Biologique
+232;27079 - LEGTA Chambray - 03;2016-01-01;Biologique
+232;27079 - LEGTA Chambray - 03;2017-01-01;Biologique
+232;27079 - LEGTA Chambray - 03;2018-01-01;Biologique
+232;27079 - LEGTA Chambray - 03;2019-01-01;Biologique
+232;27079 - LEGTA Chambray - 03;2020-01-01;Biologique
+232;27079 - LEGTA Chambray - 03;2021-01-01;Biologique
+232;27079 - LEGTA Chambray - 03;2022-01-01;Biologique
+556;27079  - LEGTA Chambray - 04;2019-01-01;Conventionnel
+556;27079  - LEGTA Chambray - 04;2020-01-01;Conventionnel
+556;27079  - LEGTA Chambray - 04;2021-01-01;Conventionnel
+556;27079  - LEGTA Chambray - 04;2022-01-01;Conventionnel
+574;27079 - LEGTA Chambray - 05;;
+573;	27079 - LEGTA Chambray - 05bis;;
+566;27079 - LEGTA Chambray - 05 - FLu;2022-01-01;Conventionnel
+404;27080_CA27_01;2012-01-01;Conventionnel
+404;27080_CA27_01;2019-01-01;Biologique
+404;27080_CA27_01;2020-01-01;Biologique
+404;27080_CA27_01;2021-01-01;Biologique
+404;27080_CA27_01;2022-01-01;Biologique
+535;27080-CA27-05;2017-01-01;Conventionnel
+535;27080-CA27-05;2018-01-01;Conventionnel
+535;27080-CA27-05;2019-01-01;Conventionnel
+535;27080-CA27-05;2020-01-01;Conventionnel
+535;27080-CA27-05;2021-01-01;Conventionnel
+535;27080-CA27-05;2022-01-01;Conventionnel
+321;27223-cerfrance nm-01;2012-01-01;Conventionnel
+176;36-01;2012-01-01;Conventionnel
+47;36-02;2012-01-01;Conventionnel
+47;36-02;2013-01-01;Conventionnel
+47;36-02;2014-01-01;Conventionnel
+47;36-02;2015-01-01;Conventionnel
+47;36-02;2016-01-01;Conventionnel
+47;36-02;2017-01-01;Conventionnel
+47;36-02;2018-01-01;Conventionnel
+47;36-02;2019-01-01;Conventionnel
+47;36-02;2020-01-01;Conventionnel
+47;36-02;2021-01-01;Conventionnel
+47;36-02;2022-01-01;Conventionnel
+93;36-03;2012-01-01;Biologique
+93;36-03;2013-01-01;Biologique
+93;36-03;2014-01-01;Biologique
+93;36-03;2015-01-01;Biologique
+93;36-03;2016-01-01;Biologique
+93;36-03;2017-01-01;Biologique
+93;36-03;2018-01-01;Biologique
+93;36-03;2019-01-01;Biologique
+93;36-03;2020-01-01;Biologique
+93;36-03;2021-01-01;Biologique
+93;36-03;2022-01-01;Biologique
+20;36-04;2012-01-01;Conventionnel
+63;36-05;2012-01-01;Conventionnel
+298;50086-CA 50-01 ;2012-01-01;Conventionnel
+298;50086-CA 50-01 ;2019-01-01;Conventionnel
+298;50086-CA 50-01 ;2020-01-01;Conventionnel
+298;50086-CA 50-01 ;2021-01-01;Conventionnel
+312;50086-CA 50-02;2012-01-01;Conventionnel
+541;50140-CA50-03;2018-01-01;Conventionnel
+541;50140-CA50-03;2019-01-01;Information inconnue
+541;50140-CA50-03;2020-01-01;Information inconnue
+541;50140-CA50-03;2021-01-01;Biologique
+541;50140-CA50-03;2022-01-01;Biologique
+207;50330-SILEBAN-01;2012-01-01;Conventionnel
+207;50330-SILEBAN-01;2019-01-01;Conventionnel
+207;50330-SILEBAN-01;2020-01-01;Conventionnel
+207;50330-SILEBAN-01;2021-01-01;Conventionnel
+207;50330-SILEBAN-01;2022-01-01;Conventionnel
+206;50760-SILEBAN-02;2012-01-01;Conventionnel
+205;50760-SILEBAN-03;2017-01-01;Conventionnel
+205;50760-SILEBAN-03;2020-01-01;Conventionnel
+205;50760-SILEBAN-03;2021-01-01;Conventionnel
+205;50760-SILEBAN-03;2022-01-01;Conventionnel
+355;54112;2012-01-01;Conventionnel
+443;54179;2012-01-01;Biologique
+501;54296;2012-01-01;Conventionnel
+348;54303;2012-01-01;Conventionnel
+435;54466;2012-01-01;Biologique
+209;55272;2012-01-01;Conventionnel
+209;55272;2020-01-01;Conventionnel
+209;55272;2021-01-01;Conventionnel
+209;55272;2022-01-01;Conventionnel
+209;55272;2023-01-01;Conventionnel
+211;55317;2012-01-01;Conventionnel
+211;55317;2019-01-01;Conventionnel
+211;55317;2020-01-01;Conventionnel
+211;55317;2021-01-01;Conventionnel
+211;55317;2022-01-01;Conventionnel
+211;55317;2023-01-01;Conventionnel
+434;55334;2012-01-01;Biologique
+434;55334;2013-01-01;Biologique
+434;55334;2014-01-01;Biologique
+434;55334;2015-01-01;Biologique
+434;55334;2016-01-01;Biologique
+434;55334;2017-01-01;Biologique
+434;55334;2018-01-01;Biologique
+434;55334;2019-01-01;Biologique
+434;55334;2020-01-01;Biologique
+434;55334;2021-01-01;Biologique
+434;55334;2022-01-01;Biologique
+499;55373;2012-01-01;Conventionnel
+499;55373;2013-01-01;Conventionnel
+499;55373;2014-01-01;Conventionnel
+499;55373;2015-01-01;Conventionnel
+499;55373;2016-01-01;Conventionnel
+499;55373;2017-01-01;Conventionnel
+499;55373;2018-01-01;Conventionnel
+499;55373;2019-01-01;Conventionnel
+499;55373;2020-01-01;Conventionnel
+499;55373;2021-01-01;Conventionnel
+499;55373;2022-01-01;Conventionnel
+343;55473;2012-01-01;Conventionnel
+343;55473;2013-01-01;Conventionnel
+343;55473;2014-01-01;Conventionnel
+343;55473;2015-01-01;Conventionnel
+343;55473;2016-01-01;Conventionnel
+343;55473;2017-01-01;Conventionnel
+343;55473;2018-01-01;Conventionnel
+343;55473;2019-01-01;Conventionnel
+343;55473;2020-01-01;Conventionnel
+343;55473;2021-01-01;Conventionnel
+343;55473;2022-01-01;Conventionnel
+491;57043;2012-01-01;Conventionnel
+491;57043;2013-01-01;Conventionnel
+491;57043;2014-01-01;Conventionnel
+491;57043;2015-01-01;Conventionnel
+491;57043;2016-01-01;Conventionnel
+491;57043;2017-01-01;Conventionnel
+491;57043;2018-01-01;Conventionnel
+491;57043;2019-01-01;Conventionnel
+491;57043;2020-01-01;Conventionnel
+491;57043;2021-01-01;Conventionnel
+491;57043;2022-01-01;Conventionnel
+378;57452;2012-01-01;Conventionnel
+378;57452;2019-01-01;En conversion bio
+496;57527;2012-01-01;Conventionnel
+496;57527;2013-01-01;Conventionnel
+496;57527;2014-01-01;Conventionnel
+496;57527;2015-01-01;Conventionnel
+496;57527;2016-01-01;Conventionnel
+496;57527;2017-01-01;Conventionnel
+496;57527;2018-01-01;Conventionnel
+496;57527;2019-01-01;Conventionnel
+496;57527;2020-01-01;Conventionnel
+496;57527;2021-01-01;Conventionnel
+496;57527;2022-01-01;Conventionnel
+495;57578;2012-01-01;Conventionnel
+495;57578;2013-01-01;Conventionnel
+495;57578;2014-01-01;Conventionnel
+495;57578;2015-01-01;Conventionnel
+495;57578;2016-01-01;Conventionnel
+495;57578;2017-01-01;Conventionnel
+495;57578;2018-01-01;Conventionnel
+495;57578;2019-01-01;Conventionnel
+495;57578;2020-01-01;Conventionnel
+495;57578;2021-01-01;Conventionnel
+495;57578;2022-01-01;Conventionnel
+417;59127ESN;2012-01-01;Conventionnel
+409;59237VER;2012-01-01;Conventionnel
+406;59244CAR;2012-01-01;Conventionnel
+390;59249FRO;2012-01-01;Conventionnel
+391;59252MAR;2012-01-01;Biologique
+410;59270BAI;2012-01-01;Conventionnel
+407;59550LAN;2012-01-01;Conventionnel
+399;59550PRI;2012-01-01;Biologique
+408;59890QUE;2012-01-01;Conventionnel
+411;61354-CA14-01;2012-01-01;Conventionnel
+532;61500-CA61-01;2017-01-01;Conventionnel
+532;61500-CA61-01;2018-01-01;Conventionnel
+532;61500-CA61-01;2019-01-01;Conventionnel
+532;61500-CA61-01;2020-01-01;Conventionnel
+532;61500-CA61-01;2021-01-01;Conventionnel
+532;61500-CA61-01;2022-01-01;Conventionnel
+533;61500-CA61-02;2017-01-01;Conventionnel
+533;61500-CA61-02;2018-01-01;Conventionnel
+533;61500-CA61-02;2019-01-01;Conventionnel
+533;61500-CA61-02;2020-01-01;Conventionnel
+533;61500-CA61-02;2021-01-01;Conventionnel
+533;61500-CA61-02;2022-01-01;Conventionnel
+397;62138HAI;2012-01-01;Biologique
+389;62185NIE;2012-01-01;Conventionnel
+428;62217NEU;2012-01-01;Conventionnel
+386;62220CAR;2012-01-01;Biologique
+416;62370GUE;2012-01-01;Conventionnel
+400;62370NOR;2012-01-01;Biologique
+438;76046-Défis Ruraux- 01;2019-01-01;Conventionnel
+492;76046-Défis Ruraux- 02;2018-01-01;Conventionnel
+492;76046-Défis Ruraux- 02;2019-01-01;Conventionnel
+469;76046-Défis Ruraux- 03;2018-01-01;Conventionnel
+469;76046-Défis Ruraux- 03;2019-01-01;Conventionnel
+445;76046-Défis Ruraux- 04;2018-01-01;Conventionnel
+445;76046-Défis Ruraux- 04;2019-01-01;Conventionnel
+445;76046-Défis Ruraux- 04;2020-01-01;Conventionnel
+445;76046-Défis Ruraux- 04;2021-01-01;Conventionnel
+445;76046-Défis Ruraux- 04;2022-01-01;Conventionnel
+445;76046-Défis Ruraux- 04;2023-01-01;Conventionnel
+527;76046-Defis Ruraux-new1;2018-01-01;Biologique
+527;76046-Defis Ruraux-new1;2019-01-01;Biologique
+527;76046-Defis Ruraux-new1;2020-01-01;Biologique
+527;76046-Defis Ruraux-new1;2021-01-01;Biologique
+527;76046-Defis Ruraux-new1;2022-01-01;Biologique
+528;76046-Defis Ruraux-new2;2018-01-01;Conventionnel
+528;76046-Defis Ruraux-new2;2019-01-01;Conventionnel
+528;76046-Defis Ruraux-new2;2020-01-01;Conventionnel
+528;76046-Defis Ruraux-new2;2020-01-01;Conventionnel
+528;76046-Defis Ruraux-new2;2021-01-01;Conventionnel
+528;76046-Defis Ruraux-new2;2022-01-01;Conventionnel
+528;76046-Defis Ruraux-new2;2023-01-01;Conventionnel
+529;76046-Defis Ruraux-new3;2018-01-01;Conventionnel
+529;76046-Defis Ruraux-new3;2019-01-01;Conventionnel
+529;76046-Defis Ruraux-new3;2020-01-01;Conventionnel
+529;76046-Defis Ruraux-new3;2021-01-01;Conventionnel
+529;76046-Defis Ruraux-new3;2022-01-01;Conventionnel
+529;76046-Defis Ruraux-new3;2023-01-01;Conventionnel
+482;76047-CA76-08;2012-01-01;Conventionnel
+482;76047-CA76-08;2013-01-01;Conventionnel
+482;76047-CA76-08;2014-01-01;Conventionnel
+482;76047-CA76-08;2015-01-01;Conventionnel
+482;76047-CA76-08;2016-01-01;Conventionnel
+482;76047-CA76-08;2017-01-01;Conventionnel
+482;76047-CA76-08;2018-01-01;Conventionnel
+455;76133-CA76-04;2012-01-01;Conventionnel
+455;76133-CA76-04;2013-01-01;Conventionnel
+455;76133-CA76-04;2014-01-01;Conventionnel
+455;76133-CA76-04;2015-01-01;Conventionnel
+455;76133-CA76-04;2016-01-01;Conventionnel
+455;76133-CA76-04;2017-01-01;Conventionnel
+455;76133-CA76-04;2018-01-01;Conventionnel
+560;76150-CA-NEW03;2021-01-01;Conventionnel
+560;76150-CA-NEW03;2022-01-01;Conventionnel
+418;76332-CA76-01;2012-01-01;Conventionnel
+418;76332-CA76-01;2019-01-01;Conventionnel
+418;76332-CA76-01;2020-01-01;Conventionnel
+340;76332-CA76-02;2012-01-01;Conventionnel
+345;76332-CA76-03;2012-01-01;Conventionnel
+220;76332-CA76-05;2012-01-01;Conventionnel
+231;76332-CA76-08;2018-01-01;Conventionnel
+231;76332-CA76-08;2019-01-01;Conventionnel
+476;88183;2012-01-01;Conventionnel
+476;88183;2019-01-01;Conventionnel
+476;88183;2020-01-01;Conventionnel
+476;88183;2021-01-01;Conventionnel
+475;88495;2012-01-01;Conventionnel
+475;88495;2013-01-01;Conventionnel
+475;88495;2014-01-01;Conventionnel
+475;88495;2015-01-01;Conventionnel
+475;88495;2016-01-01;Conventionnel
+475;88495;2017-01-01;Conventionnel
+475;88495;2018-01-01;Conventionnel
+475;88495;2019-01-01;Conventionnel
+475;88495;2020-01-01;Conventionnel
+475;88495;2021-01-01;Conventionnel
+475;88495;2022-01-01;Conventionnel
+475;88495;2023-01-01;Conventionnel
+444;88508;2012-01-01;Biologique
+444;88508;2019-01-01;Biologique
+444;88508;2020-01-01;Biologique
+444;88508;2021-01-01;Conventionnel
+570;88508_2;2022-01-01;En conversion bio
+292;AL001;2012-01-01;Biologique
+184;AL002;2012-01-01;Conventionnel
+143;AL003;2012-01-01;Conventionnel
+519;AL004;2012-01-01;Biologique
+124;AL005;2012-01-01;Conventionnel
+517;AL006;2012-01-01;Conventionnel
+29;AL007;2012-01-01;Conventionnel
+465;AL008;2012-01-01;Conventionnel
+506;AL009;2012-01-01;Conventionnel
+509;AL010;2012-01-01;Biologique
+457;AL011;2012-01-01;Conventionnel
+294;AL012;2012-01-01;Conventionnel
+515;AL013;2012-01-01;Conventionnel
+514;AL014;2012-01-01;Conventionnel
+514;AL014;2020-01-01;Conventionnel
+458;AL015;2012-01-01;Biologique
+293;AL016;2012-01-01;Conventionnel
+462;AL017;2012-01-01;Biologique
+146;AL018;2012-01-01;Conventionnel
+461;AL019;2012-01-01;Conventionnel
+518;AL020;2012-01-01;Biologique
+460;AL021;2012-01-01;Conventionnel
+460;AL021;2020-01-01;Biologique
+542;AL022;2018-01-01;Conventionnel
+543;AL023;2017-01-01;Conventionnel
+544;AL024;2018-01-01;Conventionnel
+561;AL025;2020-01-01;Conventionnel
+561;AL025;2021-01-01;Conventionnel
+576;AL026;2023-01-01;Conventionnel
+498;AQ-001;2012-01-01;Conventionnel
+437;AQ-002;2012-01-01;Conventionnel
+314;AQ-004;2012-01-01;Conventionnel
+313;AQ-005;2012-01-01;Biologique
+301;AQ-006;2012-01-01;Biologique
+325;AQ-007;2012-01-01;Conventionnel
+325;AQ-007;2013-01-01;Conventionnel
+325;AQ-007;2014-01-01;Conventionnel
+325;AQ-007;2015-01-01;Conventionnel
+325;AQ-007;2016-01-01;Conventionnel
+325;AQ-007;2017-01-01;Conventionnel
+325;AQ-007;2018-01-01;Conventionnel
+325;AQ-007;2019-01-01;Conventionnel
+325;AQ-007;2020-01-01;Conventionnel
+500;AQ-008;2012-01-01;Conventionnel
+346;AQ-009;2012-01-01;En conversion bio
+346;AQ-009;2015-01-01;Biologique
+332;AQ-010;2012-01-01;Conventionnel
+368;AQ-011;2012-01-01;Conventionnel
+368;AQ-011;2023-01-01;En conversion bio
+302;AQ-012;2012-01-01;Conventionnel
+493;AQ-013;2012-01-01;En conversion bio
+493;AQ-013;2015-01-01;Biologique
+436;AQ-014;2012-01-01;Conventionnel
+120;AQ-015;2012-01-01;Conventionnel
+344;AQ-016;2012-01-01;Conventionnel
+99;AQ-017;2012-01-01;Biologique
+497;AQ-018;2012-01-01;Conventionnel
+426;AQ-019;2012-01-01;Conventionnel
+306;AQ-020;2012-01-01;Conventionnel
+305;AQ-021;2012-01-01;Conventionnel
+339;AQ-022;2012-01-01;Conventionnel
+22;AQ-023;2012-01-01;Conventionnel
+177;AQ-024;2012-01-01;Conventionnel
+214;AQ-025;2012-01-01;Conventionnel
+223;AQ-026;2012-01-01;Conventionnel
+215;AQ-027;2012-01-01;Conventionnel
+213;AQ-028;2012-01-01;Biologique
+308;AQ-029;2012-01-01;Conventionnel
+309;AQ-030;2012-01-01;Biologique
+311;AQ-031;2012-01-01;Conventionnel
+299;AQ-032;2012-01-01;Conventionnel
+349;AQ-033;2012-01-01;Conventionnel
+354;AQ-034;2012-01-01;En conversion bio
+371;AQ-035;2012-01-01;Conventionnel
+369;AQ-036;2012-01-01;Biologique
+370;AQ-037;2012-01-01;Conventionnel
+490;AQ-038;2012-01-01;Conventionnel
+297;AQ-039;2015-01-01;Conventionnel
+539;AQ-040;2016-01-01;Biologique
+557;AQ-041;2020-01-01;Conventionnel
+557;AQ-041;2021-01-01;Biologique
+563;AQ-042;2021-01-01;Biologique
+572;AQ-043;2022-01-01;Biologique
+295;AUV15-1;2012-01-01;Conventionnel
+295;AUV15-1;2013-01-01;Conventionnel
+295;AUV15-1;2014-01-01;Conventionnel
+295;AUV15-1;2015-01-01;Conventionnel
+295;AUV15-1;2016-01-01;Conventionnel
+295;AUV15-1;2017-01-01;Conventionnel
+295;AUV15-1;2018-01-01;Conventionnel
+295;AUV15-1;2019-01-01;Conventionnel
+295;AUV15-1;2020-01-01;Conventionnel
+295;AUV15-1;2021-01-01;Conventionnel
+296;AUV15-2;2012-01-01;Conventionnel
+296;AUV15-2;2013-01-01;Conventionnel
+296;AUV15-2;2014-01-01;Conventionnel
+296;AUV15-2;2015-01-01;Conventionnel
+296;AUV15-2;2016-01-01;Conventionnel
+296;AUV15-2;2017-01-01;Conventionnel
+296;AUV15-2;2018-01-01;Conventionnel
+296;AUV15-2;2019-01-01;En conversion bio
+296;AUV15-2;2020-01-01;En conversion bio
+296;AUV15-2;2021-01-01;Biologique
+265;AUV15-3;2012-01-01;Conventionnel
+265;AUV15-3;2013-01-01;Conventionnel
+265;AUV15-3;2014-01-01;Conventionnel
+265;AUV15-3;2015-01-01;Conventionnel
+265;AUV15-3;2016-01-01;Conventionnel
+265;AUV15-3;2017-01-01;Conventionnel
+265;AUV15-3;2018-01-01;Conventionnel
+265;AUV15-3;2019-01-01;Conventionnel
+265;AUV15-3;2020-01-01;Conventionnel
+265;AUV15-3;2021-01-01;Conventionnel
+486;AUV15-4;2012-01-01;Biologique
+486;AUV15-4;2013-01-01;Biologique
+486;AUV15-4;2014-01-01;Biologique
+486;AUV15-4;2015-01-01;Biologique
+486;AUV15-4;2016-01-01;Biologique
+486;AUV15-4;2017-01-01;Biologique
+486;AUV15-4;2018-01-01;Biologique
+486;AUV15-4;2019-01-01;Biologique
+486;AUV15-4;2020-01-01;Biologique
+486;AUV15-4;2021-01-01;Biologique
+387;AUV43-1;2012-01-01;Biologique
+387;AUV43-1;2013-01-01;Biologique
+387;AUV43-1;2014-01-01;Biologique
+387;AUV43-1;2015-01-01;Biologique
+387;AUV43-1;2016-01-01;Biologique
+387;AUV43-1;2017-01-01;Biologique
+387;AUV43-1;2018-01-01;Biologique
+387;AUV43-1;2019-01-01;Biologique
+387;AUV43-1;2020-01-01;Biologique
+387;AUV43-1;2021-01-01;Biologique
+393;AUV43-2;2012-01-01;Conventionnel
+393;AUV43-2;2013-01-01;Conventionnel
+393;AUV43-2;2014-01-01;Conventionnel
+393;AUV43-2;2015-01-01;Conventionnel
+393;AUV43-2;2016-01-01;Conventionnel
+393;AUV43-2;2017-01-01;Conventionnel
+393;AUV43-2;2018-01-01;Conventionnel
+393;AUV43-2;2019-01-01;Conventionnel
+393;AUV43-2;2020-01-01;Conventionnel
+393;AUV43-2;2021-01-01;Conventionnel
+388;AUV43-3;2012-01-01;Conventionnel
+388;AUV43-3;2013-01-01;Conventionnel
+388;AUV43-3;2014-01-01;Conventionnel
+388;AUV43-3;2015-01-01;Conventionnel
+388;AUV43-3;2016-01-01;Conventionnel
+388;AUV43-3;2017-01-01;Conventionnel
+388;AUV43-3;2018-01-01;Conventionnel
+388;AUV43-3;2019-01-01;Conventionnel
+388;AUV43-3;2020-01-01;Conventionnel
+388;AUV43-3;2021-01-01;Conventionnel
+394;AUV43-4;2012-01-01;Conventionnel
+394;AUV43-4;2013-01-01;Conventionnel
+394;AUV43-4;2014-01-01;Conventionnel
+394;AUV43-4;2015-01-01;Conventionnel
+394;AUV43-4;2016-01-01;Conventionnel
+394;AUV43-4;2017-01-01;Conventionnel
+394;AUV43-4;2018-01-01;Conventionnel
+394;AUV43-4;2019-01-01;Conventionnel
+394;AUV43-4;2020-01-01;Conventionnel
+394;AUV43-4;2021-01-01;Conventionnel
+240;AUV63-1;2012-01-01;Biologique
+240;AUV63-1;2013-01-01;Biologique
+240;AUV63-1;2014-01-01;Biologique
+240;AUV63-1;2015-01-01;Biologique
+240;AUV63-1;2016-01-01;Biologique
+240;AUV63-1;2017-01-01;Biologique
+240;AUV63-1;2018-01-01;Biologique
+240;AUV63-1;2019-01-01;Biologique
+171;AUV63-2;2012-01-01;Conventionnel
+171;AUV63-2;2013-01-01;Conventionnel
+171;AUV63-2;2014-01-01;Conventionnel
+171;AUV63-2;2015-01-01;Conventionnel
+171;AUV63-2;2016-01-01;Conventionnel
+171;AUV63-2;2017-01-01;Conventionnel
+171;AUV63-2;2018-01-01;Conventionnel
+171;AUV63-2;2019-01-01;Conventionnel
+254;AUV63-3;2012-01-01;Conventionnel
+254;AUV63-3;2013-01-01;Conventionnel
+254;AUV63-3;2014-01-01;Conventionnel
+254;AUV63-3;2015-01-01;Conventionnel
+254;AUV63-3;2016-01-01;Conventionnel
+254;AUV63-3;2017-01-01;Conventionnel
+254;AUV63-3;2018-01-01;Conventionnel
+254;AUV63-3;2019-01-01;Conventionnel
+168;AUV63-4;2012-01-01;Conventionnel
+168;AUV63-4;2013-01-01;Conventionnel
+168;AUV63-4;2014-01-01;Conventionnel
+168;AUV63-4;2015-01-01;Conventionnel
+168;AUV63-4;2016-01-01;Conventionnel
+168;AUV63-4;2017-01-01;Conventionnel
+168;AUV63-4;2018-01-01;Conventionnel
+168;AUV63-4;2019-01-01;Conventionnel
+82;BIG;2012-01-01;Conventionnel
+87;BIG - 2;2012-01-01;Conventionnel
+130;BLEAGE1;2012-01-01;Conventionnel
+130;BLEAGE1;2013-01-01;Conventionnel
+130;BLEAGE1;2014-01-01;Conventionnel
+130;BLEAGE1;2015-01-01;Conventionnel
+130;BLEAGE1;2016-01-01;Conventionnel
+130;BLEAGE1;2017-01-01;Conventionnel
+130;BLEAGE1;2018-01-01;Conventionnel
+130;BLEAGE1;2019-01-01;Conventionnel
+130;BLEAGE1;2020-01-01;Conventionnel
+130;BLEAGE1;2021-01-01;Conventionnel
+130;BLEAGE1;2022-01-01;Conventionnel
+130;BLEAGE1;2023-01-01;Conventionnel
+264;BLEAGE2;2012-01-01;Conventionnel
+264;BLEAGE2;2013-01-01;Conventionnel
+264;BLEAGE2;2014-01-01;Conventionnel
+264;BLEAGE2;2015-01-01;Conventionnel
+264;BLEAGE2;2016-01-01;Conventionnel
+264;BLEAGE2;2017-01-01;Conventionnel
+264;BLEAGE2;2018-01-01;Conventionnel
+264;BLEAGE2;2019-01-01;Conventionnel
+264;BLEAGE2;2020-01-01;Conventionnel
+264;BLEAGE2;2021-01-01;Conventionnel
+264;BLEAGE2;2022-01-01;Conventionnel
+195;BLEAGU1;2012-01-01;Conventionnel
+195;BLEAGU1;2013-01-01;Conventionnel
+195;BLEAGU1;2014-01-01;Conventionnel
+195;BLEAGU1;2015-01-01;Conventionnel
+195;BLEAGU1;2016-01-01;Conventionnel
+195;BLEAGU1;2017-01-01;Conventionnel
+191;BLEBNE1;2012-01-01;Biologique
+191;BLEBNE1;2013-01-01;Biologique
+191;BLEBNE1;2014-01-01;Biologique
+191;BLEBNE1;2015-01-01;Biologique
+191;BLEBNE1;2016-01-01;Biologique
+191;BLEBNE1;2017-01-01;Biologique
+191;BLEBNE1;2018-01-01;Biologique
+191;BLEBNE1;2019-01-01;Biologique
+191;BLEBNE1;2020-01-01;Biologique
+191;BLEBNE1;2021-01-01;Biologique
+191;BLEBNE1;2022-01-01;Biologique
+191;BLEBNE1;2023-01-01;Biologique
+185;BLECBO1;2012-01-01;Conventionnel
+185;BLECBO1;2013-01-01;Conventionnel
+185;BLECBO1;2014-01-01;Conventionnel
+185;BLECBO1;2015-01-01;Conventionnel
+185;BLECBO1;2016-01-01;Conventionnel
+185;BLECBO1;2017-01-01;Conventionnel
+185;BLECBO1;2018-01-01;Conventionnel
+185;BLECBO1;2019-01-01;Conventionnel
+185;BLECBO1;2020-01-01;Conventionnel
+185;BLECBO1;2021-01-01;Conventionnel
+185;BLECBO1;2022-01-01;Conventionnel
+185;BLECBO1;2023-01-01;Conventionnel
+217;BLEJKE1;2012-01-01;Conventionnel
+217;BLEJKE1;2013-01-01;Conventionnel
+217;BLEJKE1;2014-01-01;Conventionnel
+217;BLEJKE1;2015-01-01;Conventionnel
+217;BLEJKE1;2016-01-01;Conventionnel
+217;BLEJKE1;2017-01-01;Conventionnel
+217;BLEJKE1;2018-01-01;Conventionnel
+217;BLEJKE1;2019-01-01;Conventionnel
+217;BLEJKE1;2020-01-01;Conventionnel
+217;BLEJKE1;2021-01-01;Conventionnel
+217;BLEJKE1;2022-01-01;Conventionnel
+217;BLEJKE1;2023-01-01;Conventionnel
+216;BLEJPT1;2012-01-01;Conventionnel
+216;BLEJPT1;2013-01-01;Conventionnel
+216;BLEJPT1;2014-01-01;Conventionnel
+216;BLEJPT1;2015-01-01;Conventionnel
+216;BLEJPT1;2016-01-01;Conventionnel
+216;BLEJPT1;2017-01-01;Conventionnel
+216;BLEJPT1;2018-01-01;Conventionnel
+216;BLEJPT1;2019-01-01;Conventionnel
+216;BLEJPT1;2020-01-01;Conventionnel
+216;BLEJPT1;2021-01-01;Conventionnel
+216;BLEJPT1;2022-01-01;Conventionnel
+216;BLEJPT1;2023-01-01;Conventionnel
+199;BLEMLA2;2012-01-01;Biologique
+199;BLEMLA2;2013-01-01;Biologique
+199;BLEMLA2;2014-01-01;Biologique
+199;BLEMLA2;2015-01-01;Biologique
+199;BLEMLA2;2016-01-01;Biologique
+199;BLEMLA2;2017-01-01;Biologique
+199;BLEMLA2;2018-01-01;Biologique
+199;BLEMLA2;2019-01-01;Biologique
+199;BLEMLA2;2020-01-01;Biologique
+199;BLEMLA2;2021-01-01;Biologique
+199;BLEMLA2;2022-01-01;Biologique
+199;BLEMLA2;2023-01-01;Biologique
+357;BLEPLA1;2012-01-01;Biologique
+357;BLEPLA1;2013-01-01;Biologique
+357;BLEPLA1;2014-01-01;Biologique
+357;BLEPLA1;2015-01-01;Biologique
+357;BLEPLA1;2016-01-01;Biologique
+357;BLEPLA1;2017-01-01;Biologique
+357;BLEPLA1;2018-01-01;Biologique
+357;BLEPLA1;2019-01-01;Biologique
+357;BLEPLA1;2020-01-01;Biologique
+357;BLEPLA1;2021-01-01;Biologique
+357;BLEPLA1;2022-01-01;Biologique
+357;BLEPLA1;2023-01-01;Biologique
+377;BLERJO1;2012-01-01;Conventionnel
+377;BLERJO1;2013-01-01;Conventionnel
+377;BLERJO1;2014-01-01;Conventionnel
+377;BLERJO1;2015-01-01;Conventionnel
+377;BLERJO1;2016-01-01;Conventionnel
+377;BLERJO1;2017-01-01;Conventionnel
+377;BLERJO1;2018-01-01;Conventionnel
+377;BLERJO1;2019-01-01;Conventionnel
+377;BLERJO1;2020-01-01;Conventionnel
+377;BLERJO1;2021-01-01;Conventionnel
+377;BLERJO1;2022-01-01;Conventionnel
+377;BLERJO1;2023-01-01;Conventionnel
+489;BOURG-01-VI;2012-01-01;Conventionnel
+489;BOURG-01-VI;2013-01-01;Conventionnel
+489;BOURG-01-VI;2014-01-01;Conventionnel
+489;BOURG-01-VI;2015-01-01;Conventionnel
+489;BOURG-01-VI;2016-01-01;Conventionnel
+489;BOURG-01-VI;2017-01-01;Conventionnel
+489;BOURG-01-VI;2018-01-01;Conventionnel
+489;BOURG-01-VI;2019-01-01;Conventionnel
+488;BOURG-02-VI;2012-01-01;Conventionnel
+488;BOURG-02-VI;2013-01-01;Conventionnel
+488;BOURG-02-VI;2014-01-01;Conventionnel
+488;BOURG-02-VI;2015-01-01;Conventionnel
+488;BOURG-02-VI;2016-01-01;Conventionnel
+488;BOURG-02-VI;2017-01-01;Conventionnel
+488;BOURG-02-VI;2018-01-01;Conventionnel
+329;BOURG-03-VI;2012-01-01;En conversion bio
+329;BOURG-03-VI;2013-01-01;Conventionnel
+329;BOURG-03-VI;2014-01-01;Conventionnel
+329;BOURG-03-VI;2015-01-01;Conventionnel
+329;BOURG-03-VI;2016-01-01;Conventionnel
+329;BOURG-03-VI;2017-01-01;Conventionnel
+329;BOURG-03-VI;2018-01-01;Conventionnel
+381;BOURG-04-VI;2012-01-01;Biologique
+383;BOURG-05-VI;2012-01-01;Conventionnel
+382;BOURG-06-VI;2012-01-01;Conventionnel
+335;BOURG-07-VI;2012-01-01;Conventionnel
+335;BOURG-07-VI;2013-01-01;Conventionnel
+335;BOURG-07-VI;2014-01-01;Conventionnel
+335;BOURG-07-VI;2015-01-01;Conventionnel
+335;BOURG-07-VI;2016-01-01;Conventionnel
+335;BOURG-07-VI;2017-01-01;Conventionnel
+335;BOURG-07-VI;2018-01-01;Conventionnel
+362;BOURG-08-VI;2012-01-01;Conventionnel
+362;BOURG-08-VI;2013-01-01;Conventionnel
+362;BOURG-08-VI;2014-01-01;Conventionnel
+362;BOURG-08-VI;2015-01-01;Conventionnel
+362;BOURG-08-VI;2016-01-01;Conventionnel
+362;BOURG-08-VI;2017-01-01;Conventionnel
+362;BOURG-08-VI;2018-01-01;Conventionnel
+484;BOURG-09-VI;2012-01-01;Conventionnel
+484;BOURG-09-VI;2013-01-01;Conventionnel
+484;BOURG-09-VI;2014-01-01;Conventionnel
+484;BOURG-09-VI;2015-01-01;Conventionnel
+484;BOURG-09-VI;2016-01-01;Conventionnel
+484;BOURG-09-VI;2017-01-01;Conventionnel
+484;BOURG-09-VI;2018-01-01;Conventionnel
+328;BOURG-10-MA;2012-01-01;Biologique
+365;BOURG-11-MA;2012-01-01;Conventionnel
+356;BOURG-12-MA;2012-01-01;Conventionnel
+333;BOURG-13-MA;2012-01-01;Conventionnel
+333;BOURG-13-MA;2021-01-01;En conversion bio
+334;BOURG-14-MA;2012-01-01;Conventionnel
+183;BOURG-15-MA;2016-01-01;Conventionnel
+183;BOURG-15-MA;2017-01-01;Conventionnel
+183;BOURG-15-MA;2018-01-01;Conventionnel
+183;BOURG-15-MA;2019-01-01;Conventionnel
+210;BOURG-16-BH;2016-01-01;Conventionnel
+210;BOURG-16-BH;2017-01-01;En conversion bio
+210;BOURG-16-BH;2018-01-01;En conversion bio
+210;BOURG-16-BH;2019-01-01;En conversion bio
+57;BOURG-17-BH;2016-01-01;Conventionnel
+56;BOURG-18-BH;2016-01-01;Conventionnel
+379;BOURG-19-BH;2012-01-01;Biologique
+350;BOURG-20-BH;2016-01-01;Conventionnel
+327;BOURG-21-BH;2012-01-01;Biologique
+330;BOURG-22-BH;2012-01-01;Conventionnel
+372;BOURG-23-BH;2012-01-01;Conventionnel
+372;BOURG-23-BH;2013-01-01;Conventionnel
+372;BOURG-23-BH;2014-01-01;Conventionnel
+372;BOURG-23-BH;2015-01-01;Conventionnel
+372;BOURG-23-BH;2016-01-01;Conventionnel
+372;BOURG-23-BH;2017-01-01;Conventionnel
+372;BOURG-23-BH;2018-01-01;Conventionnel
+376;BOURG-24-BH;2012-01-01;Conventionnel
+376;BOURG-24-BH;2013-01-01;Conventionnel
+376;BOURG-24-BH;2014-01-01;Conventionnel
+376;BOURG-24-BH;2015-01-01;Conventionnel
+376;BOURG-24-BH;2016-01-01;Conventionnel
+376;BOURG-24-BH;2017-01-01;Conventionnel
+376;BOURG-24-BH;2018-01-01;Conventionnel
+376;BOURG-24-BH;2019-01-01;Conventionnel
+376;BOURG-24-BH;2020-01-01;Conventionnel
+471;BOURG-25-BH;2012-01-01;Conventionnel
+471;BOURG-25-BH;2013-01-01;Conventionnel
+471;BOURG-25-BH;2014-01-01;Conventionnel
+471;BOURG-25-BH;2015-01-01;Conventionnel
+471;BOURG-25-BH;2016-01-01;Conventionnel
+471;BOURG-25-BH;2017-01-01;Conventionnel
+471;BOURG-25-BH;2018-01-01;Conventionnel
+575;BOURG-26-BH;2022-01-01;Conventionnel
+237;CE-38/45 MC;2012-01-01;Conventionnel
+237;CE-38/45 MC;2013-01-01;Conventionnel
+237;CE-38/45 MC;2014-01-01;Conventionnel
+237;CE-38/45 MC;2015-01-01;Conventionnel
+237;CE-38/45 MC;2016-01-01;Conventionnel
+237;CE-38/45 MC;2017-01-01;Conventionnel
+237;CE-38/45 MC;2018-01-01;Conventionnel
+237;CE-38/45 MC;2019-01-01;Conventionnel
+237;CE-38/45 MC;2020-01-01;Conventionnel
+237;CE-38/45 MC;2021-01-01;Conventionnel
+237;CE-38/45 MC;2022-01-01;Conventionnel
+41;CE-39/45 MC;2012-01-01;En conversion bio
+41;CE-39/45 MC;2013-01-01;En conversion bio
+41;CE-39/45 MC;2014-01-01;Biologique
+41;CE-39/45 MC;2015-01-01;Biologique
+41;CE-39/45 MC;2016-01-01;Biologique
+41;CE-39/45 MC;2017-01-01;Biologique
+41;CE-39/45 MC;2018-01-01;Biologique
+41;CE-39/45 MC;2019-01-01;Biologique
+41;CE-39/45 MC;2020-01-01;Biologique
+41;CE-39/45 MC;2021-01-01;Biologique
+41;CE-39/45 MC;2022-01-01;Biologique
+41;CE-39/45 MC;2023-01-01;Biologique
+125;CE-40/37 CK;2012-01-01;Conventionnel
+145;Centre-06;2012-01-01;Conventionnel
+16;Centre-07;2012-01-01;Conventionnel
+15;Centre-08;2012-01-01;Biologique
+33;Centre-09;2012-01-01;Conventionnel
+33;Centre-09;2022-01-01;Conventionnel
+180;Centre-10;2012-01-01;Conventionnel
+179;Centre-11;2012-01-01;Conventionnel
+179;Centre-11;2018-01-01;En conversion bio
+179;Centre-11;2019-01-01;En conversion bio
+179;Centre-11;2020-01-01;Biologique
+179;Centre-11;2021-01-01;Biologique
+179;Centre-11;2022-01-01;Biologique
+178;Centre-12;2012-01-01;Conventionnel
+181;Centre-13;2012-01-01;Biologique
+123;Centre-14;2012-01-01;Conventionnel
+123;Centre-14;2015-01-01;Conventionnel
+123;Centre-14;2016-01-01;Conventionnel
+123;Centre-14;2019-01-01;Conventionnel
+252;Centre-15;2012-01-01;Conventionnel
+96;Centre-16;2012-01-01;Biologique
+96;Centre-16;2014-01-01;Biologique
+96;Centre-16;2015-01-01;Biologique
+96;Centre-16;2016-01-01;Biologique
+96;Centre-16;2017-01-01;Biologique
+96;Centre-16;2018-01-01;Biologique
+96;Centre-16;2019-01-01;Biologique
+96;Centre-16;2020-01-01;Biologique
+96;Centre-16;2021-01-01;Biologique
+32;Centre-17;2012-01-01;Conventionnel
+487;CENTRE-18-1-Om;2012-01-01;Conventionnel
+194;CENTRE-18-2-Co;2012-01-01;Conventionnel
+193;CENTRE-18-3-Ma;2012-01-01;Conventionnel
+262;CENTRE-18-4-Fa;2012-01-01;Conventionnel
+221;CENTRE-18-5-Le;2012-01-01;Biologique
+175;Centre-29;2012-01-01;Conventionnel
+175;Centre-29;2013-01-01;Conventionnel
+175;Centre-29;2014-01-01;Conventionnel
+175;Centre-29;2015-01-01;Conventionnel
+175;Centre-29;2016-01-01;Conventionnel
+175;Centre-29;2017-01-01;Conventionnel
+175;Centre-29;2018-01-01;Conventionnel
+19;Centre-30;2012-01-01;Conventionnel
+19;Centre-30;2013-01-01;Conventionnel
+19;Centre-30;2014-01-01;Conventionnel
+19;Centre-30;2015-01-01;Conventionnel
+19;Centre-30;2016-01-01;Conventionnel
+19;Centre-30;2017-01-01;Conventionnel
+19;Centre-30;2018-01-01;Conventionnel
+188;Centre-31;2012-01-01;Conventionnel
+188;Centre-31;2013-01-01;Conventionnel
+188;Centre-31;2014-01-01;Conventionnel
+188;Centre-31;2015-01-01;Conventionnel
+188;Centre-31;2016-01-01;Conventionnel
+188;Centre-31;2017-01-01;Conventionnel
+188;Centre-31;2018-01-01;Conventionnel
+188;Centre-31;2019-01-01;Conventionnel
+188;Centre-31;2020-01-01;Conventionnel
+100;Centre-32;2012-01-01;Biologique
+100;Centre-32;2013-01-01;Biologique
+100;Centre-32;2014-01-01;Biologique
+100;Centre-32;2015-01-01;Biologique
+100;Centre-32;2016-01-01;Biologique
+100;Centre-32;2017-01-01;Biologique
+100;Centre-32;2018-01-01;Biologique
+100;Centre-32;2019-01-01;Biologique
+100;Centre-32;2020-01-01;Biologique
+28;Centre-33;2012-01-01;Conventionnel
+28;Centre-33;2013-01-01;Conventionnel
+28;Centre-33;2014-01-01;Conventionnel
+28;Centre-33;2015-01-01;Conventionnel
+28;Centre-33;2016-01-01;Conventionnel
+28;Centre-33;2017-01-01;Conventionnel
+28;Centre-33;2018-01-01;Conventionnel
+28;Centre-33;2019-01-01;Conventionnel
+28;Centre-33;2020-01-01;Conventionnel
+27;Centre-34;2012-01-01;Conventionnel
+27;Centre-34;2013-01-01;Conventionnel
+27;Centre-34;2014-01-01;Conventionnel
+27;Centre-34;2015-01-01;Conventionnel
+27;Centre-34;2016-01-01;Conventionnel
+27;Centre-34;2017-01-01;Conventionnel
+27;Centre-34;2018-01-01;Conventionnel
+27;Centre-34;2019-01-01;Conventionnel
+27;Centre-34;2020-01-01;Conventionnel
+97;Centre-35;2012-01-01;En conversion bio
+97;Centre-35;2013-01-01;En conversion bio
+97;Centre-35;2014-01-01;En conversion bio
+97;Centre-35;2015-01-01;Biologique
+97;Centre-35;2016-01-01;Biologique
+97;Centre-35;2017-01-01;Biologique
+97;Centre-35;2018-01-01;Biologique
+97;Centre-35;2019-01-01;Biologique
+97;Centre-35;2020-01-01;Biologique
+97;Centre-35;2021-01-01;Biologique
+97;Centre-35;2022-01-01;Biologique
+106;Centre-36;2012-01-01;Conventionnel
+106;Centre-36;2013-01-01;Conventionnel
+106;Centre-36;2014-01-01;Conventionnel
+106;Centre-36;2015-01-01;Conventionnel
+106;Centre-36;2016-01-01;Conventionnel
+106;Centre-36;2017-01-01;Conventionnel
+106;Centre-36;2018-01-01;Conventionnel
+106;Centre-36;2019-01-01;Conventionnel
+106;Centre-36;2019-01-01;Conventionnel
+106;Centre-36;2020-01-01;Conventionnel
+106;Centre-36;2021-01-01;Conventionnel
+106;Centre-36;2022-01-01;Conventionnel
+26;Centre-37;2012-01-01;Conventionnel
+26;Centre-37;2013-01-01;Conventionnel
+26;Centre-37;2014-01-01;Conventionnel
+26;Centre-37;2015-01-01;Conventionnel
+26;Centre-37;2016-01-01;Conventionnel
+26;Centre-37;2017-01-01;Conventionnel
+26;Centre-37;2018-01-01;Conventionnel
+26;Centre-37;2019-01-01;Conventionnel
+536;Centre-41;2017-01-01;Conventionnel
+536;Centre-41;2018-01-01;Conventionnel
+536;Centre-41;2019-01-01;Conventionnel
+536;Centre-41;2020-01-01;Conventionnel
+536;Centre-41;2021-01-01;Conventionnel
+536;Centre-41;2022-01-01;Conventionnel
+545;centre-42;2018-01-01;Biologique
+545;centre-42;2019-01-01;Biologique
+545;centre-42;2020-01-01;Biologique
+545;centre-42;2021-01-01;Biologique
+545;centre-42;2022-01-01;Biologique
+80;CRVI;2012-01-01;Conventionnel
+549;Dpt28-Centre-46;2019-01-01;Conventionnel
+549;Dpt28-Centre-46;2020-01-01;Conventionnel
+549;Dpt28-Centre-46;2021-01-01;Conventionnel
+549;Dpt28-Centre-46;2022-01-01;Conventionnel
+550;Dpt36-Centre-43;2019-01-01;Conventionnel
+550;Dpt36-Centre-43;2020-01-01;Conventionnel
+550;Dpt36-Centre-43;2021-01-01;Conventionnel
+550;Dpt36-Centre-43;2022-01-01;Conventionnel
+551;Dpt36-Centre-44;2019-01-01;Conventionnel
+551;Dpt36-Centre-44;2020-01-01;Conventionnel
+551;Dpt36-Centre-44;2021-01-01;Conventionnel
+551;Dpt36-Centre-44;2022-01-01;Conventionnel
+552;Dpt36-Centre-45;2019-01-01;Conventionnel
+552;Dpt36-Centre-45;2020-01-01;Conventionnel
+552;Dpt36-Centre-45;2021-01-01;Conventionnel
+552;Dpt36-Centre-45;2022-01-01;Conventionnel
+319;ENI_Limousin_01;2012-01-01;Biologique
+242;ENI_Limousin_02;2012-01-01;Biologique
+320;ENI_Limousin_03;2012-01-01;Biologique
+243;ENI_Limousin_04;2012-01-01;Conventionnel
+244;ENI_Limousin_05;2012-01-01;Conventionnel
+158;ENI_Limousin_06;2012-01-01;Conventionnel
+317;ENI_Limousin_07;2012-01-01;Conventionnel
+315;ENI_Limousin_08;2012-01-01;Conventionnel
+160;ENI_Limousin_09;2012-01-01;Conventionnel
+316;ENI_Limousin_10;2012-01-01;Conventionnel
+251;ENI_Limousin_11;2012-01-01;Conventionnel
+251;ENI_Limousin_11;2022-01-01;Biologique
+318;ENI_Limousin_12;2012-01-01;Conventionnel
+424;FC01 TORPES;2012-01-01;Conventionnel
+424;FC01 TORPES;2018-01-01;Conventionnel
+403;FC02 OSSELLE;2012-01-01;Conventionnel
+403;FC02 OSSELLE;2018-01-01;Conventionnel
+421;FC03 AUTHUME;2012-01-01;Conventionnel
+422;FC04 VALAY;2012-01-01;Conventionnel
+422;FC04 VALAY;2018-01-01;Conventionnel
+423;FC05 CHOYE;2012-01-01;Conventionnel
+423;FC05 CHOYE;2018-01-01;Conventionnel
+425;FC06 THERVAY;2012-01-01;Conventionnel
+425;FC06 THERVAY;2018-01-01;Conventionnel
+402;FC07 GEVRY;2012-01-01;Conventionnel
+402;FC07 GEVRY;2018-01-01;Conventionnel
+414;FC08 CHEMIN;2012-01-01;Conventionnel
+401;FC09 MARNAY;2012-01-01;Biologique
+415;FC10 TAVAUX;2012-01-01;Conventionnel
+415;FC10 TAVAUX;2018-01-01;Conventionnel
+415;FC10 TAVAUX;2019-01-01;Conventionnel
+420;FC11 CITEY;2012-01-01;Conventionnel
+420;FC11 CITEY;2017-01-01;Conventionnel
+398;FC12 VADANS;2012-01-01;Biologique
+525;FOL;2016-01-01;Biologique
+76;GHISO;2012-01-01;Conventionnel
+524;GHISO-2;2016-01-01;Conventionnel
+48;IF_077_01;2012-01-01;Conventionnel
+48;IF_077_01;2015-01-01;Conventionnel
+48;IF_077_01;2016-01-01;Conventionnel
+23;IF_077_02;2012-01-01;Biologique
+23;IF_077_02;2015-01-01;Biologique
+190;IF_077_03;2012-01-01;Conventionnel
+9;IF_077_04;2012-01-01;Conventionnel
+103;IF_077_05;2012-01-01;Conventionnel
+218;IF_077_06;2012-01-01;Conventionnel
+31;IF_077_07;2012-01-01;Conventionnel
+30;IF_077_08;2012-01-01;Conventionnel
+40;IF_077_09;2012-01-01;Biologique
+5;IF_077_10;2012-01-01;Conventionnel
+413;IF_077_11;2012-01-01;Conventionnel
+219;IF_077_12;2012-01-01;Conventionnel
+513;IF_077_13;2012-01-01;Conventionnel
+468;IF-078-01;2012-01-01;Conventionnel
+459;IF-078-02;2012-01-01;Conventionnel
+459;IF-078-02;2021-01-01;Conventionnel
+144;IF-078-03;2012-01-01;Conventionnel
+147;IF-091-01;2012-01-01;Biologique
+516;IF-091-02;2012-01-01;Conventionnel
+512;IF-091-03;2012-01-01;Conventionnel
+505;IF-095-01;2012-01-01;Conventionnel
+505;IF-095-01;2013-01-01;Conventionnel
+505;IF-095-01;2014-01-01;Conventionnel
+505;IF-095-01;2015-01-01;Conventionnel
+505;IF-095-01;2016-01-01;Conventionnel
+505;IF-095-01;2017-01-01;Conventionnel
+505;IF-095-01;2018-01-01;Conventionnel
+505;IF-095-01;2019-01-01;Conventionnel
+505;IF-095-01;2020-01-01;Conventionnel
+505;IF-095-01;2021-01-01;Conventionnel
+504;IF-095-02;2012-01-01;Conventionnel
+504;IF-095-02;2013-01-01;Conventionnel
+504;IF-095-02;2018-01-01;Conventionnel
+504;IF-095-02;2019-01-01;Conventionnel
+504;IF-095-02;2020-01-01;Conventionnel
+504;IF-095-02;2021-01-01;Conventionnel
+504;IF-095-02;2022-01-01;Conventionnel
+511;IF-095-03;2012-01-01;Conventionnel
+81;INRA;2012-01-01;Conventionnel
+73;LING;2013-01-01;En conversion bio
+73;LING;2015-01-01;Biologique
+3;LR_M_34_1;2012-01-01;Conventionnel
+3;LR_M_34_1;2021-01-01;Biologique
+4;LR_M_34_2;2012-01-01;Conventionnel
+338;LR_M_66_1;2012-01-01;Conventionnel
+300;LR_S_30_1;2012-01-01;Conventionnel
+351;LR_S_66_1;2012-01-01;Conventionnel
+384;LR_S_66_2;2012-01-01;Conventionnel
+384;LR_S_66_2;2017-01-01;En conversion bio
+196;LR_V_11_1;2012-01-01;Conventionnel
+197;LR_V_11_2;2012-01-01;Conventionnel
+449;LR_V_11_3;2016-01-01;Conventionnel
+364;LR_V_30_1;2012-01-01;Conventionnel
+431;LR_V_30_2;2012-01-01;Biologique
+326;LR_V_30_3 ;2012-01-01;Conventionnel
+58;LR_V_30_4;2012-01-01;En conversion bio
+58;LR_V_30_4;2013-01-01;En conversion bio
+58;LR_V_30_4;2014-01-01;Conventionnel
+571;LR_V_30_5;;
+66;LR_V_34_1;2012-01-01;Conventionnel
+65;LR_V_34_2;2012-01-01;Conventionnel
+272;LR_V_34_3;2012-01-01;Biologique
+203;LR_V_34_4;2012-01-01;Conventionnel
+67;LR_V_34_5;2017-01-01;Biologique
+64;LR_V_34_6;2012-01-01;Biologique
+352;LR_V_66_1;2012-01-01;Conventionnel
+385;LR_V_66_2;2012-01-01;Biologique
+189;MAIACO1;2012-01-01;Conventionnel
+189;MAIACO1;2013-01-01;Conventionnel
+189;MAIACO1;2014-01-01;Conventionnel
+189;MAIACO1;2015-01-01;Conventionnel
+189;MAIACO1;2016-01-01;Conventionnel
+189;MAIACO1;2017-01-01;Conventionnel
+189;MAIACO1;2018-01-01;Conventionnel
+189;MAIACO1;2019-01-01;Conventionnel
+189;MAIACO1;2020-01-01;Conventionnel
+189;MAIACO1;2021-01-01;Conventionnel
+189;MAIACO1;2022-01-01;Conventionnel
+25;MAIADU1;2012-01-01;Biologique
+25;MAIADU1;2013-01-01;Biologique
+25;MAIADU1;2014-01-01;Biologique
+25;MAIADU1;2015-01-01;Biologique
+25;MAIADU1;2016-01-01;Biologique
+25;MAIADU1;2017-01-01;Biologique
+25;MAIADU1;2018-01-01;Biologique
+25;MAIADU1;2019-01-01;Biologique
+25;MAIADU1;2020-01-01;Biologique
+25;MAIADU1;2021-01-01;Biologique
+25;MAIADU1;2022-01-01;Biologique
+25;MAIADU1;2023-01-01;Biologique
+201;MAIAGE1;2012-01-01;Conventionnel
+201;MAIAGE1;2013-01-01;Conventionnel
+201;MAIAGE1;2014-01-01;Conventionnel
+201;MAIAGE1;2015-01-01;Conventionnel
+201;MAIAGE1;2016-01-01;Conventionnel
+201;MAIAGE1;2017-01-01;Conventionnel
+201;MAIAGE1;2018-01-01;Conventionnel
+201;MAIAGE1;2019-01-01;Conventionnel
+201;MAIAGE1;2020-01-01;Conventionnel
+201;MAIAGE1;2021-01-01;Conventionnel
+201;MAIAGE1;2022-01-01;Conventionnel
+201;MAIAGE1;2023-01-01;Conventionnel
+75;MAIAGU1;2012-01-01;Conventionnel
+75;MAIAGU1;2013-01-01;Conventionnel
+75;MAIAGU1;2014-01-01;Conventionnel
+75;MAIAGU1;2015-01-01;Conventionnel
+75;MAIAGU1;2016-01-01;Conventionnel
+75;MAIAGU1;2017-01-01;Conventionnel
+75;MAIAGU1;2018-01-01;Conventionnel
+75;MAIAGU1;2019-01-01;Conventionnel
+75;MAIAGU1;2020-01-01;Conventionnel
+75;MAIAGU1;2021-01-01;Conventionnel
+75;MAIAGU1;2022-01-01;Conventionnel
+307;MAIAGU2;2012-01-01;Conventionnel
+307;MAIAGU2;2013-01-01;Conventionnel
+307;MAIAGU2;2014-01-01;Conventionnel
+307;MAIAGU2;2015-01-01;Conventionnel
+307;MAIAGU2;2016-01-01;Conventionnel
+307;MAIAGU2;2017-01-01;Conventionnel
+307;MAIAGU2;2018-01-01;Conventionnel
+307;MAIAGU2;2019-01-01;Conventionnel
+307;MAIAGU2;2020-01-01;Conventionnel
+307;MAIAGU2;2021-01-01;Conventionnel
+307;MAIAGU2;2022-01-01;Conventionnel
+358;MAICBR1;2012-01-01;Conventionnel
+358;MAICBR1;2013-01-01;Conventionnel
+358;MAICBR1;2014-01-01;Conventionnel
+358;MAICBR1;2015-01-01;Conventionnel
+263;MAIDBO1;2012-01-01;Conventionnel
+263;MAIDBO1;2013-01-01;Conventionnel
+263;MAIDBO1;2014-01-01;Conventionnel
+263;MAIDBO1;2015-01-01;Conventionnel
+263;MAIDBO1;2016-01-01;Conventionnel
+263;MAIDBO1;2017-01-01;Conventionnel
+263;MAIDBO1;2018-01-01;Conventionnel
+263;MAIDBO1;2019-01-01;Conventionnel
+263;MAIDBO1;2020-01-01;Conventionnel
+263;MAIDBO1;2021-01-01;Conventionnel
+263;MAIDBO1;2022-01-01;Conventionnel
+263;MAIDBO1;2023-01-01;Conventionnel
+212;MAIISE1;2012-01-01;Biologique
+212;MAIISE1;2013-01-01;Biologique
+212;MAIISE1;2014-01-01;Biologique
+212;MAIISE1;2015-01-01;Biologique
+212;MAIISE1;2016-01-01;Biologique
+212;MAIISE1;2017-01-01;Biologique
+212;MAIISE1;2018-01-01;Biologique
+212;MAIISE1;2019-01-01;Biologique
+212;MAIISE1;2020-01-01;Biologique
+212;MAIISE1;2021-01-01;Biologique
+212;MAIISE1;2022-01-01;Biologique
+212;MAIISE1;2023-01-01;Biologique
+107;MAIJKE1;2012-01-01;Conventionnel
+107;MAIJKE1;2013-01-01;Conventionnel
+107;MAIJKE1;2014-01-01;Conventionnel
+107;MAIJKE1;2015-01-01;Conventionnel
+107;MAIJKE1;2016-01-01;Conventionnel
+107;MAIJKE1;2017-01-01;Conventionnel
+107;MAIJKE1;2018-01-01;Conventionnel
+107;MAIJKE1;2019-01-01;Conventionnel
+107;MAIJKE1;2020-01-01;Conventionnel
+107;MAIJKE1;2021-01-01;Conventionnel
+107;MAIJKE1;2022-01-01;Conventionnel
+107;MAIJKE1;2023-01-01;Conventionnel
+441;MAIPYD1;2012-01-01;Conventionnel
+441;MAIPYD1;2013-01-01;Conventionnel
+441;MAIPYD1;2014-01-01;Conventionnel
+441;MAIPYD1;2015-01-01;Conventionnel
+441;MAIPYD1;2016-01-01;Conventionnel
+441;MAIPYD1;2017-01-01;Conventionnel
+441;MAIPYD1;2018-01-01;Conventionnel
+441;MAIPYD1;2019-01-01;Conventionnel
+441;MAIPYD1;2020-01-01;Conventionnel
+441;MAIPYD1;2021-01-01;Conventionnel
+441;MAIPYD1;2022-01-01;Conventionnel
+441;MAIPYD1;2023-01-01;Conventionnel
+547;MAISME1;2014-01-01;Conventionnel
+547;MAISME1;2015-01-01;Conventionnel
+547;MAISME1;2016-01-01;Conventionnel
+547;MAISME1;2017-01-01;Conventionnel
+547;MAISME1;2018-01-01;Conventionnel
+547;MAISME1;2019-01-01;Conventionnel
+547;MAISME1;2020-01-01;Conventionnel
+547;MAISME1;2021-01-01;Conventionnel
+547;MAISME1;2022-01-01;Conventionnel
+547;MAISME1;2023-01-01;Conventionnel
+289;MAISMO1;2012-01-01;Conventionnel
+289;MAISMO1;2013-01-01;Conventionnel
+289;MAISMO1;2014-01-01;Conventionnel
+289;MAISMO1;2015-01-01;Conventionnel
+289;MAISMO1;2016-01-01;Conventionnel
+289;MAISMO1;2017-01-01;Conventionnel
+289;MAISMO1;2018-01-01;Conventionnel
+289;MAISMO1;2019-01-01;Conventionnel
+289;MAISMO1;2020-01-01;Conventionnel
+289;MAISMO1;2021-01-01;Conventionnel
+289;MAISMO1;2022-01-01;Conventionnel
+289;MAISMO1;2023-01-01;Conventionnel
+546;MAITPO1;2018-01-01;Conventionnel
+546;MAITPO1;2019-01-01;Conventionnel
+546;MAITPO1;2020-01-01;Conventionnel
+546;MAITPO1;2021-01-01;Conventionnel
+546;MAITPO1;2022-01-01;Conventionnel
+546;MAITPO1;2023-01-01;Conventionnel
+74;MOR;2012-01-01;Biologique
+477;MP_GA_LAU_B1;2012-01-01;Conventionnel
+473;MP_GA_LAU_B2;2012-01-01;En conversion bio
+473;MP_GA_LAU_B2;2015-01-01;Biologique
+481;MP_GA_LAU_B3;2012-01-01;Biologique
+472;MP_GA_LAU_V1;2012-01-01;Conventionnel
+479;MP_GA_LAU_V2;2012-01-01;En conversion bio
+182;MP_GA_LAU_V3;2012-01-01;Conventionnel
+470;MP_GAR_AM_B1;2012-01-01;Conventionnel
+480;MP_GAR_AM_B2;2012-01-01;Conventionnel
+161;MP_GAR_AM_B3;2012-01-01;Biologique
+241;MP_GAR_AM_M1;2012-01-01;Conventionnel
+154;MP_GAR_AM_M2;2012-01-01;Conventionnel
+165;MP_GAR_AM_M3;2012-01-01;Conventionnel
+166;MP_GAR_AM_M4;2012-01-01;Conventionnel
+474;MP_GAR_AM_M5;2012-01-01;Conventionnel
+502;MP_GAR_AM_M6;2012-01-01;Conventionnel
+151;MP_GAR_AM_M7;2012-01-01;Conventionnel
+151;MP_GAR_AM_M7;2019-01-01;En conversion bio
+151;MP_GAR_AM_M7;2020-01-01;En conversion bio
+151;MP_GAR_AM_M7;2021-01-01;En conversion bio
+152;MP_GAR_AV_B1;2012-01-01;Biologique
+162;MP_GAR_AV_B2;2012-01-01;Conventionnel
+134;MP_GAR_AV_B3;2012-01-01;Conventionnel
+250;MP_GAR_AV_S1;2012-01-01;Biologique
+250;MP_GAR_AV_S1;2013-01-01;Biologique
+250;MP_GAR_AV_S1;2014-01-01;Biologique
+250;MP_GAR_AV_S1;2015-01-01;Biologique
+250;MP_GAR_AV_S1;2016-01-01;Biologique
+170;MP_GAR_AV_S2;2012-01-01;Conventionnel
+324;MP_GAR_AV_S3;2012-01-01;Conventionnel
+324;MP_GAR_AV_S3;2019-01-01;Biologique
+323;MP_GASC_AD_M1;2012-01-01;Conventionnel
+150;MP_GASC_AD_M2;2012-01-01;Conventionnel
+172;MP_GASC_AD_M3;2012-01-01;Conventionnel
+247;MP_GASC_AD_M4;2012-01-01;Biologique
+249;MP_GASC_AD_M5;2012-01-01;Conventionnel
+153;MP_GASC_AD_M6;2012-01-01;Conventionnel
+239;MP_GASC_AD_M7;2012-01-01;Conventionnel
+442;MP_GASC_AD_M8;2012-01-01;Biologique
+565;MP_GASC_AD_M9;;
+322;MP_GASC_AD_V1;2012-01-01;Conventionnel
+89;MP_GASC_AD_V2;2012-01-01;Biologique
+485;MP_GASC_AD_V3;2012-01-01;Conventionnel
+451;PACA-01;2012-01-01;Biologique
+453;PACA-02;2012-01-01;Conventionnel
+452;PACA-03;2012-01-01;Conventionnel
+304;PACA-04;2012-01-01;Conventionnel
+380;PACA-05;2012-01-01;Biologique
+303;PACA-06;2012-01-01;Conventionnel
+353;PACA-07;2012-01-01;Conventionnel
+494;PACA-08;2012-01-01;Conventionnel
+367;PACA-09;2012-01-01;Conventionnel
+367;PACA-09;2013-01-01;Conventionnel
+367;PACA-09;2014-01-01;Conventionnel
+367;PACA-09;2015-01-01;Conventionnel
+367;PACA-09;2016-01-01;Conventionnel
+367;PACA-09;2017-01-01;Conventionnel
+367;PACA-09;2018-01-01;Conventionnel
+367;PACA-09;2019-01-01;Conventionnel
+367;PACA-09;2020-01-01;Conventionnel
+367;PACA-09;2021-01-01;Conventionnel
+359;PACA-10;2012-01-01;Biologique
+359;PACA-10;2013-01-01;Biologique
+359;PACA-10;2014-01-01;Biologique
+359;PACA-10;2015-01-01;Biologique
+359;PACA-10;2016-01-01;Biologique
+359;PACA-10;2017-01-01;Biologique
+359;PACA-10;2018-01-01;Biologique
+359;PACA-10;2019-01-01;Biologique
+359;PACA-10;2020-01-01;Biologique
+359;PACA-10;2021-01-01;Biologique
+360;PACA-11;2012-01-01;Conventionnel
+360;PACA-11;2013-01-01;Conventionnel
+360;PACA-11;2014-01-01;Conventionnel
+360;PACA-11;2015-01-01;Conventionnel
+360;PACA-11;2016-01-01;Conventionnel
+360;PACA-11;2017-01-01;Conventionnel
+360;PACA-11;2018-01-01;Conventionnel
+360;PACA-11;2019-01-01;Conventionnel
+360;PACA-11;2020-01-01;Conventionnel
+360;PACA-11;2021-01-01;Conventionnel
+363;PACA-12;2012-01-01;Conventionnel
+363;PACA-12;2013-01-01;Conventionnel
+363;PACA-12;2014-01-01;Conventionnel
+363;PACA-12;2015-01-01;Conventionnel
+363;PACA-12;2016-01-01;Conventionnel
+363;PACA-12;2017-01-01;Conventionnel
+363;PACA-12;2018-01-01;Conventionnel
+363;PACA-12;2019-01-01;Conventionnel
+363;PACA-12;2020-01-01;Conventionnel
+363;PACA-12;2021-01-01;Conventionnel
+361;PACA-13;2012-01-01;Biologique
+361;PACA-13;2013-01-01;Biologique
+361;PACA-13;2014-01-01;Biologique
+361;PACA-13;2015-01-01;Biologique
+361;PACA-13;2016-01-01;Conventionnel
+361;PACA-13;2017-01-01;Conventionnel
+361;PACA-13;2018-01-01;Conventionnel
+361;PACA-13;2019-01-01;Conventionnel
+361;PACA-13;2020-01-01;Conventionnel
+361;PACA-13;2021-01-01;Conventionnel
+456;PACA-14;2013-01-01;Conventionnel
+456;PACA-14;2014-01-01;Conventionnel
+456;PACA-14;2015-01-01;Conventionnel
+456;PACA-14;2016-01-01;Conventionnel
+456;PACA-14;2017-01-01;Conventionnel
+456;PACA-14;2018-01-01;Conventionnel
+456;PACA-14;2019-01-01;Conventionnel
+456;PACA-14;2020-01-01;Conventionnel
+456;PACA-14;2021-01-01;Conventionnel
+454;PACA-15;2012-01-01;Conventionnel
+454;PACA-15;2021-01-01;En conversion bio
+440;PACA-16;2013-01-01;Conventionnel
+440;PACA-16;2014-01-01;Conventionnel
+440;PACA-16;2015-01-01;Conventionnel
+440;PACA-16;2016-01-01;Conventionnel
+440;PACA-16;2017-01-01;Conventionnel
+440;PACA-16;2018-01-01;Conventionnel
+440;PACA-16;2019-01-01;Conventionnel
+440;PACA-16;2020-01-01;Conventionnel
+440;PACA-16;2021-01-01;Conventionnel
+440;PACA-16;2022-01-01;Conventionnel
+439;PACA-17;2013-01-01;Conventionnel
+439;PACA-17;2014-01-01;Conventionnel
+439;PACA-17;2015-01-01;Conventionnel
+439;PACA-17;2016-01-01;Conventionnel
+439;PACA-17;2017-01-01;Conventionnel
+439;PACA-17;2018-01-01;Conventionnel
+439;PACA-17;2019-01-01;Conventionnel
+439;PACA-17;2020-01-01;Conventionnel
+439;PACA-17;2021-01-01;Conventionnel
+439;PACA-17;2022-01-01;Conventionnel
+446;PACA-18;2013-01-01;Biologique
+446;PACA-18;2014-01-01;Biologique
+446;PACA-18;2015-01-01;Biologique
+446;PACA-18;2016-01-01;Biologique
+446;PACA-18;2017-01-01;Biologique
+446;PACA-18;2018-01-01;Biologique
+446;PACA-18;2019-01-01;Biologique
+446;PACA-18;2020-01-01;Biologique
+446;PACA-18;2021-01-01;Biologique
+446;PACA-18;2022-01-01;Biologique
+558;PACA-19;2020-01-01;Conventionnel
+567;PACA-20;;
+569;PACA-21;2022-01-01;Conventionnel
+1;PCB1;2012-01-01;Conventionnel
+12;PCB10;2012-01-01;Biologique
+35;PCB11;2012-01-01;Conventionnel
+36;PCB12;2012-01-01;Conventionnel
+564;PCB13;2021-01-01;Conventionnel
+68;PCB2;2012-01-01;Conventionnel
+86;PCB3;2012-01-01;Conventionnel
+507;PCB4;2012-01-01;En conversion bio
+70;PCB5;2012-01-01;Biologique
+104;PCB6;2012-01-01;Conventionnel
+119;PCB7;2012-01-01;Conventionnel
+101;PCB8;2012-01-01;Conventionnel
+10;PCB9;2012-01-01;Conventionnel
+46;PCM1;2012-01-01;Conventionnel
+122;PCM10;2012-01-01;Conventionnel
+118;PCM11;2012-01-01;Conventionnel
+92;PCM12;2012-01-01;Biologique
+102;PCM2;2012-01-01;Conventionnel
+226;PCM3;2012-01-01;Conventionnel
+59;PCM4;2012-01-01;Conventionnel
+121;PCM5;2012-01-01;Conventionnel
+6;PCM6;2012-01-01;Biologique
+69;PCM7;2012-01-01;Conventionnel
+204;PCM8;2012-01-01;Conventionnel
+85;PCM9;2012-01-01;Conventionnel
+85;PCM9;2016-01-01;En conversion bio
+105;PCS1;2012-01-01;Conventionnel
+54;PCS2;2012-01-01;Conventionnel
+17;PCS3;2012-01-01;Conventionnel
+53;PCV1;2012-01-01;Conventionnel
+522;PCV2;2012-01-01;Conventionnel
+522;PCV2;2022-01-01;En conversion bio
+90;PCV3;2012-01-01;Biologique
+34;PCV4;2012-01-01;Conventionnel
+43;PCV5;2012-01-01;Conventionnel
+88;PCV6;2012-01-01;Biologique
+157;PDL-01;2012-01-01;Conventionnel
+164;PDL-02;2012-01-01;Conventionnel
+156;PDL-03;2012-01-01;Conventionnel
+156;PDL-03;2013-01-01;Conventionnel
+156;PDL-03;2014-01-01;Conventionnel
+156;PDL-03;2015-01-01;Conventionnel
+156;PDL-03;2016-01-01;Conventionnel
+156;PDL-03;2017-01-01;Conventionnel
+156;PDL-03;2018-01-01;Conventionnel
+156;PDL-03;2019-01-01;Conventionnel
+156;PDL-03;2020-01-01;Conventionnel
+159;PDL-04;2012-01-01;Conventionnel
+159;PDL-04;2013-01-01;Conventionnel
+159;PDL-04;2014-01-01;Conventionnel
+159;PDL-04;2015-01-01;Conventionnel
+159;PDL-04;2016-01-01;Conventionnel
+159;PDL-04;2017-01-01;Conventionnel
+159;PDL-04;2018-01-01;Conventionnel
+159;PDL-04;2019-01-01;Conventionnel
+155;PDL-05;2012-01-01;Conventionnel
+155;PDL-05;2013-01-01;Conventionnel
+155;PDL-05;2014-01-01;Conventionnel
+155;PDL-05;2015-01-01;Conventionnel
+155;PDL-05;2016-01-01;Conventionnel
+155;PDL-05;2017-01-01;Conventionnel
+155;PDL-05;2018-01-01;Conventionnel
+155;PDL-05;2019-01-01;Conventionnel
+155;PDL-05;2020-01-01;Conventionnel
+392;PDL-06;2012-01-01;Biologique
+163;PDL-07;2012-01-01;Conventionnel
+141;PDL-08;2012-01-01;Conventionnel
+140;PDL-09;2012-01-01;Conventionnel
+45;PDL-10;2012-01-01;Conventionnel
+45;PDL-10;2013-01-01;Conventionnel
+45;PDL-10;2014-01-01;Conventionnel
+45;PDL-10;2015-01-01;Conventionnel
+45;PDL-10;2016-01-01;Conventionnel
+45;PDL-10;2017-01-01;Conventionnel
+45;PDL-10;2018-01-01;Conventionnel
+45;PDL-10;2019-01-01;Conventionnel
+45;PDL-10;2020-01-01;Conventionnel
+45;PDL-10;2021-01-01;Conventionnel
+44;PDL-11;2012-01-01;Conventionnel
+44;PDL-11;2013-01-01;Conventionnel
+44;PDL-11;2014-01-01;Conventionnel
+44;PDL-11;2015-01-01;Conventionnel
+44;PDL-11;2016-01-01;Conventionnel
+44;PDL-11;2017-01-01;Conventionnel
+44;PDL-11;2018-01-01;Conventionnel
+44;PDL-11;2019-01-01;Conventionnel
+44;PDL-11;2020-01-01;Conventionnel
+238;PDL-12;2012-01-01;Biologique
+238;PDL-12;2013-01-01;Biologique
+238;PDL-12;2014-01-01;Biologique
+238;PDL-12;2015-01-01;Biologique
+238;PDL-12;2016-01-01;Biologique
+238;PDL-12;2017-01-01;Biologique
+238;PDL-12;2018-01-01;Biologique
+238;PDL-12;2019-01-01;Biologique
+238;PDL-12;2020-01-01;Biologique
+142;PDL-13;2012-01-01;Conventionnel
+139;PDL-14;2012-01-01;Conventionnel
+138;PDL-15;2012-01-01;Conventionnel
+138;PDL-15;2018-01-01;Conventionnel
+138;PDL-15;2019-01-01;Conventionnel
+138;PDL-15;2020-01-01;Conventionnel
+138;PDL-15;2021-01-01;Conventionnel
+138;PDL-15;2022-01-01;Conventionnel
+167;PDL-16;2012-01-01;Conventionnel
+136;PDL-17;2012-01-01;Conventionnel
+136;PDL-17;2019-01-01;Biologique
+136;PDL-17;2020-01-01;Biologique
+136;PDL-17;2021-01-01;Biologique
+137;PDL-18;2012-01-01;Conventionnel
+111;PDL-19;2012-01-01;Conventionnel
+111;PDL-19;2019-01-01;En conversion bio
+111;PDL-19;2022-01-01;Biologique
+521;PDL-20;2012-01-01;Conventionnel
+98;PDL-21;2012-01-01;Biologique
+18;PDL-22;2013-01-01;Conventionnel
+432;PDL-23;2012-01-01;Conventionnel
+432;PDL-23;2019-01-01;En conversion bio
+236;PDL-24;2012-01-01;Conventionnel
+192;PDL-25;2012-01-01;En conversion bio
+192;PDL-25;2018-01-01;Biologique
+483;PDL-26;2012-01-01;Conventionnel
+483;PDL-26;2018-01-01;Biologique
+483;PDL-26;2018-01-01;Conventionnel
+222;PDL-27;2012-01-01;Biologique
+222;PDL-27;2022-01-01;Biologique
+135;PDL-28;2012-01-01;Conventionnel
+135;PDL-28;2013-01-01;Conventionnel
+135;PDL-28;2014-01-01;Conventionnel
+135;PDL-28;2015-01-01;Conventionnel
+135;PDL-28;2016-01-01;Conventionnel
+135;PDL-28;2017-01-01;Conventionnel
+135;PDL-28;2018-01-01;Conventionnel
+135;PDL-28;2019-01-01;Conventionnel
+135;PDL-28;2020-01-01;Conventionnel
+135;PDL-28;2021-01-01;Conventionnel
+135;PDL-28;2022-01-01;Conventionnel
+173;PDL-29;2012-01-01;Biologique
+173;PDL-29;2013-01-01;Biologique
+173;PDL-29;2014-01-01;Biologique
+173;PDL-29;2015-01-01;Biologique
+173;PDL-29;2016-01-01;Biologique
+173;PDL-29;2017-01-01;Biologique
+173;PDL-29;2018-01-01;Biologique
+173;PDL-29;2019-01-01;Biologique
+173;PDL-29;2020-01-01;Biologique
+173;PDL-29;2021-01-01;Biologique
+173;PDL-29;2022-01-01;Biologique
+246;PDL-30;2012-01-01;Conventionnel
+169;PDL-31;2012-01-01;Conventionnel
+169;PDL-31;2021-01-01;Conventionnel
+169;PDL-31;2022-01-01;Conventionnel
+248;PDL-32;2012-01-01;Biologique
+248;PDL-32;2013-01-01;Biologique
+248;PDL-32;2014-01-01;Biologique
+248;PDL-32;2015-01-01;Biologique
+248;PDL-32;2016-01-01;Biologique
+248;PDL-32;2017-01-01;Biologique
+248;PDL-32;2018-01-01;Biologique
+248;PDL-32;2019-01-01;Biologique
+248;PDL-32;2020-01-01;Biologique
+248;PDL-32;2021-01-01;Biologique
+248;PDL-32;2022-01-01;Biologique
+245;PDL-33;2012-01-01;Conventionnel
+234;PDL-34;2017-01-01;Conventionnel
+234;PDL-34;2018-01-01;Conventionnel
+234;PDL-34;2019-01-01;Conventionnel
+234;PDL-34;2020-01-01;Conventionnel
+234;PDL-34;2021-01-01;Conventionnel
+234;PDL-34;2022-01-01;Conventionnel
+233;PDL-35;2017-01-01;Conventionnel
+233;PDL-35;2018-01-01;Biologique
+233;PDL-35;2019-01-01;Biologique
+233;PDL-35;2020-01-01;Biologique
+233;PDL-35;2021-01-01;Biologique
+553;PDL-36;2019-01-01;Biologique
+562;PDL-37;2020-01-01;Conventionnel
+290;PIC 01;2012-01-01;Conventionnel
+290;PIC 01;2019-01-01;Conventionnel
+290;PIC 01;2021-01-01;Conventionnel
+347;PIC 02;2012-01-01;Conventionnel
+347;PIC 02;2013-01-01;Conventionnel
+347;PIC 02;2014-01-01;Conventionnel
+347;PIC 02;2015-01-01;Conventionnel
+347;PIC 02;2016-01-01;Conventionnel
+347;PIC 02;2017-01-01;Conventionnel
+347;PIC 02;2020-01-01;Conventionnel
+347;PIC 02;2021-01-01;Conventionnel
+347;PIC 02;2022-01-01;Conventionnel
+341;PIC 03;2012-01-01;Conventionnel
+341;PIC 03;2013-01-01;Conventionnel
+341;PIC 03;2014-01-01;Conventionnel
+341;PIC 03;2015-01-01;Conventionnel
+341;PIC 03;2016-01-01;Conventionnel
+341;PIC 03;2017-01-01;Conventionnel
+341;PIC 03;2018-01-01;Conventionnel
+341;PIC 03;2019-01-01;Conventionnel
+341;PIC 03;2020-01-01;Conventionnel
+341;PIC 03;2021-01-01;Conventionnel
+341;PIC 03;2022-01-01;Conventionnel
+287;PIC 04;2012-01-01;Conventionnel
+287;PIC 04;2021-01-01;Conventionnel
+287;PIC 04;2022-01-01;Conventionnel
+337;PIC 05;2012-01-01;Conventionnel
+337;PIC 05;2013-01-01;Conventionnel
+337;PIC 05;2014-01-01;Conventionnel
+337;PIC 05;2015-01-01;Conventionnel
+337;PIC 05;2016-01-01;Conventionnel
+337;PIC 05;2017-01-01;Conventionnel
+337;PIC 05;2018-01-01;Conventionnel
+337;PIC 05;2019-01-01;Conventionnel
+337;PIC 05;2020-01-01;Conventionnel
+337;PIC 05;2021-01-01;Conventionnel
+337;PIC 05;2022-01-01;Conventionnel
+331;PIC 06;2012-01-01;Conventionnel
+331;PIC 06;2013-01-01;Conventionnel
+331;PIC 06;2014-01-01;Conventionnel
+331;PIC 06;2015-01-01;Conventionnel
+331;PIC 06;2016-01-01;Conventionnel
+331;PIC 06;2017-01-01;Conventionnel
+331;PIC 06;2018-01-01;Conventionnel
+331;PIC 06;2019-01-01;Conventionnel
+331;PIC 06;2020-01-01;Conventionnel
+336;PIC 07;2012-01-01;Conventionnel
+336;PIC 07;2013-01-01;Conventionnel
+336;PIC 07;2014-01-01;Conventionnel
+336;PIC 07;2015-01-01;Conventionnel
+336;PIC 07;2016-01-01;Conventionnel
+336;PIC 07;2017-01-01;Conventionnel
+433;PIC 08;2012-01-01;Conventionnel
+433;PIC 08;2013-01-01;Conventionnel
+433;PIC 08;2014-01-01;Conventionnel
+433;PIC 08;2015-01-01;Conventionnel
+433;PIC 08;2016-01-01;Conventionnel
+433;PIC 08;2017-01-01;Conventionnel
+433;PIC 08;2018-01-01;Conventionnel
+433;PIC 08;2019-01-01;Conventionnel
+433;PIC 08;2020-01-01;Conventionnel
+433;PIC 08;2021-01-01;Conventionnel
+433;PIC 08;2022-01-01;Conventionnel
+13;PIC 09;2012-01-01;Conventionnel
+373;PIC 10;2012-01-01;Conventionnel
+373;PIC 10;2013-01-01;Conventionnel
+373;PIC 10;2014-01-01;Conventionnel
+373;PIC 10;2015-01-01;Conventionnel
+373;PIC 10;2016-01-01;Conventionnel
+373;PIC 10;2017-01-01;Conventionnel
+373;PIC 10;2018-01-01;Conventionnel
+373;PIC 10;2019-01-01;Conventionnel
+373;PIC 10;2020-01-01;Conventionnel
+373;PIC 10;2021-01-01;Conventionnel
+373;PIC 10;2022-01-01;Conventionnel
+288;PIC 11;2012-01-01;Conventionnel
+288;PIC 11;2022-01-01;Conventionnel
+198;PIC 12;2012-01-01;Conventionnel
+342;PIC 13;2012-01-01;Conventionnel
+342;PIC 13;2013-01-01;Conventionnel
+342;PIC 13;2014-01-01;Conventionnel
+342;PIC 13;2015-01-01;Conventionnel
+342;PIC 13;2016-01-01;Conventionnel
+342;PIC 13;2017-01-01;Conventionnel
+342;PIC 13;2018-01-01;Conventionnel
+342;PIC 13;2019-01-01;Conventionnel
+342;PIC 13;2020-01-01;Conventionnel
+342;PIC 13;2021-01-01;Conventionnel
+375;PIC 14;2012-01-01;Conventionnel
+412;PIC 15;2012-01-01;Conventionnel
+396;PIC 16;2012-01-01;Conventionnel
+396;PIC 16;2020-01-01;Conventionnel
+396;PIC 16;2021-01-01;Conventionnel
+396;PIC 16;2022-01-01;Conventionnel
+131;PIC 17;2012-01-01;Conventionnel
+38;PIC 18;2012-01-01;Biologique
+200;PIC 19;2012-01-01;Biologique
+284;PIC 20;2012-01-01;Biologique
+91;PIC 21;2012-01-01;Biologique
+374;PIC 22;2012-01-01;Conventionnel
+374;PIC 22;2013-01-01;Conventionnel
+374;PIC 22;2014-01-01;Conventionnel
+374;PIC 22;2015-01-01;Conventionnel
+374;PIC 22;2016-01-01;Conventionnel
+374;PIC 22;2017-01-01;Conventionnel
+374;PIC 22;2018-01-01;Conventionnel
+374;PIC 22;2020-01-01;Conventionnel
+374;PIC 22;2021-01-01;Conventionnel
+374;PIC 22;2022-01-01;Conventionnel
+430;PIC 23;2012-01-01;Conventionnel
+430;PIC 23;2017-01-01;Conventionnel
+430;PIC 23;2021-01-01;Conventionnel
+523;PIC 24;2012-01-01;Conventionnel
+8;PIC 25;2012-01-01;Conventionnel
+8;PIC 25;2019-01-01;Conventionnel
+8;PIC 25;2021-01-01;Conventionnel
+8;PIC 25;2022-01-01;Conventionnel
+133;PIC 26;2012-01-01;Conventionnel
+279;PIC 27;2012-01-01;Biologique
+253;PIC 28;2012-01-01;Biologique
+11;PIC 29;2012-01-01;Biologique
+291;PIC 30;2012-01-01;Biologique
+174;PIC 31;2012-01-01;Conventionnel
+174;PIC 31;2013-01-01;Conventionnel
+174;PIC 31;2014-01-01;Conventionnel
+174;PIC 31;2015-01-01;Conventionnel
+174;PIC 31;2016-01-01;Conventionnel
+174;PIC 31;2017-01-01;Conventionnel
+174;PIC 31;2018-01-01;Conventionnel
+174;PIC 31;2019-01-01;Conventionnel
+174;PIC 31;2021-01-01;Conventionnel
+174;PIC 31;2022-01-01;Conventionnel
+537;PIC 32;2013-01-01;Biologique
+537;PIC 32;2014-01-01;Biologique
+537;PIC 32;2015-01-01;Biologique
+537;PIC 32;2016-01-01;Biologique
+537;PIC 32;2017-01-01;Biologique
+537;PIC 32;2018-01-01;Biologique
+537;PIC 32;2019-01-01;Biologique
+538;PIC 33;2013-01-01;Biologique
+538;PIC 33;2014-01-01;Biologique
+538;PIC 33;2015-01-01;Biologique
+538;PIC 33;2016-01-01;Biologique
+538;PIC 33;2017-01-01;Biologique
+538;PIC 33;2018-01-01;Biologique
+538;PIC 33;2019-01-01;Biologique
+559;PIC 34;2022-01-01;Conventionnel
+568;Pic 35;2022-01-01;Biologique
+7;RA_B01;2012-01-01;Conventionnel
+266;RA_B02;2012-01-01;Conventionnel
+52;RA_B03;2012-01-01;Biologique
+61;RA_M01;2012-01-01;Conventionnel
+62;RA_M02;2012-01-01;Conventionnel
+274;RA_M03;2012-01-01;Biologique
+258;RA_M04;2012-01-01;Conventionnel
+276;RA_M05;2012-01-01;Conventionnel
+269;RA_M06;2012-01-01;Conventionnel
+60;RA_M07;2012-01-01;Conventionnel
+467;RA_M08;2012-01-01;Conventionnel
+278;RA_M09;2012-01-01;Biologique
+463;RA_M10;2012-01-01;Conventionnel
+261;RA_M11;2012-01-01;Conventionnel
+270;RA_M12;2012-01-01;Conventionnel
+555;RA_M13;2020-01-01;Conventionnel
+55;RA_S01;2012-01-01;Conventionnel
+55;RA_S01;2016-01-01;En conversion bio
+55;RA_S01;2018-01-01;Biologique
+277;RA_S02;2012-01-01;Biologique
+466;RA_S03;2012-01-01;Conventionnel
+464;RA_S04;2014-01-01;Conventionnel
+208;RA_V01;2012-01-01;Conventionnel
+267;RA_V02;2012-01-01;Biologique
+257;RA_V03;2012-01-01;Conventionnel
+51;RA_V04;2012-01-01;Biologique
+275;RA_V05;2012-01-01;Conventionnel
+273;RA_V06;2012-01-01;Conventionnel
+187;RA_V07;2012-01-01;Conventionnel
+186;RA_V08;2012-01-01;En conversion bio
+186;RA_V08;2014-01-01;Biologique
+50;RA_V09;2012-01-01;Biologique
+259;RA_V10;2012-01-01;Conventionnel
+260;RA_V11;2012-01-01;Conventionnel
+268;RA_V12;2012-01-01;Biologique
+256;RA_V13;2012-01-01;Conventionnel
+39;RC-18;2012-01-01;Biologique
+126;RC-19;2012-01-01;Conventionnel
+129;RC-20;2012-01-01;Conventionnel
+128;RC-21;2012-01-01;Conventionnel
+127;RC-22;2012-01-01;Conventionnel
+132;RC-23;2012-01-01;Conventionnel
+42;SALJPC1;2012-01-01;Conventionnel
+42;SALJPC1;2013-01-01;Conventionnel
+42;SALJPC1;2014-01-01;Conventionnel
+42;SALJPC1;2015-01-01;Conventionnel
+42;SALJPC1;2016-01-01;Conventionnel
+42;SALJPC1;2017-01-01;Conventionnel
+42;SALJPC1;2018-01-01;Conventionnel
+42;SALJPC1;2019-01-01;Conventionnel
+42;SALJPC1;2020-01-01;Conventionnel
+42;SALJPC1;2021-01-01;Conventionnel
+42;SALJPC1;2022-01-01;Conventionnel
+42;SALJPC1;2023-01-01;Conventionnel
+72;SALNME1;2012-01-01;Conventionnel
+72;SALNME1;2013-01-01;Conventionnel
+72;SALNME1;2014-01-01;Conventionnel
+72;SALNME1;2015-01-01;Conventionnel
+72;SALNME1;2016-01-01;Conventionnel
+72;SALNME1;2017-01-01;Conventionnel
+72;SALNME1;2018-01-01;Conventionnel
+72;SALNME1;2019-01-01;Conventionnel
+72;SALNME1;2020-01-01;Conventionnel
+72;SALNME1;2021-01-01;Conventionnel
+72;SALNME1;2022-01-01;Conventionnel
+71;SALNME2;2012-01-01;Conventionnel
+71;SALNME2;2013-01-01;Conventionnel
+71;SALNME2;2014-01-01;Conventionnel
+71;SALNME2;2015-01-01;Conventionnel
+71;SALNME2;2016-01-01;Conventionnel
+71;SALNME2;2017-01-01;Conventionnel
+71;SALNME2;2018-01-01;Conventionnel
+71;SALNME2;2019-01-01;Conventionnel
+71;SALNME2;2020-01-01;Conventionnel
+71;SALNME2;2021-01-01;Conventionnel
+71;SALNME2;2022-01-01;Conventionnel
+83;TAL - 4;2012-01-01;Conventionnel
+84;TAL - 5;2012-01-01;Conventionnel
+79;TAL - 6;2012-01-01;Conventionnel
+78;VESCO;2012-01-01;Conventionnel

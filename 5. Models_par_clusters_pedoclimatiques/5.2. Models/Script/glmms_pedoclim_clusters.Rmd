@@ -1,0 +1,3094 @@
+---
+title: "glmm_pedoclimatic_clusters"
+author: "Léa Genty"
+date: "2024-02-01"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(hrbrthemes)
+library(viridis)
+library(FactoMineR)
+library(lubridate)
+library(factoextra)
+library(corrplot)
+library(lme4)
+library(MuMIn)
+library(MASS)
+library(AICcmodavg)
+library(car)
+library(RColorBrewer)
+library(ggpubr)
+library(ggsignif)
+library(spdep)
+```
+
+
+# 1. Open dataset
+
+## All data
+```{r}
+dataset_500_ENI_Lea <- read.csv(file="5. Models_par_clusters_pedoclimatiques/5.2. Models/Raw/dataset_500_ENI_Lea.csv") %>%
+  mutate(TypeCulture=as_factor(TypeCulture),
+         clust=as_factor(clust))
+
+summary(dataset_500_ENI_Lea$TypeCulture)
+```
+Cluster 1 : 75
+Cluster 2 : 147
+Cluster 3 : 236
+
+##List with neighbouring plots to test spatial autocorrelation of models
+```{r}
+col.w.d_entomo_clust1 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_entomo_clust1.RData")
+col.w.d_entomo_clust2= readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_entomo_clust2.RData")
+col.w.d_entomo_clust3 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_entomo_clust3.RData")
+
+col.w.d_FDIV_clust1 =readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_FDIV_clust1.RData")
+col.w.d_FDIV_clust2 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_FDIV_clust2.RData")
+col.w.d_FDIV_clust3 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_FDIV_clust3.RData")
+
+col.w.d_FRIC_clust1 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_FRIC_clust1.RData")
+col.w.d_FRIC_clust2 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_FRIC_clust2.RData")
+col.w.d_FRIC_clust3 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_FRIC_clust3.RData")
+
+col.w.d_natval_clust1 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_natval_clust1.RData")
+col.w.d_natval_clust2 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_natval_clust2.RData")
+col.w.d_natval_clust3 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_natval_clust3.RData")
+
+col.w.d_perennial_clust1 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_perennial_clust1.RData")
+col.w.d_perennial_clust2 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_perennial_clust2.RData")
+col.w.d_perennial_clust3 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_perennial_clust3.RData")
+
+col.w.d_weeds_clust1 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_weeds_clust1.RData")
+col.w.d_weeds_clust2 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_weeds_clust2.RData")
+col.w.d_weeds_clust3 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_weeds_clust3.RData")
+
+col.w.d_FEVE_clust1 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_FEVE_clust1.RData")
+col.w.d_FEVE_clust2 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_FEVE_clust2.RData")
+col.w.d_FEVE_clust3 = readRDS(file="4. Spatial autocorrelation/Processed/col.w.d_FEVE_clust3.RData")
+```
+
+
+# 2. Scale & modif type of variables 
+```{r}
+predictors <- dataset_500_ENI_Lea %>% 
+  mutate(id_parcelle=as_factor(id_parcelle),
+         annee=as_factor(annee),
+         type_production=as_factor(type_production),
+         RegionAgricole=as_factor(RegionAgricole),
+      region_biogeo=as_factor(region_biogeo),
+      TypeCulture=as_factor(TypeCulture),
+         clust=as_factor(clust),
+         code_parcelle=as_factor(code_parcelle),
+         exposition2=as_factor(exposition2)) %>% 
+  relocate(code_parcelle) %>% 
+  mutate(entomogame_1=scale(entomogame_1),
+         FRic_flow=scale(FRic_flow),
+         FRic=scale(FRic),
+         FDiv_flow=scale(FDiv_flow),
+         FDiv=scale(FDiv),
+         FEve_flow=scale(FEve_flow),
+         FEve=scale(FEve),
+         Flow_dur=scale(Flow_dur),
+         Flow_on=scale(Flow_on),
+         nectar_present_1=scale(nectar_present_1), 
+         zygomorphe_1=scale(zygomorphe_1), 
+        JulianDay=scale(JulianDay),
+         RisqueDebordement=scale(RisqueDebordement),
+         coord_x=scale(coord_x),
+         coord_y=scale(coord_y),
+         Bordure_Largeur=scale(Bordure_Largeur),
+         Bordure_BroyageFauchage_ramassage=scale(Bordure_BroyageFauchage_ramassage),
+         Bordure_BroyageFauchage_SansRamassage=scale(Bordure_BroyageFauchage_SansRamassage),
+         Bordure_NombreInterventionYEAR=scale(Bordure_NombreInterventionYEAR),
+         IFT_Herbicide2013_2019=scale(IFT_Herbicide2013_2019),
+          IFT_Biocontrole2013_2019=scale(IFT_Biocontrole2013_2019),
+                                         DivRotation=scale(DivRotation),
+SC_Year_Copper.compounds.1=scale(SC_Year_Copper.compounds.1),
+          IFT_Hors_Herbicide2013_2019=scale(IFT_Hors_Herbicide2013_2019),
+          CoefN=scale(CoefN),
+          IFT_H=scale(IFT_H),
+          IFT_T=scale(IFT_T),
+          p_bio=scale(p_bio),
+          forbs_100 =scale(forbs_100),
+          perennial_100=scale(perennial_100),
+        neophytes_100=scale(neophytes_100), 
+        messicole_100=scale(messicole_100),
+        nat_val_100=scale(nat_val_100),
+        weeds_100=scale(weeds_100),
+          rich_sp=scale(rich_sp),  
+          shannon=scale(shannon), 
+          nb_hill=scale(nb_hill))
+
+predictors_clust1 <- predictors %>% 
+  filter(clust=="1") 
+predictors_clust2 <- predictors %>% 
+  filter(clust=="2") 
+predictors_clust3 <- predictors %>% 
+  filter(clust=="3") 
+```
+
+# A. % ENTOMO
+
+## A.I. Cluster 1
+```{r}
+predictors_clust1 <- predictors %>% 
+  filter(clust=="1") 
+```
+
+
+
+### A.I.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +(1| code_parcelle) , data=predictors_clust1, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(entomogame_1 ~ TypeCulture+(1| code_parcelle) , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                      Estimate Std. Error t value
+(Intercept)           -0.49895    0.09665  -5.162
+TypeCultureMaraichage  0.65244    0.31826   2.050
+TypeCultureVigne       1.17960    0.27865   4.233
+
+Response: entomogame_1
+             Chisq Df Pr(>Chisq)    
+TypeCulture 20.523  2  3.496e-05 ***
+
+          R2m       R2c
+[1,] 0.165647 0.6663656
+
+
+### A.I.2. Type de production 
+
+```{r}
+mod_bio <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ type_production+(1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+vif(mod_bio)
+dredge(mod_bio)
+```
+ns
+
+
+### A.I.3. Pratiques
+#### A.I.3.1. Pesticides échelle paysages
+```{r}
+mod_pest <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture  + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+dredge(mod_pest)
+mod_pest_best <- lmer(entomogame_1~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture  + IFT_H+ (1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(mod_pest_best)
+Anova(mod_pest_best)
+r.squaredGLMM(mod_pest_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.61624    0.12638  -4.876
+annee2014               -0.06107    0.10466  -0.583
+annee2015               -0.08651    0.10377  -0.834
+annee2016                0.08343    0.10532   0.792
+annee2017                0.01236    0.10576   0.117
+annee2018               -0.02635    0.10328  -0.255
+JulianDay                0.04564    0.05096   0.896
+RisqueDebordement       -0.03928    0.08624  -0.455
+exposition2Semi ombrage  0.28755    0.22809   1.261
+TypeCultureMaraichage    0.66658    0.31305   2.129
+TypeCultureVigne         1.01965    0.28106   3.628
+IFT_H                   -0.28538    0.11922  -2.394
+
+Response: entomogame_1
+                    Chisq Df Pr(>Chisq)    
+annee              3.2297  5  0.6646129    
+JulianDay          0.8021  1  0.3704565    
+RisqueDebordement  0.2075  1  0.6487691    
+exposition2        1.5893  1  0.2074276    
+TypeCulture       16.1312  2  0.0003142 ***
+IFT_H              5.7296  1  0.0166817 *  
+
+           R2m       R2c
+[1,] 0.2128893 0.6709371
+
+#### A.I.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+vif(mod_bord)
+dredge(mod_bord)
+mod_bord_best <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H + Bordure_Largeur+ (1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.55416    0.12492  -4.436
+annee2014               -0.05640    0.10469  -0.539
+annee2015               -0.08000    0.10380  -0.771
+annee2016                0.08782    0.10535   0.834
+annee2017                0.01711    0.10578   0.162
+annee2018               -0.01713    0.10331  -0.166
+JulianDay                0.05135    0.05077   1.012
+RisqueDebordement       -0.06616    0.08338  -0.793
+exposition2Semi ombrage  0.30748    0.21844   1.408
+TypeCultureMaraichage    0.53758    0.30362   1.771
+TypeCultureVigne         1.07267    0.26965   3.978
+IFT_H                   -0.24372    0.11534  -2.113
+Bordure_Largeur         -0.16362    0.06314  -2.592
+
+Response: entomogame_1
+                    Chisq Df Pr(>Chisq)    
+annee              3.1298  5  0.6799789    
+JulianDay          1.0233  1  0.3117306    
+RisqueDebordement  0.6296  1  0.4274891    
+exposition2        1.9814  1  0.1592435    
+TypeCulture       17.7229  2  0.0001417 ***
+IFT_H              4.4652  1  0.0345920 *  
+Bordure_Largeur    6.7161  1  0.0095548 ** 
+
+           R2m       R2c
+[1,] 0.2576498 0.6708111
+
+
+#### A.I.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H + Bordure_Largeur+ IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+mod_prat_best <- lmer(entomogame_1 ~ IFT_H + Bordure_Largeur+annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + CoefN+(1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)             -0.548490   0.121228  -4.524
+IFT_H                   -0.274801   0.111149  -2.472
+Bordure_Largeur         -0.130555   0.061838  -2.111
+annee2014               -0.048255   0.104712  -0.461
+annee2015               -0.073212   0.103813  -0.705
+annee2016                0.094324   0.105366   0.895
+annee2017                0.022876   0.105790   0.216
+annee2018               -0.007855   0.103304  -0.076
+JulianDay                0.060096   0.050588   1.188
+RisqueDebordement       -0.013947   0.082916  -0.168
+exposition2Semi ombrage  0.234604   0.210870   1.113
+TypeCultureMaraichage    0.495347   0.291042   1.702
+TypeCultureVigne         0.779653   0.281702   2.768
+CoefN                   -0.236050   0.091298  -2.585
+
+Response: entomogame_1
+                   Chisq Df Pr(>Chisq)   
+IFT_H             6.1126  1   0.013422 * 
+Bordure_Largeur   4.4573  1   0.034753 * 
+annee             3.0658  5   0.689839   
+JulianDay         1.4112  1   0.234850   
+RisqueDebordement 0.0283  1   0.866416   
+exposition2       1.2378  1   0.265901   
+TypeCulture       9.6096  2   0.008190 **
+CoefN             6.6848  1   0.009724 **
+
+           R2m       R2c
+[1,] 0.2975086 0.6703806
+
+#### A.I.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_prat_best), col.w.d_entomo_clust1, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## A.II.Cluster 2
+```{r}
+predictors_clust2 <- predictors %>% 
+  filter(clust=="2")
+```
+
+### A.II.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust2, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.14291    0.11599   1.232
+annee2014               -0.12486    0.07950  -1.571
+annee2015               -0.20433    0.08591  -2.379
+annee2016               -0.05684    0.08033  -0.708
+annee2017               -0.13149    0.08176  -1.608
+annee2018               -0.20629    0.08126  -2.539
+JulianDay               -0.10422    0.03600  -2.895
+RisqueDebordement        0.05664    0.05320   1.065
+exposition2Semi ombrage -0.12503    0.23429  -0.534
+TypeCultureMaraichage   -0.12127    0.16833  -0.720
+TypeCultureVigne         0.61834    0.12853   4.811
+
+Response: entomogame_1
+                    Chisq Df Pr(>Chisq)    
+annee              9.5876  5   0.087799 .  
+JulianDay          8.3827  1   0.003788 ** 
+RisqueDebordement  1.1333  1   0.287073    
+exposition2        0.2848  1   0.593574    
+TypeCulture       34.3778  2  3.427e-08 ***
+
+           R2m      R2c
+[1,] 0.1624614 0.544388
+
+### A.II.2. Type de production 
+
+```{r}
+mod_bio <- lmer(entomogame_1 ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +type_production + (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### A.II.3. Pratiques
+
+#### A.II.3.1. Pesticides échelle paysages
+```{r}
+mod_pest <- lmer(entomogame_1 ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_pest)
+```
+ns
+
+#### A.II.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### A.II.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+mod_prat_best <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_Herbicide2013_2019 + (1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.16550    0.11520   1.437
+annee2014               -0.12356    0.07951  -1.554
+annee2015               -0.20480    0.08591  -2.384
+annee2016               -0.05740    0.08034  -0.714
+annee2017               -0.12822    0.08177  -1.568
+annee2018               -0.20385    0.08126  -2.508
+JulianDay               -0.09441    0.03602  -2.621
+RisqueDebordement        0.05837    0.05256   1.111
+exposition2Semi ombrage -0.19416    0.23329  -0.832
+TypeCultureMaraichage   -0.25011    0.17639  -1.418
+TypeCultureVigne         0.46703    0.14498   3.221
+IFT_Herbicide2013_2019  -0.19622    0.09096  -2.157
+
+Response: entomogame_1
+                         Chisq Df Pr(>Chisq)    
+annee                   9.4290  5   0.093130 .  
+JulianDay               6.8696  1   0.008767 ** 
+RisqueDebordement       1.2332  1   0.266777    
+exposition2             0.6926  1   0.405266    
+TypeCulture            24.8360  2  4.045e-06 ***
+IFT_Herbicide2013_2019  4.6533  1   0.030993 *  
+
+           R2m       R2c
+[1,] 0.1789149 0.5464541
+
+#### A.II.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_prat_best), col.w.d_entomo_clust2, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## A.III.Cluster 3
+```{r}
+predictors_clust3 <- predictors %>% 
+  filter(clust=="3")
+```
+
+### A.III.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+ (1| code_parcelle)  , data=predictors_clust3, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.09223    0.06691  -1.378
+annee2014               -0.15852    0.06564  -2.415
+annee2015               -0.22796    0.06720  -3.392
+annee2016               -0.14172    0.06599  -2.148
+annee2017               -0.21112    0.06614  -3.192
+annee2018               -0.09476    0.06654  -1.424
+JulianDay               -0.02591    0.03467  -0.747
+RisqueDebordement        0.02341    0.04451   0.526
+exposition2Semi ombrage  0.02152    0.16390   0.131
+TypeCultureMaraichage   -0.14260    0.22624  -0.630
+TypeCultureVigne         1.04983    0.19252   5.453
+
+Response: entomogame_1
+                    Chisq Df Pr(>Chisq)    
+annee             15.7688  5   0.007536 ** 
+JulianDay          0.5587  1   0.454772    
+RisqueDebordement  0.2767  1   0.598898    
+exposition2        0.0172  1   0.895514    
+TypeCulture       30.6520  2  2.208e-07 ***
+
+            R2m       R2c
+[1,] 0.08056272 0.5228858
+
+
+### A.III.2. Type de production
+
+```{r}
+mod_bio <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production + (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bio)
+mod_bio_best <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production + (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_bio_best)
+Anova(mod_bio_best)
+r.squaredGLMM(mod_bio_best)
+```
+Fixed effects:
+                          Estimate Std. Error t value
+(Intercept)               -0.15468    0.06971  -2.219
+annee2014                 -0.15920    0.06564  -2.425
+annee2015                 -0.22897    0.06720  -3.407
+annee2016                 -0.14086    0.06599  -2.135
+annee2017                 -0.21045    0.06614  -3.182
+annee2018                 -0.09374    0.06653  -1.409
+JulianDay                 -0.02790    0.03455  -0.807
+RisqueDebordement          0.02455    0.04394   0.559
+exposition2Semi ombrage    0.02851    0.16129   0.177
+TypeCultureMaraichage     -0.17323    0.22292  -0.777
+TypeCultureVigne           1.02551    0.18957   5.410
+type_productionBiologique  0.33572    0.11615   2.890
+
+Response: entomogame_1
+                    Chisq Df Pr(>Chisq)    
+annee             15.8530  5   0.007277 ** 
+JulianDay          0.6519  1   0.419444    
+RisqueDebordement  0.3123  1   0.576286    
+exposition2        0.0313  1   0.859672    
+TypeCulture       30.5035  2  2.378e-07 ***
+type_production    8.3550  1   0.003846 ** 
+
+            R2m       R2c
+[1,] 0.09870051 0.5232306
+
+
+### A.III.3. Pratiques
+
+#### A.III.3.1. Pesticides échelle paysages
+```{r}
+mod_pest <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+vif(mod_pest)
+dredge(mod_pest)
+mod_pest_best <- lmer(entomogame_1~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_T + (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_pest_best)
+Anova(mod_pest_best)
+r.squaredGLMM(mod_pest_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.13934    0.06824  -2.042
+annee2014               -0.15957    0.06564  -2.431
+annee2015               -0.22694    0.06720  -3.377
+annee2016               -0.14204    0.06599  -2.152
+annee2017               -0.20948    0.06614  -3.167
+annee2018               -0.09175    0.06654  -1.379
+JulianDay               -0.01849    0.03465  -0.534
+RisqueDebordement        0.02963    0.04398   0.674
+exposition2Semi ombrage  0.03886    0.16135   0.241
+TypeCultureMaraichage   -0.11663    0.22279  -0.524
+TypeCultureVigne         1.18073    0.19471   6.064
+IFT_T                   -0.23389    0.08093  -2.890
+
+Response: entomogame_1
+                    Chisq Df Pr(>Chisq)    
+annee             15.7241  5   0.007677 ** 
+JulianDay          0.2847  1   0.593663    
+RisqueDebordement  0.4540  1   0.500455    
+exposition2        0.0580  1   0.809658    
+TypeCulture       37.6434  2  6.696e-09 ***
+IFT_T              8.3531  1   0.003850 ** 
+
+            R2m       R2c
+[1,] 0.09925402 0.5234185
+
+
+#### A.III.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(entomogame_1 ~ IFT_T+annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+vif(mod_bord)
+dredge(mod_bord)
+```
+ns
+
+#### A.III.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(entomogame_1 ~ IFT_T+annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_Hors_Herbicide2013_2019 + +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+vif(mod_prat) 
+dredge(mod_prat)
+mod_prat_best <- lmer(entomogame_1 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_T+ +IFT_Herbicide2013_2019+CoefN+ (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.04060    0.07129  -0.569
+annee2014               -0.16233    0.06566  -2.472
+annee2015               -0.23051    0.06721  -3.430
+annee2016               -0.14448    0.06600  -2.189
+annee2017               -0.20953    0.06614  -3.168
+annee2018               -0.09431    0.06653  -1.418
+JulianDay               -0.02124    0.03425  -0.620
+RisqueDebordement        0.03236    0.04214   0.768
+exposition2Semi ombrage  0.00216    0.15326   0.014
+TypeCultureMaraichage   -0.09358    0.21452  -0.436
+TypeCultureVigne         0.83537    0.20187   4.138
+IFT_T                   -0.18054    0.07823  -2.308
+IFT_Herbicide2013_2019   0.12331    0.04901   2.516
+CoefN                   -0.28702    0.05547  -5.175
+
+Response: entomogame_1
+                         Chisq Df Pr(>Chisq)    
+annee                  15.9631  5  0.0069503 ** 
+JulianDay               0.3846  1  0.5351610    
+RisqueDebordement       0.5899  1  0.4424422    
+exposition2             0.0002  1  0.9887564    
+TypeCulture            17.8112  2  0.0001356 ***
+IFT_T                   5.3262  1  0.0210074 *  
+IFT_Herbicide2013_2019  6.3312  1  0.0118630 *  
+CoefN                  26.7796  1   2.28e-07 ***
+
+           R2m       R2c
+[1,] 0.1507472 0.5224112
+
+
+#### A.III.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_prat_best), col.w.d_entomo_clust3, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+# B. FRic_flow
+
+## B.I.Cluster 1
+```{r}
+predictors_clust1_FRic_flow <- predictors %>% 
+  filter(clust=="1") %>% 
+  filter(FRic_flow!="NA")
+```
+
+
+### B.I.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(FRic_flow ~ annee + JulianDay^2 + RisqueDebordement +   exposition2+ TypeCulture + (1| code_parcelle)  , data=predictors_clust1_FRic_flow, REML=T,na.action="na.fail")
+vif(m0)
+summary(m0)
+Anova(m0)
+r.squaredGLMM(m0)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.11179    0.12635   0.885
+annee2014                0.06947    0.12582   0.552
+annee2015               -0.08406    0.12470  -0.674
+annee2016               -0.01380    0.12661  -0.109
+annee2017               -0.24064    0.12713  -1.893
+annee2018               -0.02416    0.12446  -0.194
+JulianDay                0.02268    0.05879   0.386
+RisqueDebordement       -0.06392    0.08336  -0.767
+exposition2Semi ombrage -0.19921    0.21685  -0.919
+TypeCultureMaraichage    0.29210    0.29690   0.984
+TypeCultureVigne        -0.07783    0.25691  -0.303
+
+Response: FRic_flow
+                   Chisq Df Pr(>Chisq)
+annee             6.7488  5     0.2400
+JulianDay         0.1489  1     0.6996
+RisqueDebordement 0.5880  1     0.4432
+exposition2       0.8439  1     0.3583
+TypeCulture       1.1429  2     0.5647
+
+            R2m       R2c
+[1,] 0.02793375 0.4549639
+
+### B.I.2. Type de production
+```{r}
+mod_bio <- lmer(FRic_flow ~annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+  type_production +(1| code_parcelle)  , data=predictors_clust1_FRic_flow, REML=T,na.action="na.fail")
+summary(mod_bio)
+Anova(mod_bio)
+r.squaredGLMM(mod_bio)
+```
+ns 
+
+### B.I.3. Pratiques
+#### B.I.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(FRic_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust1_FRic_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns 
+
+#### B.I.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(FRic_flow~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust1_FRic_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+
+#### B.I.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(FRic_flow ~annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust1_FRic_flow, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+mod_prat_best <- lmer(FRic_flow ~annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust1_FRic_flow, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                           Estimate Std. Error t value
+(Intercept)                 0.04573    0.12660   0.361
+annee2014                   0.09923    0.12347   0.804
+annee2015                  -0.03433    0.12286  -0.279
+annee2016                   0.02637    0.12446   0.212
+annee2017                  -0.22816    0.12455  -1.832
+annee2018                  -0.01223    0.12196  -0.100
+JulianDay                   0.01924    0.05781   0.333
+RisqueDebordement          -0.07105    0.08336  -0.852
+exposition2Semi ombrage    -0.21295    0.21710  -0.981
+TypeCultureMaraichage       0.29403    0.29724   0.989
+TypeCultureVigne            0.11523    0.26252   0.439
+SC_Year_Copper.compounds.1 -0.14958    0.04067  -3.678
+
+Response: FRic_flow
+                             Chisq Df Pr(>Chisq)    
+annee                       7.5042  5  0.1857596    
+JulianDay                   0.1108  1  0.7392696    
+RisqueDebordement           0.7264  1  0.3940618    
+exposition2                 0.9622  1  0.3266369    
+TypeCulture                 1.0874  2  0.5806104    
+SC_Year_Copper.compounds.1 13.5264  1  0.0002352 ***
+
+            R2m       R2c
+[1,] 0.05165736 0.4813883
+
+
+#### B.I.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_prat_best), col.w.d_FRIC_clust1, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## B.II.Cluster 2
+```{r}
+predictors_clust2_FRic_flow <- predictors %>% 
+  filter(clust=="2") %>% 
+  filter(FRic_flow!="NA")
+```
+
+### B.II.1. Temporalité et conditions parcellaires
+```{r}
+m0_best <- lmer(FRic_flow ~annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust2_FRic_flow, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.15230    0.12735   1.196
+annee2014               -0.01021    0.08592  -0.119
+annee2015                0.17517    0.09247   1.894
+annee2016                0.13003    0.08664   1.501
+annee2017                0.02187    0.08800   0.249
+annee2018                0.05900    0.08786   0.672
+JulianDay               -0.16460    0.03928  -4.190
+RisqueDebordement       -0.11587    0.05863  -1.976
+exposition2Semi ombrage  0.03760    0.25837   0.146
+TypeCultureMaraichage   -0.05884    0.18569  -0.317
+TypeCultureVigne        -0.44505    0.14181  -3.138
+
+Response: FRic_flow
+                    Chisq Df Pr(>Chisq)    
+annee              6.7292  5   0.241573    
+JulianDay         17.5563  1  2.789e-05 ***
+RisqueDebordement  3.9052  1   0.048137 *  
+exposition2        0.0212  1   0.884290    
+TypeCulture       11.5348  2   0.003128 ** 
+
+            R2m       R2c
+[1,] 0.09671078 0.5220219
+
+
+### B.II.2. Type de production 
+
+```{r}
+mod_bio <- lmer(FRic_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production  +(1| code_parcelle)  , data=predictors_clust2_FRic_flow, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+
+### B.II.3. Pratiques
+
+#### B.II.3.1. Pesticides échelle paysages
+```{r}
+mod_pays <- lmer(FRic_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture  + TypeCulture+ IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust2_FRic_flow, REML=F, na.action="na.fail")
+dredge(mod_pays)
+```
+ns
+
+#### B.II.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(FRic_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust2_FRic_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### B.II.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(FRic_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust2_FRic_flow, REML=F, na.action="na.fail")
+vif(mod_prat) 
+dredge(mod_prat)
+```
+ns
+
+#### B.II.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(m0_best), col.w.d_FRIC_clust2, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## B.III. Cluster 3
+```{r}
+predictors_clust3_FRic_flow <- predictors %>% 
+  filter(clust=="3") %>% 
+  filter(FRic_flow!="NA")
+```
+
+### B.III.1. Temporalité et conditions parcellaires
+```{r}
+m0_best <- lmer(FRic_flow ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust3_FRic_flow, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)             -0.118090   0.071202  -1.659
+annee2014                0.006979   0.073623   0.095
+annee2015                0.061026   0.074966   0.814
+annee2016                0.157188   0.073632   2.135
+annee2017                0.020824   0.073829   0.282
+annee2018                0.120683   0.074353   1.623
+JulianDay               -0.178528   0.038058  -4.691
+RisqueDebordement        0.025822   0.046399   0.557
+exposition2Semi ombrage  0.509558   0.167887   3.035
+TypeCultureMaraichage   -0.220720   0.232337  -0.950
+TypeCultureVigne         0.094575   0.196923   0.480
+
+Response: FRic_flow
+                    Chisq Df Pr(>Chisq)    
+annee              7.7404  5   0.171133    
+JulianDay         22.0046  1   2.72e-06 ***
+RisqueDebordement  0.3097  1   0.577857    
+exposition2        9.2120  1   0.002404 ** 
+TypeCulture        1.1923  2   0.550935   
+
+            R2m       R2c
+[1,] 0.04242915 0.4526212
+
+### B.III.2. Type de production
+
+```{r}
+mod_bio <- lmer(FRic_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production + (1| code_parcelle)  , data=predictors_clust3_FRic_flow, REML=F, na.action="na.fail")
+dredge(mod_bio)
+mod_bio_best <- lmer(FRic_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production + (1| code_parcelle)  , data=predictors_clust3_FRic_flow, REML=T, na.action="na.fail")
+summary(mod_bio_best)
+Anova(mod_bio_best)
+r.squaredGLMM(mod_bio_best)
+```
+Fixed effects:
+                           Estimate Std. Error t value
+(Intercept)               -0.174334   0.074211  -2.349
+annee2014                  0.006381   0.073621   0.087
+annee2015                  0.060073   0.074962   0.801
+annee2016                  0.158100   0.073628   2.147
+annee2017                  0.021666   0.073824   0.293
+annee2018                  0.121713   0.074344   1.637
+JulianDay                 -0.180944   0.037953  -4.768
+RisqueDebordement          0.025878   0.045960   0.563
+exposition2Semi ombrage    0.515688   0.165983   3.107
+TypeCultureMaraichage     -0.248665   0.229993  -1.081
+TypeCultureVigne           0.073990   0.194807   0.380
+type_productionBiologique  0.300211   0.119291   2.517
+
+Response: FRic_flow
+                    Chisq Df Pr(>Chisq)    
+annee              7.8494  5   0.164734    
+JulianDay         22.7301  1  1.864e-06 ***
+RisqueDebordement  0.3170  1   0.573403    
+exposition2        9.6527  1   0.001891 ** 
+TypeCulture        1.3695  2   0.504219    
+type_production    6.3334  1   0.011848 *
+
+           R2m       R2c
+[1,] 0.0550532 0.4529684
+
+### B.III.3. Pratiques
+
+#### B.III.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(FRic_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust3_FRic_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+
+```
+ns
+
+#### B.III.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(FRic_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust3_FRic_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+
+#### B.III.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(FRic_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust3_FRic_flow, REML=F, na.action="na.fail")
+dredge(mod_prat)
+mod_prat_best <- lmer(FRic_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+IFT_Herbicide2013_2019 + (1| code_parcelle)  , data=predictors_clust3_FDiv_flow, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)             -0.080494   0.073174  -1.100
+annee2014                0.007085   0.073632   0.096
+annee2015                0.061984   0.074974   0.827
+annee2016                0.158274   0.073641   2.149
+annee2017                0.022222   0.073839   0.301
+annee2018                0.122058   0.074360   1.641
+JulianDay               -0.178882   0.037987  -4.709
+RisqueDebordement        0.025568   0.046104   0.555
+exposition2Semi ombrage  0.504471   0.166610   3.028
+TypeCultureMaraichage   -0.298216   0.233613  -1.277
+TypeCultureVigne         0.002109   0.200452   0.011
+IFT_Herbicide2013_2019  -0.095093   0.045960  -2.069
+
+Response: FRic_flow
+                         Chisq Df Pr(>Chisq)    
+annee                   7.8292  5   0.165905    
+JulianDay              22.1745  1   2.49e-06 ***
+RisqueDebordement       0.3075  1   0.579194    
+exposition2             9.1679  1   0.002463 ** 
+TypeCulture             1.6467  2   0.438967    
+IFT_Herbicide2013_2019  4.2810  1   0.038541 *  
+
+            R2m       R2c
+[1,] 0.05151227 0.4530969
+
+#### B.III.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_prat_best), col.w.d_FRIC_clust3, zero.policy=T)
+mor
+```
+not spacially autocorrelated 
+
+# C. Species richness
+
+## C.I.Cluster 1
+```{r}
+predictors_clust1 <- predictors %>% 
+  filter(clust=="1") 
+```
+
+
+### C.I.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(rich_sp ~ annee + JulianDay^2 + RisqueDebordement +   exposition2+ TypeCulture + (1| code_parcelle)  , data=predictors_clust1, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(rich_sp ~  TypeCulture   +(1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                      Estimate Std. Error t value
+(Intercept)            -0.1144     0.2264  -0.505
+coord_y                -0.3216     0.1558  -2.064
+TypeCultureMaraichage   0.6516     0.3254   2.003
+TypeCultureVigne        0.5153     0.3044   1.693
+
+Response: rich_sp
+             Chisq Df Pr(>Chisq)  
+coord_y     4.2590  1    0.03904 *
+TypeCulture 6.1806  2    0.04549 *
+
+           R2m       R2c
+[1,] 0.1255575 0.6921988
+
+### C.I.2. Type de production
+```{r}
+mod_bio <- lmer(rich_sp ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + type_production +(1| code_parcelle)  , data=predictors_clust1, REML=T,na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### C.I.3. Pratiques
+#### C.I.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(rich_sp ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+  IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(rich_sp~   IFT_H+ (1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) -0.03925    0.27411  -0.143
+IFT_H       -0.42981    0.15785  -2.723
+
+Response: rich_sp
+       Chisq Df Pr(>Chisq)   
+IFT_H 7.4139  1   0.006472 **
+
+            R2m       R2c
+[1,] 0.07650621 0.7203336
+
+#### C.I.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(rich_sp~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(rich_sp~IFT_H + Bordure_BroyageFauchage_SansRamassage+(1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                                      Estimate Std. Error t value
+(Intercept)                           -0.08787    0.17377  -0.506
+IFT_H                                 -0.37883    0.13754  -2.754
+Bordure_BroyageFauchage_SansRamassage  0.35772    0.10734   3.333
+
+Response: rich_sp
+                                        Chisq Df Pr(>Chisq)    
+IFT_H                                  7.5862  1  0.0058817 ** 
+Bordure_BroyageFauchage_SansRamassage 11.1058  1  0.0008606 ***
+
+           R2m       R2c
+[1,] 0.1614083 0.6543951
+
+#### C.I.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(rich_sp ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+mod_prat_best <- lmer(rich_sp ~ IFT_H + Bordure_BroyageFauchage_SansRamassage+ SC_Year_Copper.compounds.1+(1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                                      Estimate Std. Error t value
+(Intercept)                           -0.11804    0.18772  -0.629
+IFT_H                                 -0.43406    0.14305  -3.034
+Bordure_BroyageFauchage_SansRamassage  0.36277    0.11092   3.270
+SC_Year_Copper.compounds.1            -0.16407    0.03506  -4.679
+
+Response: rich_sp
+                                        Chisq Df Pr(>Chisq)    
+IFT_H                                  9.2073  1   0.002410 ** 
+Bordure_BroyageFauchage_SansRamassage 10.6958  1   0.001074 ** 
+SC_Year_Copper.compounds.1            21.8973  1  2.876e-06 ***
+
+           R2m       R2c
+[1,] 0.1822141 0.6962427
+
+#### C.I.3.4. Test spatial autocorrelation
+```{r}
+
+```
+
+## C.II.Cluster 2
+```{r}
+predictors_clust2 <- predictors %>% 
+  filter(clust=="2") 
+```
+
+### C.II.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(rich_sp ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust2, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(rich_sp ~ JulianDay^2 + RisqueDebordement + (1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                  Estimate Std. Error t value
+(Intercept)        0.06787    0.14663   0.463
+JulianDay         -0.17699    0.04644  -3.811
+RisqueDebordement -0.20632    0.06285  -3.283
+coord_x            0.31910    0.10380   3.074
+
+Response: rich_sp
+                    Chisq Df Pr(>Chisq)    
+JulianDay         14.5248  1  0.0001383 ***
+RisqueDebordement 10.7759  1  0.0010283 ** 
+coord_x            9.4505  1  0.0021109 ** 
+
+           R2m       R2c
+[1,] 0.1527574 0.6236709
+
+### C.II.2. Type de production 
+
+```{r}
+mod_bio <- lmer(rich_sp ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + type_production  +(1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bio)
+summary(mod_bio)
+Anova(mod_bio)
+r.squaredGLMM(mod_bio)
+```
+Fixed effects:
+                          Estimate Std. Error t value
+(Intercept)               -0.04860    0.14176  -0.343
+JulianDay                 -0.17466    0.04579  -3.815
+RisqueDebordement         -0.22184    0.06088  -3.644
+coord_x                    0.32149    0.09816   3.275
+type_productionBiologique  0.41055    0.13688   2.999
+
+Response: rich_sp
+                    Chisq Df Pr(>Chisq)    
+JulianDay         14.5512  1  0.0001364 ***
+RisqueDebordement 13.2799  1  0.0002683 ***
+coord_x           10.7274  1  0.0010556 ** 
+type_production    8.9957  1  0.0027062 ** 
+
+
+           R2m      R2c
+[1,] 0.1836133 0.615564
+
+### C.II.3. Pratiques
+#### C.II.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(rich_sp ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(rich_sp~ + (1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+
+
+#### C.II.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(rich_sp ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(rich_sp~ + (1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+
+
+#### C.II.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(rich_sp ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture   +IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+vif(mod_prat) # je retire IFT_Biocontrole2013_2019
+dredge(mod_prat)
+mod_prat_best <- lmer(rich_sp ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture  + (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+
+#### C.II.3.4. Test spatial autocorrelation
+```{r}
+
+```
+
+## C.III.Cluster 3
+```{r}
+predictors_clust3 <- predictors %>% 
+  filter(clust=="3") 
+```
+
+### C.III.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(rich_sp ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust3, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(rich_sp ~   exposition2 + TypeCulture+JulianDay^2+(1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.11796    0.10093  -1.169
+coord_y                 -0.25870    0.09035  -2.863
+exposition2Semi ombrage  0.40946    0.15865   2.581
+TypeCultureMaraichage   -0.04236    0.21593  -0.196
+TypeCultureVigne         0.58371    0.18765   3.111
+JulianDay               -0.14165    0.03327  -4.258
+
+Response: rich_sp
+              Chisq Df Pr(>Chisq)    
+coord_y      8.1988  1   0.004192 ** 
+exposition2  6.6613  1   0.009853 ** 
+TypeCulture  9.8010  2   0.007443 ** 
+JulianDay   18.1279  1  2.066e-05 ***
+
+           R2m      R2c
+[1,] 0.1183201 0.574208
+
+
+### C.III.2. Type de production
+```{r}
+mod_bio <- lmer(rich_sp ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production + (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bio)
+mod_bio_best <- lmer(rich_sp ~   annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production  + (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_bio_best)
+Anova(mod_bio_best)
+r.squaredGLMM(mod_bio_best)
+```
+Fixed effects:
+                          Estimate Std. Error t value
+(Intercept)               -0.20557    0.11828  -1.738
+coord_y                   -0.29851    0.09488  -3.146
+exposition2Semi ombrage    0.41279    0.15298   2.698
+TypeCultureMaraichage     -0.07505    0.20847  -0.360
+TypeCultureVigne           0.55567    0.18139   3.063
+JulianDay                 -0.14233    0.03313  -4.296
+type_productionBiologique  0.44693    0.10768   4.151
+
+Response: rich_sp
+                  Chisq Df Pr(>Chisq)    
+coord_y          9.8978  1   0.001655 ** 
+exposition2      7.2810  1   0.006969 ** 
+TypeCulture      9.6607  2   0.007984 ** 
+JulianDay       18.4549  1  1.740e-05 ***
+type_production 17.2273  1  3.316e-05 ***
+
+           R2m       R2c
+[1,] 0.1628606 0.5935462
+
+### C.III.3. Pratiques
+#### C.III.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(rich_sp ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### C.III.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(rich_sp ~   annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(rich_sp~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.12666    0.09713  -1.304
+coord_y                 -0.25653    0.08825  -2.907
+exposition2Semi ombrage  0.39191    0.15813   2.478
+TypeCultureMaraichage   -0.03429    0.21499  -0.160
+TypeCultureVigne         0.59200    0.18669   3.171
+JulianDay               -0.13947    0.03324  -4.195
+Bordure_Largeur         -0.10428    0.05355  -1.947
+
+Response: rich_sp
+                  Chisq Df Pr(>Chisq)    
+coord_y          8.4500  1   0.003650 ** 
+exposition2      6.1429  1   0.013194 *  
+TypeCulture     10.1583  2   0.006225 ** 
+JulianDay       17.6017  1  2.723e-05 ***
+Bordure_Largeur  3.7915  1   0.051514 . 
+
+           R2m       R2c
+[1,] 0.1267435 0.5732796
+
+
+#### C.III.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(rich_sp ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_prat)
+mod_prat_best <- lmer(rich_sp ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                            Estimate Std. Error t value
+(Intercept)                 -0.14153    0.10879  -1.301
+coord_y                     -0.25042    0.09125  -2.744
+exposition2Semi ombrage      0.36943    0.15525   2.380
+TypeCultureMaraichage       -0.09634    0.21355  -0.451
+TypeCultureVigne             0.74430    0.22929   3.246
+JulianDay                   -0.14203    0.03319  -4.279
+Bordure_Largeur             -0.10696    0.05256  -2.035
+IFT_Hors_Herbicide2013_2019 -0.12257    0.06379  -1.921
+IFT_Herbicide2013_2019      -0.07980    0.04509  -1.770
+
+Response: rich_sp
+                              Chisq Df Pr(>Chisq)    
+coord_y                      7.5308  1   0.006065 ** 
+exposition2                  5.6625  1   0.017331 *  
+TypeCulture                 11.1190  2   0.003851 ** 
+JulianDay                   18.3126  1  1.875e-05 ***
+Bordure_Largeur              4.1408  1   0.041862 *  
+IFT_Hors_Herbicide2013_2019  3.6920  1   0.054673 .  
+IFT_Herbicide2013_2019       3.1316  1   0.076788 .  
+
+           R2m       R2c
+[1,] 0.1497582 0.5814432
+
+#### C.III.3.4. Test spatial autocorrelation
+```{r}
+
+```
+
+# D. % nature values
+
+## D.I.Cluster 1
+```{r}
+predictors_clust1 <- predictors %>% 
+  filter(clust=="1") 
+```
+
+
+### D.I.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(nat_val_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2+ TypeCulture + (1| code_parcelle)  , data=predictors_clust1, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(nat_val_100 ~  annee + JulianDay^2 + RisqueDebordement +   exposition2+ TypeCulture   +(1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.55500    0.11390   4.873
+annee2014                0.01064    0.11343   0.094
+annee2015                0.01363    0.11242   0.121
+annee2016               -0.11352    0.11411  -0.995
+annee2017               -0.11786    0.11458  -1.029
+annee2018               -0.11466    0.11163  -1.027
+JulianDay                0.03706    0.05298   0.700
+RisqueDebordement       -0.24367    0.07512  -3.244
+exposition2Semi ombrage -0.12169    0.19510  -0.624
+TypeCultureMaraichage   -0.43081    0.26771  -1.609
+TypeCultureVigne        -0.05007    0.23166  -0.216
+
+Response: nat_val_100
+                    Chisq Df Pr(>Chisq)   
+annee              3.5211  5    0.62020   
+JulianDay          0.4894  1    0.48418   
+RisqueDebordement 10.5218  1    0.00118 **
+exposition2        0.3890  1    0.53280   
+TypeCulture        2.5907  2    0.27380  
+
+
+           R2m       R2c
+[1,] 0.1074643 0.4997029
+
+
+### D.I.2. Type de production
+```{r}
+mod_bio <- lmer(nat_val_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + type_production +(1| code_parcelle)  , data=predictors_clust1, REML=T,na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### D.I.3. Pratiques
+#### D.I.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(nat_val_100 ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+  IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### D.I.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(nat_val_100~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(nat_val_100~ Bordure_Largeur+annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + (1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)              0.514256   0.111475   4.613
+Bordure_Largeur          0.149286   0.053051   2.814
+annee2014                0.002800   0.113508   0.025
+annee2015                0.001904   0.112508   0.017
+annee2016               -0.121578   0.114183  -1.065
+annee2017               -0.125989   0.114648  -1.099
+annee2018               -0.130912   0.111700  -1.172
+JulianDay                0.022751   0.052603   0.432
+RisqueDebordement       -0.217456   0.071829  -3.027
+exposition2Semi ombrage -0.138639   0.184859  -0.750
+TypeCultureMaraichage   -0.314166   0.256803  -1.223
+TypeCultureVigne        -0.077134   0.219391  -0.352
+
+Response: nat_val_100
+                   Chisq Df Pr(>Chisq)   
+Bordure_Largeur   7.9187  1   0.004893 **
+annee             3.7624  5   0.584104   
+JulianDay         0.1871  1   0.665381   
+RisqueDebordement 9.1652  1   0.002467 **
+exposition2       0.5625  1   0.453271   
+TypeCulture       1.5466  2   0.461498 
+
+         R2m       R2c
+[1,] 0.15777 0.4984401
+
+#### D.I.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(nat_val_100 ~ Bordure_Largeur + annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+```
+ns
+
+#### D.I.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_bord_best), col.w.d_natval_clust1, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## D.II.Cluster 2
+```{r}
+predictors_clust2 <- predictors %>% 
+  filter(clust=="2") 
+```
+
+### D.II.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(nat_val_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust2, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(nat_val_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.10926    0.12670  -0.862
+annee2014                0.22395    0.08687   2.578
+annee2015                0.38320    0.09387   4.082
+annee2016                0.29103    0.08778   3.315
+annee2017                0.47551    0.08934   5.323
+annee2018                0.50449    0.08879   5.682
+JulianDay                0.08535    0.03933   2.170
+RisqueDebordement       -0.07997    0.05811  -1.376
+exposition2Semi ombrage -0.05776    0.25591  -0.226
+TypeCultureMaraichage   -0.50994    0.18386  -2.774
+TypeCultureVigne        -0.22877    0.14039  -1.630
+
+Response: nat_val_100
+                    Chisq Df Pr(>Chisq)    
+annee             43.4708  5  2.966e-08 ***
+JulianDay          4.7102  1    0.02998 *  
+RisqueDebordement  1.8939  1    0.16876    
+exposition2        0.0509  1    0.82143    
+TypeCulture        7.8366  2    0.01987 * 
+
+            R2m       R2c
+[1,] 0.07064566 0.4942056
+
+### D.II.2. Type de production 
+
+```{r}
+mod_bio <- lmer(nat_val_100 ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +type_production  +(1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### D.II.3. Pratiques
+#### D.II.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(nat_val_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(nat_val_100~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_T+ (1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)             -0.188819   0.127746  -1.478
+annee2014                0.223368   0.086900   2.570
+annee2015                0.383515   0.093895   4.085
+annee2016                0.289450   0.087813   3.296
+annee2017                0.475310   0.089350   5.320
+annee2018                0.503358   0.088806   5.668
+JulianDay                0.092370   0.038869   2.376
+RisqueDebordement       -0.097680   0.057216  -1.707
+exposition2Semi ombrage  0.001587   0.250762   0.006
+TypeCultureMaraichage   -0.476503   0.179887  -2.649
+TypeCultureVigne         0.056220   0.172555   0.326
+IFT_T                   -0.149639   0.055080  -2.717
+
+Response: nat_val_100
+                    Chisq Df Pr(>Chisq)    
+annee             43.3864  5  3.085e-08 ***
+JulianDay          5.6474  1   0.017481 *  
+RisqueDebordement  2.9145  1   0.087784 .  
+exposition2        0.0000  1   0.994949    
+TypeCulture        9.4364  2   0.008931 ** 
+IFT_T              7.3808  1   0.006593 ** 
+
+
+            R2m       R2c
+[1,] 0.09497347 0.4937966
+
+#### D.II.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(nat_val_100 ~ IFT_T + annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### D.II.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(nat_val_100 ~ IFT_T +annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture  +IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+vif(mod_prat) 
+dredge(mod_prat)
+mod_prat_best <- lmer(nat_val_100 ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_T + IFT_Herbicide2013_2019  + (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.16306    0.12412  -1.314
+annee2014                0.22543    0.08660   2.603
+annee2015                0.38369    0.09355   4.101
+annee2016                0.28868    0.08750   3.299
+annee2017                0.47965    0.08902   5.388
+annee2018                0.50772    0.08847   5.739
+JulianDay                0.10586    0.03825   2.768
+RisqueDebordement       -0.09438    0.05511  -1.713
+exposition2Semi ombrage -0.06965    0.24302  -0.287
+TypeCultureMaraichage   -0.60618    0.18356  -3.302
+TypeCultureVigne        -0.10265    0.18289  -0.561
+IFT_T                   -0.14538    0.05296  -2.745
+IFT_Herbicide2013_2019  -0.19466    0.09453  -2.059
+
+Response: nat_val_100
+                         Chisq Df Pr(>Chisq)    
+annee                  44.4234  5    1.9e-08 ***
+JulianDay               7.6613  1   0.005642 ** 
+RisqueDebordement       2.9335  1   0.086761 .  
+exposition2             0.0821  1   0.774426    
+TypeCulture            12.4325  2   0.001997 ** 
+IFT_T                   7.5368  1   0.006045 ** 
+IFT_Herbicide2013_2019  4.2402  1   0.039476 *
+
+           R2m       R2c
+[1,] 0.1112875 0.4823419
+
+#### D.II.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_prat_best), col.w.d_natval_clust2, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## D.III.Cluster 3
+```{r}
+predictors_clust3 <- predictors %>% 
+  filter(clust=="3") 
+```
+
+### D.III.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(nat_val_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust3, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(nat_val_100 ~   annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture +(1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.27290    0.06977  -3.912
+annee2014                0.15831    0.07089   2.233
+annee2015                0.19858    0.07256   2.737
+annee2016                0.15485    0.07126   2.173
+annee2017                0.11468    0.07141   1.606
+annee2018                0.13428    0.07183   1.869
+JulianDay               -0.06716    0.03694  -1.818
+RisqueDebordement       -0.13316    0.04582  -2.906
+exposition2Semi ombrage  0.39639    0.16684   2.376
+TypeCultureMaraichage   -0.38295    0.23045  -1.662
+TypeCultureVigne         0.39523    0.19578   2.019
+
+Response: nat_val_100
+                   Chisq Df Pr(>Chisq)   
+annee             9.0438  5   0.107329   
+JulianDay         3.3055  1   0.069050 . 
+RisqueDebordement 8.4439  1   0.003663 **
+exposition2       5.6449  1   0.017506 * 
+TypeCulture       7.2652  2   0.026448 * 
+
+            R2m       R2c
+[1,] 0.05146949 0.4726838
+
+### D.III.2. Type de production
+
+```{r}
+mod_bio <- lmer(nat_val_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture  +type_production + (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### D.III.3. Pratiques
+#### D.III.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(nat_val_100 ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(nat_val_100~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture  + IFT_H+p_bio + (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.08157    0.07571  -1.077
+annee2014                0.15585    0.07092   2.198
+annee2015                0.19955    0.07257   2.750
+annee2016                0.15185    0.07127   2.131
+annee2017                0.11568    0.07142   1.620
+annee2018                0.13908    0.07182   1.937
+JulianDay               -0.04831    0.03657  -1.321
+RisqueDebordement       -0.13399    0.04368  -3.067
+exposition2Semi ombrage  0.31622    0.15738   2.009
+TypeCultureMaraichage   -0.40959    0.21707  -1.887
+TypeCultureVigne         0.05622    0.19385   0.290
+IFT_H                   -0.37379    0.06768  -5.523
+p_bio                   -0.13375    0.06427  -2.081
+
+Response: nat_val_100
+                    Chisq Df Pr(>Chisq)    
+annee              8.9985  5    0.10912    
+JulianDay          1.7454  1    0.18645    
+RisqueDebordement  9.4086  1    0.00216 ** 
+exposition2        4.0372  1    0.04451 *  
+TypeCulture        3.7352  2    0.15449    
+IFT_H             30.4987  1  3.341e-08 ***
+p_bio              4.3315  1    0.03741 * 
+
+           R2m       R2c
+[1,] 0.1176828 0.4744224
+
+#### D.III.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(nat_val_100 ~ IFT_H + p_bio + annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### D.III.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(nat_val_100 ~ IFT_H + p_bio + annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_prat)
+mod_prat_best <- lmer(nat_val_100 ~ IFT_H + p_bio + annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture  + IFT_H+p_bio +IFT_Herbicide2013_2019 +(1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.05508    0.07593  -0.725
+IFT_H                   -0.35889    0.06721  -5.340
+p_bio                   -0.16167    0.06455  -2.505
+annee2014                0.15685    0.07092   2.212
+annee2015                0.20075    0.07257   2.766
+annee2016                0.15326    0.07127   2.150
+annee2017                0.11739    0.07142   1.644
+annee2018                0.14036    0.07181   1.955
+JulianDay               -0.04929    0.03647  -1.352
+RisqueDebordement       -0.13634    0.04329  -3.150
+exposition2Semi ombrage  0.31378    0.15565   2.016
+TypeCultureMaraichage   -0.48955    0.21717  -2.254
+TypeCultureVigne        -0.02077    0.19427  -0.107
+IFT_Herbicide2013_2019  -0.10869    0.04439  -2.448
+
+Response: nat_val_100
+                         Chisq Df Pr(>Chisq)    
+IFT_H                  28.5156  1  9.295e-08 ***
+p_bio                   6.2729  1   0.012260 *  
+annee                   9.1148  5   0.104572    
+JulianDay               1.8268  1   0.176501    
+RisqueDebordement       9.9205  1   0.001634 ** 
+exposition2             4.0638  1   0.043813 *  
+TypeCulture             5.0910  2   0.078436 .  
+IFT_Herbicide2013_2019  5.9949  1   0.014347 *
+
+           R2m       R2c
+[1,] 0.1284753 0.4747136
+
+#### D.III.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_prat_best), col.w.d_natval_clust3, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+# E. FDiv_flow
+
+## E.I.Cluster 1
+```{r}
+predictors_clust1_FDiv_flow <- predictors %>% 
+  filter(clust=="1") %>% 
+  filter(FDiv_flow!="NA")
+```
+
+
+### E.I.1. Temporalité et conditions parcellaires
+```{r}
+m0_best <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement +   exposition2+ TypeCulture +(1| code_parcelle)  , data=predictors_clust1_FDiv_flow, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.51813    0.12025   4.309
+annee2014               -0.27302    0.15583  -1.752
+annee2015               -0.33973    0.15407  -2.205
+annee2016               -0.14610    0.15635  -0.934
+annee2017               -0.10262    0.15696  -0.654
+annee2018               -0.32810    0.15279  -2.147
+JulianDay               -0.03899    0.06200  -0.629
+RisqueDebordement        0.10908    0.05881   1.855
+exposition2Semi ombrage  0.35499    0.15091   2.352
+TypeCultureMaraichage    0.20289    0.20561   0.987
+TypeCultureVigne        -0.54578    0.17687  -3.086
+
+Response: FDiv_flow
+                    Chisq Df Pr(>Chisq)   
+annee              7.8238  5   0.166217   
+JulianDay          0.3953  1   0.529508   
+RisqueDebordement  3.4406  1   0.063613 . 
+exposition2        5.5336  1   0.018654 * 
+TypeCulture       11.3407  2   0.003447 **
+
+            R2m       R2c
+[1,] 0.08709981 0.1742701
+
+### E.I.2. Type de production
+```{r}
+mod_bio <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ type_production +(1| code_parcelle)  , data=predictors_clust1_FDiv_flow, REML=T,na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### E.I.3. Pratiques
+#### E.I.3.1. Pesticides échelle paysages
+```{r}
+mod_pays <- lmer(FDiv_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust1_FDiv_flow, REML=F, na.action="na.fail")
+dredge(mod_pays)
+mod_pays_best <- lmer(FDiv_flow~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H+(1| code_parcelle)  , data=predictors_clust1_FDiv_flow, REML=T, na.action="na.fail")
+summary(mod_pays_best)
+Anova(mod_pays_best)
+r.squaredGLMM(mod_pays_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.57858    0.12111   4.777
+annee2014               -0.27792    0.15633  -1.778
+annee2015               -0.34764    0.15454  -2.250
+annee2016               -0.14701    0.15679  -0.938
+annee2017               -0.10789    0.15740  -0.685
+annee2018               -0.33987    0.15320  -2.219
+JulianDay               -0.06835    0.06223  -1.098
+RisqueDebordement        0.10875    0.05590   1.946
+exposition2Semi ombrage  0.35091    0.14349   2.445
+TypeCultureMaraichage    0.19067    0.19545   0.976
+TypeCultureVigne        -0.44969    0.17343  -2.593
+IFT_H                    0.17479    0.07593   2.302
+
+Response: FDiv_flow
+                   Chisq Df Pr(>Chisq)  
+annee             8.1979  5    0.14566  
+JulianDay         1.2066  1    0.27201  
+RisqueDebordement 3.7853  1    0.05171 .
+exposition2       5.9804  1    0.01447 *
+TypeCulture       8.2930  2    0.01582 *
+IFT_H             5.2996  1    0.02133 *
+
+          R2m       R2c
+[1,] 0.104255 0.1665636
+
+
+#### E.I.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(FDiv_flow~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust1_FDiv_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### E.I.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H + IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust1_FDiv_flow, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+```
+ns
+
+#### E.I.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_pays_best), col.w.d_FDIV_clust1, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## E.II.Cluster 2
+```{r}
+predictors_clust2_FDiv_flow <- predictors %>% 
+  filter(clust=="2") %>% 
+  filter(FDiv_flow!="NA")
+```
+
+### E.II.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust2_FDiv_flow, REML=T,na.action="na.fail")
+vif(m0)
+summary(m0)
+Anova(m0)
+r.squaredGLMM(m0)
+```
+Fixed effects:
+                          Estimate Std. Error t value
+(Intercept)             -0.0131647  0.1180775  -0.111
+annee2014               -0.1525327  0.1104198  -1.381
+annee2015               -0.0072014  0.1184878  -0.061
+annee2016               -0.2193627  0.1112369  -1.972
+annee2017               -0.0122756  0.1125876  -0.109
+annee2018                0.0003863  0.1124065   0.003
+JulianDay               -0.0396079  0.0381958  -1.037
+RisqueDebordement       -0.0915683  0.0494581  -1.851
+exposition2Semi ombrage  0.0506439  0.2118802   0.239
+TypeCultureMaraichage   -0.0209356  0.1522173  -0.138
+TypeCultureVigne         0.0050202  0.1167946   0.043
+
+Response: FDiv_flow
+                   Chisq Df Pr(>Chisq)  
+annee             7.2605  5    0.20198  
+JulianDay         1.0753  1    0.29975  
+RisqueDebordement 3.4278  1    0.06411 .
+exposition2       0.0571  1    0.81109  
+TypeCulture       0.0336  2    0.98334  
+
+            R2m       R2c
+[1,] 0.01816794 0.2143372
+
+### E.II.2. Type de production 
+
+```{r}
+mod_bio <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ type_production  +(1| code_parcelle)  , data=predictors_clust2_FDiv_flow, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### E.II.3. Pratiques
+#### E.II.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust2_FDiv_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### E.II.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust2_FDiv_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### E.II.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust2_FDiv_flow, REML=F, na.action="na.fail")
+vif(mod_prat) 
+dredge(mod_prat)
+```
+ns
+
+#### E.II.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(m0), col.w.d_FDIV_clust2, zero.policy=T)
+mor
+```
+
+## E.III.Cluster 3
+```{r}
+predictors_clust3_FDiv_flow <- predictors %>% 
+  filter(clust=="3") %>% 
+  filter(FDiv_flow!="NA")
+```
+
+### E.III.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust3_FDiv_flow, REML=T,na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.51813    0.12025   4.309
+annee2014               -0.27302    0.15583  -1.752
+annee2015               -0.33973    0.15407  -2.205
+annee2016               -0.14610    0.15635  -0.934
+annee2017               -0.10262    0.15696  -0.654
+annee2018               -0.32810    0.15279  -2.147
+JulianDay               -0.03899    0.06200  -0.629
+RisqueDebordement        0.10908    0.05881   1.855
+exposition2Semi ombrage  0.35499    0.15091   2.352
+TypeCultureMaraichage    0.20289    0.20561   0.987
+TypeCultureVigne        -0.54578    0.17687  -3.086
+
+Response: FDiv_flow
+                    Chisq Df Pr(>Chisq)   
+annee              7.8238  5   0.166217   
+JulianDay          0.3953  1   0.529508   
+RisqueDebordement  3.4406  1   0.063613 . 
+exposition2        5.5336  1   0.018654 * 
+TypeCulture       11.3407  2   0.003447 **
+
+            R2m       R2c
+[1,] 0.08709981 0.1742701
+
+### E.III.2. Type de production
+
+```{r}
+mod_bio <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production+ (1| code_parcelle)  , data=predictors_clust3_FDiv_flow, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### E.III.3. Pratiques
+#### E.III.3.1. Pesticides échelle paysages
+```{r}
+mod_pays <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust3_FDiv_flow, REML=F, na.action="na.fail")
+dredge(mod_pays)
+mod_pays_best <- lmer(FDiv_flow~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H + (1| code_parcelle)  , data=predictors_clust3_FDiv_flow, REML=T, na.action="na.fail")
+summary(mod_pays_best)
+Anova(mod_pays_best)
+r.squaredGLMM(mod_pays_best)
+```
+Fixed effects:
+                          Estimate Std. Error t value
+(Intercept)              0.0478426  0.0762174   0.628
+annee2014                0.0399322  0.0863796   0.462
+annee2015               -0.0690140  0.0878341  -0.786
+annee2016               -0.0648477  0.0863374  -0.751
+annee2017                0.0208407  0.0864952   0.241
+annee2018               -0.1140465  0.0869452  -1.312
+JulianDay               -0.1023862  0.0398737  -2.568
+RisqueDebordement       -0.0107362  0.0396592  -0.271
+exposition2Semi ombrage  0.1150908  0.1373274   0.838
+TypeCultureMaraichage   -0.0001758  0.1913523  -0.001
+TypeCultureVigne         0.0167196  0.1679958   0.100
+IFT_H                   -0.0990547  0.0491556  -2.015
+
+Response: FDiv_flow
+                   Chisq Df Pr(>Chisq)  
+annee             4.7955  5    0.44134  
+JulianDay         6.5934  1    0.01024 *
+RisqueDebordement 0.0733  1    0.78661  
+exposition2       0.7024  1    0.40199  
+TypeCulture       0.0100  2    0.99503  
+IFT_H             4.0607  1    0.04389 *
+
+            R2m       R2c
+[1,] 0.01996947 0.2192151
+
+
+#### E.III.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust3_FDiv_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+
+#### E.III.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(FDiv_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+IFT_H +IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust3_FDiv_flow, REML=F, na.action="na.fail")
+dredge(mod_prat)
+```
+ns
+
+#### E.III.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_pays_best), col.w.d_FDIV_clust3, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+# F. % perennial
+## F.I.Cluster 1
+```{r}
+predictors_clust1 <- predictors %>% 
+  filter(clust=="1") 
+```
+
+
+### F.I.1. Temporalité et conditions parcellaires
+```{r}
+m0_best <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2+ TypeCulture +(1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)              0.437935   0.113822   3.848
+annee2014               -0.045260   0.108899  -0.416
+annee2015               -0.005888   0.107941  -0.055
+annee2016               -0.073026   0.109563  -0.667
+annee2017               -0.231391   0.110018  -2.103
+annee2018               -0.029414   0.107252  -0.274
+JulianDay                0.133399   0.051419   2.594
+RisqueDebordement       -0.324355   0.076741  -4.227
+exposition2Semi ombrage -0.071838   0.200136  -0.359
+TypeCultureMaraichage   -0.374063   0.274669  -1.362
+TypeCultureVigne        -0.053118   0.237817  -0.223
+
+Response: perennial_100
+                    Chisq Df Pr(>Chisq)    
+annee              6.0663  5   0.299817    
+JulianDay          6.7308  1   0.009476 ** 
+RisqueDebordement 17.8643  1  2.372e-05 ***
+exposition2        0.1288  1   0.719636    
+TypeCulture        1.8594  2   0.394680 
+
+          R2m       R2c
+[1,] 0.166513 0.5673023
+
+### F.I.2. Type de production
+```{r}
+mod_bio <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + type_production +(1| code_parcelle)  , data=predictors_clust1, REML=T,na.action="na.fail")
+dredge(mod_bio)
+mod_bio_best <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ type_production +(1| code_parcelle)  , data=predictors_clust1, REML=F,na.action="na.fail")
+summary(mod_bio_best)
+Anova(mod_bio_best)
+r.squaredGLMM(mod_bio_best)
+```
+ns
+
+### F.I.3. Pratiques
+#### F.I.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(perennial_100 ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+  IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### F.I.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(perennial_100~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(perennial_100~annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ Bordure_Largeur+ (1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.38987    0.11116   3.507
+annee2014               -0.05080    0.10887  -0.467
+annee2015               -0.01463    0.10792  -0.136
+annee2016               -0.07870    0.10953  -0.719
+annee2017               -0.23681    0.10998  -2.153
+annee2018               -0.04115    0.10722  -0.384
+JulianDay                0.12805    0.05104   2.509
+RisqueDebordement       -0.29769    0.07327  -4.063
+exposition2Semi ombrage -0.09480    0.18931  -0.501
+TypeCultureMaraichage   -0.24429    0.26305  -0.929
+TypeCultureVigne        -0.08160    0.22483  -0.363
+Bordure_Largeur          0.16078    0.05429   2.961
+
+Response: perennial_100
+                    Chisq Df Pr(>Chisq)    
+annee              6.0531  5   0.301091    
+JulianDay          6.2936  1   0.012118 *  
+RisqueDebordement 16.5061  1  4.849e-05 ***
+exposition2        0.2507  1   0.616548    
+TypeCulture        0.9333  2   0.627091    
+Bordure_Largeur    8.7701  1   0.003062 ** 
+
+           R2m       R2c
+[1,] 0.2261201 0.5711561
+
+#### F.I.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+Bordure_Largeur+IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+```
+ns
+
+#### F.I.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_bord_best), col.w.d_perennial_clust1, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+
+## F.II.Cluster 2
+```{r}
+predictors_clust2 <- predictors %>% 
+  filter(clust=="2") 
+```
+
+### F.II.1. Temporalité et conditions parcellaires
+```{r}
+m0_best <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture +(1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.26843    0.13408  -2.002
+annee2014                0.26866    0.07880   3.410
+annee2015                0.35725    0.08521   4.193
+annee2016                0.38156    0.07965   4.791
+annee2017                0.36964    0.08117   4.554
+annee2018                0.33463    0.08067   4.148
+JulianDay                0.34639    0.03897   8.888
+RisqueDebordement        0.05297    0.06229   0.850
+exposition2Semi ombrage  0.03381    0.27961   0.121
+TypeCultureMaraichage   -0.34136    0.20095  -1.699
+TypeCultureVigne        -0.14563    0.15327  -0.950
+
+Response: perennial_100
+                    Chisq Df Pr(>Chisq)    
+annee             32.5162  5  4.694e-06 ***
+JulianDay         79.0024  1  < 2.2e-16 ***
+RisqueDebordement  0.7232  1     0.3951    
+exposition2        0.0146  1     0.9038    
+TypeCulture        2.9169  2     0.2326  
+
+           R2m       R2c
+[1,] 0.1691099 0.6392801
+
+### F.II.2. Type de production 
+
+```{r}
+mod_bio <- lmer(perennial_100 ~annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +type_production  +(1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### F.II.3. Pratiques
+#### F.II.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+(1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)             -0.222921   0.135795  -1.642
+annee2014                0.265356   0.078581   3.377
+annee2015                0.352974   0.084986   4.153
+annee2016                0.382459   0.079417   4.816
+annee2017                0.362429   0.081005   4.474
+annee2018                0.326920   0.080518   4.060
+JulianDay                0.311302   0.042117   7.391
+RisqueDebordement        0.055035   0.062306   0.883
+exposition2Semi ombrage  0.128022   0.283222   0.452
+TypeCultureMaraichage   -0.306193   0.201736  -1.518
+TypeCultureVigne        -0.007752   0.166369  -0.047
+IFT_H                    0.201521   0.094224   2.139
+
+Response: perennial_100
+                    Chisq Df Pr(>Chisq)    
+annee             32.0161  5  5.898e-06 ***
+JulianDay         54.6313  1  1.454e-13 ***
+RisqueDebordement  0.7802  1    0.37707    
+exposition2        0.2043  1    0.65125    
+TypeCulture        2.8444  2    0.24118    
+IFT_H              4.5743  1    0.03246 *
+
+           R2m       R2c
+[1,] 0.2069652 0.6573052
+
+#### F.II.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(perennial_100~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +IFT_H +Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                               Estimate Std. Error t value
+(Intercept)                    -0.23830    0.13611  -1.751
+annee2014                       0.27187    0.07828   3.473
+annee2015                       0.36154    0.08468   4.270
+annee2016                       0.39653    0.07926   5.003
+annee2017                       0.37159    0.08073   4.603
+annee2018                       0.32670    0.08016   4.076
+JulianDay                       0.31520    0.04207   7.493
+RisqueDebordement               0.05767    0.06240   0.924
+exposition2Semi ombrage         0.12703    0.28384   0.448
+TypeCultureMaraichage          -0.29190    0.20225  -1.443
+TypeCultureVigne                0.03350    0.16752   0.200
+IFT_H                           0.21783    0.09457   2.303
+Bordure_NombreInterventionYEAR -0.07254    0.02924  -2.481
+
+Response: perennial_100
+                                 Chisq Df Pr(>Chisq)    
+annee                          33.9040  5  2.488e-06 ***
+JulianDay                      56.1377  1  6.757e-14 ***
+RisqueDebordement               0.8541  1    0.35540    
+exposition2                     0.2003  1    0.65449    
+TypeCulture                     3.0336  2    0.21942    
+IFT_H                           5.3050  1    0.02126 *  
+Bordure_NombreInterventionYEAR  6.1547  1    0.01311 * 
+
+           R2m      R2c
+[1,] 0.2102853 0.661714
+
+
+
+#### F.II.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +IFT_H +Bordure_NombreInterventionYEAR+IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+vif(mod_prat) 
+dredge(mod_prat)
+```
+ns
+
+#### F.II.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_bord_best), col.w.d_perennial_clust2, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## F.III.Cluster 3
+```{r}
+predictors_clust3 <- predictors %>% 
+  filter(clust=="3") 
+```
+
+### F.III.1. Temporalité et conditions parcellaires
+```{r}
+m0_best <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.11883    0.06290  -1.889
+annee2014                0.14319    0.06888   2.079
+annee2015                0.18864    0.07046   2.677
+annee2016                0.07905    0.06921   1.142
+annee2017                0.13601    0.06935   1.961
+annee2018                0.12776    0.06970   1.833
+JulianDay                0.15145    0.03460   4.377
+RisqueDebordement       -0.09634    0.03967  -2.429
+exposition2Semi ombrage  0.16831    0.14127   1.191
+TypeCultureMaraichage   -0.35992    0.19553  -1.841
+TypeCultureVigne         0.11422    0.16539   0.691
+
+Response: perennial_100
+                    Chisq Df Pr(>Chisq)    
+annee              8.7483  5    0.11954    
+JulianDay         19.1556  1  1.205e-05 ***
+RisqueDebordement  5.8983  1    0.01516 *  
+exposition2        1.4194  1    0.23351    
+TypeCulture        4.0340  2    0.13306  
+
+            R2m       R2c
+[1,] 0.04397975 0.3852235
+
+### F.III.2. Type de production
+
+```{r}
+mod_bio <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production + (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### F.III.3. Pratiques
+#### F.III.3.1. Pesticides échelle paysages
+```{r}
+mod_pays <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_pays)
+mod_pays_best <- lmer(perennial_100~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_T+ (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_pays_best)
+Anova(mod_pays_best)
+r.squaredGLMM(mod_pays_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.15571    0.06407  -2.430
+annee2014                0.14197    0.06890   2.061
+annee2015                0.18921    0.07047   2.685
+annee2016                0.07814    0.06923   1.129
+annee2017                0.13755    0.06936   1.983
+annee2018                0.13088    0.06971   1.877
+JulianDay                0.15981    0.03462   4.617
+RisqueDebordement       -0.09099    0.03925  -2.318
+exposition2Semi ombrage  0.18101    0.13943   1.298
+TypeCultureMaraichage   -0.34177    0.19305  -1.770
+TypeCultureVigne         0.21642    0.16773   1.290
+IFT_T                   -0.18181    0.06973  -2.607
+
+Response: perennial_100
+                    Chisq Df Pr(>Chisq)    
+annee              8.8466  5   0.115340    
+JulianDay         21.3123  1  3.902e-06 ***
+RisqueDebordement  5.3740  1   0.020439 *  
+exposition2        1.6854  1   0.194214    
+TypeCulture        5.1313  2   0.076868 .  
+IFT_T              6.7975  1   0.009129 ** 
+
+            R2m       R2c
+[1,] 0.05469231 0.3837859
+
+
+#### F.III.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_T + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+
+#### F.III.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(perennial_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_T + IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_prat)
+```
+ns
+
+#### F.III.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_pays_best), col.w.d_perennial_clust3, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+# G. % weeds
+
+## G.I.Cluster 1
+```{r}
+predictors_clust1 <- predictors %>% 
+  filter(clust=="1") 
+```
+
+
+### G.I.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2+ TypeCulture + (1| code_parcelle)  , data=predictors_clust1, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(weeds_100 ~  annee + JulianDay^2 + RisqueDebordement +   exposition2+ TypeCulture  +(1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)              0.016309   0.115320   0.141
+annee2014               -0.001529   0.107885  -0.014
+annee2015               -0.024020   0.106940  -0.225
+annee2016                0.082398   0.108547   0.759
+annee2017                0.005741   0.108999   0.053
+annee2018                0.065533   0.106296   0.617
+JulianDay                0.072456   0.051216   1.415
+RisqueDebordement        0.214733   0.078595   2.732
+exposition2Semi ombrage -0.194525   0.205484  -0.947
+TypeCultureMaraichage   -0.574314   0.282032  -2.036
+TypeCultureVigne        -0.987795   0.244264  -4.044
+
+
+Response: weeds_100
+                    Chisq Df Pr(>Chisq)    
+annee              1.5469  5   0.907590    
+JulianDay          2.0014  1   0.157153    
+RisqueDebordement  7.4646  1   0.006292 ** 
+exposition2        0.8962  1   0.343810    
+TypeCulture       18.8681  2  7.996e-05 ***
+
+           R2m       R2c
+[1,] 0.1808067 0.5927036
+
+
+### G.I.2. Type de production
+```{r}
+mod_bio <- lmer(weeds_100 ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + type_production +(1| code_parcelle)  , data=predictors_clust1, REML=T,na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### G.I.3. Pratiques
+#### G.I.3.1. Pesticides échelle paysages
+```{r}
+mod_pays <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+dredge(mod_pays)
+mod_pays_best <- lmer(weeds_100~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_T+ (1| code_parcelle)  , data=predictors_clust1, REML=T, na.action="na.fail")
+summary(mod_pays_best)
+Anova(mod_pays_best)
+r.squaredGLMM(mod_pays_best)
+```
+Fixed effects:
+                          Estimate Std. Error t value
+(Intercept)              0.1969688  0.1435172   1.372
+annee2014               -0.0050419  0.1078510  -0.047
+annee2015               -0.0289263  0.1069144  -0.271
+annee2016                0.0771407  0.1085241   0.711
+annee2017                0.0003725  0.1089790   0.003
+annee2018                0.0606996  0.1062498   0.571
+JulianDay                0.0581774  0.0514616   1.131
+RisqueDebordement        0.2426642  0.0782818   3.100
+exposition2Semi ombrage -0.1616901  0.2014135  -0.803
+TypeCultureMaraichage   -0.6985186  0.2821682  -2.476
+TypeCultureVigne        -1.2444062  0.2690239  -4.626
+IFT_T                    0.2551467  0.1231822   2.071
+
+Response: weeds_100
+                    Chisq Df Pr(>Chisq)    
+annee              1.5024  5   0.912797    
+JulianDay          1.2780  1   0.258265    
+RisqueDebordement  9.6092  1   0.001936 ** 
+exposition2        0.6445  1   0.422104    
+TypeCulture       23.9279  2   6.37e-06 ***
+IFT_T              4.2903  1   0.038331 *  
+
+           R2m       R2c
+[1,] 0.2053781 0.5939035
+
+#### G.I.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(weeds_100~ IFT_T+ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### G.I.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(weeds_100 ~ IFT_T +annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust1, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+```
+ns
+
+
+#### G.I.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_pays_best), col.w.d_weeds_clust1, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## G.II.Cluster 2
+```{r}
+predictors_clust2 <- predictors %>% 
+  filter(clust=="2") 
+```
+
+### G.II.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust2, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture +(1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)              0.180663   0.112285   1.609
+annee2014                0.007804   0.082622   0.094
+annee2015                0.018573   0.089244   0.208
+annee2016               -0.124726   0.083479  -1.494
+annee2017               -0.085296   0.084898  -1.005
+annee2018               -0.067716   0.084379  -0.803
+JulianDay                0.079364   0.035615   2.228
+RisqueDebordement       -0.031605   0.050891  -0.621
+exposition2Semi ombrage -0.006442   0.222487  -0.029
+TypeCultureMaraichage   -0.159045   0.159820  -0.995
+TypeCultureVigne        -0.659351   0.122112  -5.400
+
+Response: weeds_100
+                    Chisq Df Pr(>Chisq)    
+annee              4.6697  5    0.45750    
+JulianDay          4.9658  1    0.02585 *  
+RisqueDebordement  0.3857  1    0.53458    
+exposition2        0.0008  1    0.97690    
+TypeCulture       32.1151  2  1.062e-07 ***
+
+           R2m       R2c
+[1,] 0.1282667 0.4773558
+
+### G.II.2. Type de production 
+
+```{r}
+mod_bio <- lmer(weeds_100 ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +type_production  +(1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+
+### G.II.3. Pratiques
+#### G.II.3.1. Pesticides échelle paysages
+```{r}
+mod_pays <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_pays)
+mod_pays_best <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +p_bio+ (1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(mod_pays_best)
+Anova(mod_pays_best)
+r.squaredGLMM(mod_pays_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)              0.173123   0.110173   1.571
+annee2014                0.008549   0.082539   0.104
+annee2015                0.023341   0.089157   0.262
+annee2016               -0.124871   0.083390  -1.497
+annee2017               -0.081456   0.084804  -0.961
+annee2018               -0.066251   0.084277  -0.786
+JulianDay                0.097969   0.035775   2.738
+RisqueDebordement       -0.051195   0.050123  -1.021
+exposition2Semi ombrage -0.106324   0.219569  -0.484
+TypeCultureMaraichage   -0.141172   0.156013  -0.905
+TypeCultureVigne        -0.723394   0.121004  -5.978
+p_bio                    0.136332   0.044796   3.043
+
+Response: weeds_100
+                    Chisq Df Pr(>Chisq)    
+annee              4.7407  5   0.448338    
+JulianDay          7.4991  1   0.006173 ** 
+RisqueDebordement  1.0432  1   0.307072    
+exposition2        0.2345  1   0.628215    
+TypeCulture       39.8159  2   2.26e-09 ***
+p_bio              9.2621  1   0.002339 ** 
+
+           R2m       R2c
+[1,] 0.1511955 0.4786726
+
+#### G.II.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + p_bio + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(weeds_100~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + p_bio + Bordure_BroyageFauchage_SansRamassage+ (1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                                      Estimate Std. Error t value
+(Intercept)                            0.14866    0.10964   1.356
+annee2014                              0.01086    0.08248   0.132
+annee2015                              0.02634    0.08909   0.296
+annee2016                             -0.12283    0.08333  -1.474
+annee2017                             -0.07733    0.08475  -0.912
+annee2018                             -0.06047    0.08425  -0.718
+JulianDay                              0.10581    0.03573   2.962
+RisqueDebordement                     -0.03856    0.04988  -0.773
+exposition2Semi ombrage               -0.11610    0.21699  -0.535
+TypeCultureMaraichage                 -0.10198    0.15505  -0.658
+TypeCultureVigne                      -0.65789    0.12287  -5.354
+p_bio                                  0.11764    0.04499   2.615
+Bordure_BroyageFauchage_SansRamassage -0.10827    0.04696  -2.305
+
+Response: weeds_100
+                                        Chisq Df Pr(>Chisq)    
+annee                                  4.6466  5   0.460517    
+JulianDay                              8.7719  1   0.003059 ** 
+RisqueDebordement                      0.5977  1   0.439469    
+exposition2                            0.2863  1   0.592602    
+TypeCulture                           32.8840  2  7.233e-08 ***
+p_bio                                  6.8373  1   0.008927 ** 
+Bordure_BroyageFauchage_SansRamassage  5.3151  1   0.021141 * 
+
+           R2m       R2c
+[1,] 0.1659127 0.4818772
+
+
+#### G.II.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + p_bio + Bordure_BroyageFauchage_SansRamassage+IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust2, REML=F, na.action="na.fail")
+vif(mod_prat) # je retire IFT_Biocontrole2013_2019 et DivRot
+dredge(mod_prat)
+mod_prat_best <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + p_bio + Bordure_BroyageFauchage_SansRamassage+IFT_Herbicide2013_2019+ (1| code_parcelle)  , data=predictors_clust2, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                                       Estimate Std. Error t value
+(Intercept)                            0.131974   0.108945   1.211
+annee2014                              0.009000   0.082518   0.109
+annee2015                              0.026276   0.089120   0.295
+annee2016                             -0.122422   0.083357  -1.469
+annee2017                             -0.081466   0.084795  -0.961
+annee2018                             -0.064164   0.084284  -0.761
+JulianDay                              0.094796   0.035845   2.645
+RisqueDebordement                     -0.043243   0.049361  -0.876
+exposition2Semi ombrage               -0.057485   0.216349  -0.266
+TypeCultureMaraichage                  0.002911   0.162057   0.018
+TypeCultureVigne                      -0.537503   0.135830  -3.957
+p_bio                                  0.121502   0.044503   2.730
+Bordure_BroyageFauchage_SansRamassage -0.094090   0.046925  -2.005
+IFT_Herbicide2013_2019                 0.166868   0.084584   1.973
+
+Response: weeds_100
+                                        Chisq Df Pr(>Chisq)    
+annee                                  4.7017  5   0.453352    
+JulianDay                              6.9940  1   0.008178 ** 
+RisqueDebordement                      0.7674  1   0.381008    
+exposition2                            0.0706  1   0.790466    
+TypeCulture                           22.1303  2  1.565e-05 ***
+p_bio                                  7.4538  1   0.006330 ** 
+Bordure_BroyageFauchage_SansRamassage  4.0205  1   0.044951 *  
+IFT_Herbicide2013_2019                 3.8920  1   0.048516 *  
+
+           R2m       R2c
+[1,] 0.1776527 0.4827248
+
+#### G.II.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_bord_best), col.w.d_weeds_clust2, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## G.III.Cluster 3
+```{r}
+predictors_clust3 <- predictors %>% 
+  filter(clust=="3") 
+```
+
+### G.III.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust3, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement +   exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)              0.324541   0.069484   4.671
+annee2014               -0.083888   0.074830  -1.121
+annee2015               -0.002842   0.076557  -0.037
+annee2016               -0.070123   0.075195  -0.933
+annee2017                0.031675   0.075346   0.420
+annee2018               -0.006132   0.075739  -0.081
+JulianDay                0.100013   0.037944   2.636
+RisqueDebordement        0.030151   0.044307   0.681
+exposition2Semi ombrage  0.093025   0.158532   0.587
+TypeCultureMaraichage   -0.667864   0.219304  -3.045
+TypeCultureVigne        -1.119345   0.185696  -6.028
+
+Response: weeds_100
+                    Chisq Df Pr(>Chisq)    
+annee              3.5611  5   0.614165    
+JulianDay          6.9473  1   0.008395 ** 
+RisqueDebordement  0.4631  1   0.496179    
+exposition2        0.3443  1   0.557346    
+TypeCulture       43.5499  2  3.494e-10 ***
+
+            R2m       R2c
+[1,] 0.09259676 0.4351538
+
+### G.III.2. Type de production
+
+```{r}
+mod_bio <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + type_production + (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### G.III.3. Pratiques
+#### G.III.3.1. Pesticides échelle paysages
+```{r}
+mod_pays <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_pays_best <- lmer(weeds_100~annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H + (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_pays_best)
+Anova(mod_pays_best)
+r.squaredGLMM(mod_pays_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)              0.238650   0.076939   3.102
+annee2014               -0.082561   0.074843  -1.103
+annee2015               -0.003396   0.076565  -0.044
+annee2016               -0.069259   0.075204  -0.921
+annee2017                0.030630   0.075354   0.406
+annee2018               -0.009495   0.075752  -0.125
+JulianDay                0.091839   0.037988   2.418
+RisqueDebordement        0.026228   0.043868   0.598
+exposition2Semi ombrage  0.123965   0.157055   0.789
+TypeCultureMaraichage   -0.644056   0.216846  -2.970
+TypeCultureVigne        -0.966497   0.193150  -5.004
+IFT_H                    0.142823   0.056643   2.521
+
+Response: weeds_100
+                    Chisq Df Pr(>Chisq)    
+annee              3.3950  5    0.63934    
+JulianDay          5.8445  1    0.01563 *  
+RisqueDebordement  0.3575  1    0.54992    
+exposition2        0.6230  1    0.42993    
+TypeCulture       31.9223  2   1.17e-07 ***
+IFT_H              6.3578  1    0.01169 * 
+
+           R2m       R2c
+[1,] 0.1060318 0.4364295
+
+
+#### G.III.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord_best <- lmer(weeds_100~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H  +Bordure_BroyageFauchage_SansRamassage+ (1| code_parcelle)  , data=predictors_clust3, REML=T, na.action="na.fail")
+summary(mod_bord_best)
+Anova(mod_bord_best)
+r.squaredGLMM(mod_bord_best)
+```
+Fixed effects:
+                                       Estimate Std. Error t value
+(Intercept)                            0.225526   0.077043   2.927
+annee2014                             -0.081994   0.074846  -1.095
+annee2015                             -0.003085   0.076565  -0.040
+annee2016                             -0.069694   0.075206  -0.927
+annee2017                              0.030363   0.075355   0.403
+annee2018                             -0.010852   0.075755  -0.143
+JulianDay                              0.094530   0.037959   2.490
+RisqueDebordement                      0.029037   0.043711   0.664
+exposition2Semi ombrage                0.073183   0.158843   0.461
+TypeCultureMaraichage                 -0.582939   0.218431  -2.669
+TypeCultureVigne                      -0.900176   0.195709  -4.600
+IFT_H                                  0.157110   0.056912   2.761
+Bordure_BroyageFauchage_SansRamassage -0.091994   0.051425  -1.789
+
+Response: weeds_100
+                                        Chisq Df Pr(>Chisq)    
+annee                                  3.3680  5    0.64345    
+JulianDay                              6.2016  1    0.01276 *  
+RisqueDebordement                      0.4413  1    0.50651    
+exposition2                            0.2123  1    0.64500    
+TypeCulture                           26.1252  2  2.123e-06 ***
+IFT_H                                  7.6208  1    0.00577 ** 
+Bordure_BroyageFauchage_SansRamassage  3.2002  1    0.07363 . 
+
+           R2m      R2c
+[1,] 0.1122848 0.437524
+
+
+#### G.III.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(weeds_100 ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + IFT_H + Bordure_BroyageFauchage_SansRamassage +TypeCulture+IFT_Hors_Herbicide2013_2019  +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust3, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+```
+ns
+
+#### G.III.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_bord_best), col.w.d_weeds_clust3, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+# H. FEve_flow
+
+## H.I.Cluster 1
+```{r}
+predictors_clust1_FEve_flow <- predictors %>% 
+  filter(clust=="1") %>% 
+  filter(FEve_flow!="NA")
+```
+
+
+### H.I.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement +  exposition2+ TypeCulture + (1| code_parcelle)  , data=predictors_clust1_FEve_flow, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0)
+m0_best <- lmer(FEve_flow ~  RisqueDebordement +  exposition2+ (1| code_parcelle)  , data=predictors_clust1_FEve_flow, REML=T,na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)              0.05907    0.08251   0.716
+RisqueDebordement       -0.22043    0.07760  -2.840
+exposition2Semi ombrage -0.41728    0.20051  -2.081
+
+Response: FEve_flow
+                   Chisq Df Pr(>Chisq)   
+RisqueDebordement 8.0684  1   0.004504 **
+exposition2       4.3307  1   0.037430 *
+
+            R2m       R2c
+[1,] 0.06020508 0.2885388
+
+### H.I.2. Type de production
+```{r}
+mod_bio <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+  type_production +(1| code_parcelle)  , data=predictors_clust1_FEve_flow, REML=F,na.action="na.fail")
+dredge(mod_bio)
+mod_bio_best <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture +  type_production +(1| code_parcelle)  , data=predictors_clust1_FEve_flow, REML=T,na.action="na.fail")
+summary(mod_bio_best)
+Anova(mod_bio_best)
+r.squaredGLMM(mod_bio_best)
+```
+Fixed effects:
+                          Estimate Std. Error t value
+(Intercept)                0.07818    0.08397   0.931
+RisqueDebordement         -0.26290    0.07967  -3.300
+type_productionBiologique -0.42338    0.18530  -2.285
+
+Response: FEve_flow
+                    Chisq Df Pr(>Chisq)    
+RisqueDebordement 10.8880  1  0.0009679 ***
+type_production    5.2204  1  0.0223240 *  
+
+            R2m       R2c
+[1,] 0.06261607 0.2814367
+
+### H.I.3. Pratiques
+#### H.I.3.1. Pesticides échelle paysages
+```{r}
+mod_pays <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust1_FEve_flow, REML=F, na.action="na.fail")
+dredge(mod_pays)
+```
+ns
+
+#### H.I.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(FEve_flow~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust1_FEve_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### H.I.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(FEve_flow ~annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust1_FEve_flow, REML=F, na.action="na.fail")
+vif(mod_prat)
+dredge(mod_prat)
+```
+ns
+
+#### H.I.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(m0_best), col.w.d_FEVE_clust1, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+## H.II.Cluster 2
+```{r}
+predictors_clust2_FEve_flow <- predictors %>% 
+  filter(clust=="2") %>% 
+  filter(FEve_flow!="NA")
+```
+
+### H.II.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust2_FEve_flow, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+```
+ns
+
+### H.II.2. Type de production 
+
+```{r}
+mod_bio <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+type_production  +(1| code_parcelle)  , data=predictors_clust2_FEve_flow, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### H.II.3. Pratiques
+
+#### H.II.3.1. Pesticides échelle paysages
+```{r}
+mod_bord <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust2_FEve_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### H.II.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(FEve_flow ~annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust2_FEve_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_bord <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+Bordure_BroyageFauchage_SansRamassage+ (1| code_parcelle)  , data=predictors_clust2_FEve_flow, REML=T, na.action="na.fail")
+summary(mod_bord)
+Anova(mod_bord)
+r.squaredGLMM(mod_bord)
+```
+Fixed effects:
+                                      Estimate Std. Error t value
+(Intercept)                           -0.02241    0.04515  -0.496
+Bordure_BroyageFauchage_SansRamassage -0.14808    0.03921  -3.777
+
+Response: FEve_flow
+                                       Chisq Df Pr(>Chisq)    
+Bordure_BroyageFauchage_SansRamassage 14.264  1  0.0001589 ***
+
+            R2m       R2c
+[1,] 0.03097003 0.1863639
+
+#### H.II.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ +IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust2_FEve_flow, REML=F, na.action="na.fail")
+vif(mod_prat) 
+dredge(mod_prat)
+mod_prat_best <- lmer(FEve_flow ~annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+ Bordure_BroyageFauchage_SansRamassage +SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust2_FEve_flow, REML=T, na.action="na.fail")
+summary(mod_prat_best)
+Anova(mod_prat_best)
+r.squaredGLMM(mod_prat_best)
+```
+Fixed effects:
+                                      Estimate Std. Error t value
+(Intercept)                           -0.04809    0.04570  -1.052
+Bordure_BroyageFauchage_SansRamassage -0.16047    0.03897  -4.117
+SC_Year_Copper.compounds.1             0.06709    0.02678   2.505
+
+Response: FEve_flow
+                                        Chisq Df Pr(>Chisq)    
+Bordure_BroyageFauchage_SansRamassage 16.9533  1  3.831e-05 ***
+SC_Year_Copper.compounds.1             6.2771  1    0.01223 *  
+
+            R2m       R2c
+[1,] 0.04016452 0.1875686
+
+#### H.II.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_prat_best), col.w.d_FEVE_clust2, zero.policy=T)
+mor
+```
+not spacially autocorrelated 
+
+## H.III. Cluster 3
+```{r}
+predictors_clust3_FEve_flow <- predictors %>% 
+  filter(clust=="3") %>% 
+  filter(FEve_flow!="NA")
+```
+
+### H.III.1. Temporalité et conditions parcellaires
+```{r}
+m0 <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+(1| code_parcelle)  , data=predictors_clust3_FEve_flow, REML=F,na.action="na.fail")
+vif(m0)
+dredge(m0) 
+m0_best <- lmer(FEve_flow ~ exposition2 + (1| code_parcelle)  , data=predictors_clust3_FEve_flow, REML=T, na.action="na.fail")
+summary(m0_best)
+Anova(m0_best)
+r.squaredGLMM(m0_best)
+```
+Fixed effects:
+                         Estimate Std. Error t value
+(Intercept)             -0.001774   0.038852  -0.046
+exposition2Semi ombrage  0.297726   0.129438   2.300
+
+Response: FEve_flow
+             Chisq Df Pr(>Chisq)  
+exposition2 5.2907  1    0.02144 *
+
+             R2m       R2c
+[1,] 0.007091048 0.1588136
+
+### H.III.2. Type de production
+
+```{r}
+mod_bio <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + type_production + (1| code_parcelle)  , data=predictors_clust3_FEve_flow, REML=F, na.action="na.fail")
+dredge(mod_bio)
+```
+ns
+
+### H.III.3. Pratiques
+
+#### H.III.3.1. Pesticides échelle paysages
+```{r}
+mod_pays <- lmer(FEve_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_H+ IFT_T+p_bio+ (1| code_parcelle)  , data=predictors_clust3_FEve_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+mod_pays_best <- lmer(FEve_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + IFT_T+ (1| code_parcelle)  , data=predictors_clust3_FEve_flow, REML=T, na.action="na.fail")
+summary(mod_pays_best)
+Anova(mod_pays_best)
+r.squaredGLMM(mod_pays_best)
+```
+Fixed effects:
+                        Estimate Std. Error t value
+(Intercept)             -0.02759    0.03938  -0.701
+exposition2Semi ombrage  0.30264    0.12762   2.371
+IFT_T                   -0.17471    0.06209  -2.814
+
+Response: FEve_flow
+             Chisq Df Pr(>Chisq)   
+exposition2 5.6236  1   0.017721 * 
+IFT_T       7.9173  1   0.004897 **
+
+            R2m       R2c
+[1,] 0.01755269 0.1603819
+
+
+#### H.III.3.2. Pratiques de gestion de la bordure
+```{r}
+mod_bord <- lmer(FEve_flow ~  annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture + Bordure_Largeur+Bordure_BroyageFauchage_ramassage+ Bordure_BroyageFauchage_SansRamassage+Bordure_NombreInterventionYEAR+ (1| code_parcelle)  , data=predictors_clust3_FEve_flow, REML=F, na.action="na.fail")
+dredge(mod_bord)
+```
+ns
+
+#### H.III.3.3. Pratiques intra-parcellaires
+```{r}
+mod_prat <- lmer(FEve_flow ~ annee + JulianDay^2 + RisqueDebordement + exposition2 + TypeCulture+IFT_Hors_Herbicide2013_2019 +IFT_Herbicide2013_2019+DivRotation+CoefN+SC_Year_Copper.compounds.1+ (1| code_parcelle)  , data=predictors_clust3_FEve_flow, REML=F, na.action="na.fail")
+dredge(mod_prat)
+```
+ns
+
+#### H.III.3.4. Test spatial autocorrelation
+```{r}
+mor=moran.test(resid(mod_pays_best), col.w.d_FEVE_clust3, zero.policy=T)
+mor
+```
+not spacially autocorrelated
+
+
+
+```{r}
+var1 <- predictors_clust1 %>% 
+  dplyr::select(id_parcelle,entomogame_1,perennial_100,nat_val_100,FRic_flow,FDiv_flow,weeds_100) %>% 
+  group_by(id_parcelle) %>% 
+  summarise_all(mean) %>% 
+  dplyr::select(-id_parcelle)
+
+var2 <- predictors_clust2 %>% 
+  dplyr::select(id_parcelle,entomogame_1,perennial_100,nat_val_100,FRic_flow,FDiv_flow,weeds_100)%>% 
+  group_by(id_parcelle) %>% 
+  summarise_all(mean)%>% 
+  dplyr::select(-id_parcelle)
+
+var3 <- predictors_clust3 %>% 
+  dplyr::select(id_parcelle,entomogame_1,perennial_100,nat_val_100,FRic_flow,FDiv_flow,weeds_100)%>% 
+  group_by(id_parcelle) %>% 
+  summarise_all(mean)%>% 
+  dplyr::select(-id_parcelle)
+
+library(psych)
+
+cor <- corr.test(var3,var3,use="pairwise",method="pearson",adjust="bonferroni")
+cor$p.adj
+cor$r
+```
+clust1
+
+cor$p.adj
+              entomogame_1 perennial_100  nat_val_100 FRic_flow FDiv_flow weeds_100
+entomogame_1   0.000000000  1.093547e-01 4.744488e-03 1.0000000 1.0000000 1.0000000
+perennial_100  0.109354672  0.000000e+00 3.221843e-12 1.0000000 1.0000000 0.5551021
+nat_val_100    0.004744488  3.221843e-12 0.000000e+00 1.0000000 1.0000000 0.3905467
+FRic_flow      1.000000000  1.000000e+00 1.000000e+00 0.0000000 0.1754519 1.0000000
+FDiv_flow      1.000000000  1.000000e+00 1.000000e+00 0.1754519 0.0000000 1.0000000
+weeds_100      1.000000000  5.551021e-01 3.905467e-01 1.0000000 1.0000000 0.0000000
+
+cor$r
+              entomogame_1 perennial_100 nat_val_100   FRic_flow   FDiv_flow   weeds_100
+entomogame_1     1.0000000   -0.33779496 -0.42726467  0.12441126 -0.13932579 -0.24447888
+perennial_100   -0.3377950    1.00000000  0.73163407 -0.09256718 -0.02343594 -0.27882333
+nat_val_100     -0.4272647    0.73163407  1.00000000  0.06832332  0.18438082 -0.29261047
+FRic_flow        0.1244113   -0.09256718  0.06832332  1.00000000  0.32390991  0.19419198
+FDiv_flow       -0.1393258   -0.02343594  0.18438082  0.32390991  1.00000000 -0.03665187
+weeds_100       -0.2444789   -0.27882333 -0.29261047  0.19419198 -0.03665187  1.00000000
+
+
+clust2
+
+cor$p.adj
+              entomogame_1 perennial_100  nat_val_100 FRic_flow  FDiv_flow weeds_100
+entomogame_1    0.00000000  1.000000e+00 1.000000e+00 1.0000000 0.03764744 0.2151854
+perennial_100   1.00000000  0.000000e+00 1.344636e-08 1.0000000 0.62404261 1.0000000
+nat_val_100     1.00000000  1.344636e-08 0.000000e+00 0.2308688 1.00000000 0.7886601
+FRic_flow       1.00000000  1.000000e+00 2.308688e-01 0.0000000 1.00000000 1.0000000
+FDiv_flow       0.03764744  6.240426e-01 1.000000e+00 1.0000000 0.00000000 1.0000000
+weeds_100       0.21518539  1.000000e+00 7.886601e-01 1.0000000 1.00000000 0.0000000
+
+cor$r
+              entomogame_1 perennial_100 nat_val_100   FRic_flow  FDiv_flow  weeds_100
+entomogame_1    1.00000000     0.1176417  -0.1227756  0.09475527 -0.2722674 -0.2257283
+perennial_100   0.11764172     1.0000000   0.4876739 -0.15523180 -0.1994385 -0.1633765
+nat_val_100    -0.12277555     0.4876739   1.0000000  0.22774954 -0.0531789 -0.1889456
+FRic_flow       0.09475527    -0.1552318   0.2277495  1.00000000 -0.1286516  0.1473318
+FDiv_flow      -0.27226741    -0.1994385  -0.0531789 -0.12865160  1.0000000  0.1042108
+weeds_100      -0.22572833    -0.1633765  -0.1889456  0.14733177  0.1042108  1.0000000
+
+
+clust3
+
+
+cor$p.adj
+              entomogame_1 perennial_100  nat_val_100  FRic_flow FDiv_flow    weeds_100
+entomogame_1    0.00000000  1.000000e+00 1.000000e+00 0.01583413  1.000000 1.000000e+00
+perennial_100   1.00000000  0.000000e+00 8.159488e-21 0.06494339  0.172363 3.514626e-05
+nat_val_100     1.00000000  8.159488e-21 0.000000e+00 1.00000000  1.000000 2.207228e-16
+FRic_flow       0.01583413  6.494339e-02 1.000000e+00 0.00000000  1.000000 1.000000e+00
+FDiv_flow       1.00000000  1.723630e-01 1.000000e+00 1.00000000  0.000000 1.000000e+00
+weeds_100       1.00000000  3.514626e-05 2.207228e-16 1.00000000  1.000000 0.000000e+00
+
+cor$r
+              entomogame_1 perennial_100 nat_val_100   FRic_flow   FDiv_flow   weeds_100
+entomogame_1    1.00000000   -0.02589439  -0.1342926  0.22941900 -0.13727858 -0.08735854
+perennial_100  -0.02589439    1.00000000   0.5772802 -0.20426829 -0.18500493 -0.31237286
+nat_val_100    -0.13429255    0.57728023   1.0000000  0.10311404  0.13446366 -0.52257523
+FRic_flow       0.22941900   -0.20426829   0.1031140  1.00000000  0.01472563  0.04053339
+FDiv_flow      -0.13727858   -0.18500493   0.1344637  0.01472563  1.00000000 -0.01119413
+weeds_100      -0.08735854   -0.31237286  -0.5225752  0.04053339 -0.01119413  1.00000000

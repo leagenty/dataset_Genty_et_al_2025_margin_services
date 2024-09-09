@@ -1,0 +1,72 @@
+---
+title: "2024-02-13_fusion_all_dataset"
+author: "Léa Genty"
+date: "2024-02-13"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+# 1. Opening and joining data
+```{r}
+bio <- read.csv(file="5. Models_par_clusters_pedoclimatiques/5.1. Fusion/Raw/dea_type_prod_traite_Lea.csv",sep=";") %>% 
+  mutate(type_production=as.factor(type_production)) 
+
+clust <- read.csv(file="5. Models_par_clusters_pedoclimatiques/5.1. Fusion/Raw/cluster_number2.csv",sep=",") %>% 
+  dplyr::select(-X) %>% 
+  mutate(clust=as.factor(clust))
+
+ferti <-  read_delim(file="5. Models_par_clusters_pedoclimatiques/5.1. Fusion/Raw/TableFinalPlante2.csv",sep=";") %>%  
+  dplyr::select(id_parcelle,CoefN) %>% 
+  group_by(id_parcelle) %>% 
+  summarise_all(mean)
+
+
+solagro <- read.csv(file="5. Models_par_clusters_pedoclimatiques/5.1. Fusion/Raw/parcelle_adonis.csv",sep=";") %>% 
+  dplyr::select(ID_Parcelle,IFT_H,IFT_T,p_bio) %>% 
+  rename(id_parcelle=ID_Parcelle)
+
+
+indicbiodiv <- read.csv(file="5. Models_par_clusters_pedoclimatiques/5.1. Fusion/Raw/indicateurs_biodiversite.csv",sep=",")
+
+agroenvi <- read.csv(file="5. Models_par_clusters_pedoclimatiques/5.1. Fusion/Raw/var_agroenvi_input.csv",sep=",") %>% 
+  dplyr::select(-X)
+
+data_ENI <- read_delim(file="5. Models_par_clusters_pedoclimatiques/5.1. Fusion/Raw/data_500ENI_traits_floraux.csv") %>% 
+  dplyr::select(-...1,-CoefN,-CoefK,-CoefP) %>% 
+  rename(FRic_flow=FRic,FDiv_flow=FDiv,FEve_flow=FEve) %>% 
+  dplyr::select(-FDis,-RaoQ,-nbsp,-Soil_Sand_content,-Soil_Silt_content,-Soil_Clay_content,-Soil_Nitrogen,-Soil_CEC,-Soil_organic_carbon_content,-Soil_Ph_h2o,-Soil_Bulk_density,-xPCA_pays, -ShannonCultureTOT, -Bordure_Adj_BandeHerbeuse, -Bordure_Adj_Zone_humide, -Bordure_Adj_Prairie, -Bordure_Adj_Autres,-Bordure_Adj_HaieBois,-Bordure_Adj_BatiRoute,-Bordure_Adj_Culture) %>% 
+  left_join(bio) %>% 
+  left_join(clust) %>% 
+    left_join(ferti) %>% 
+  left_join(solagro) %>% 
+  left_join(indicbiodiv) %>% 
+  left_join(agroenvi) %>% 
+  filter(CoefN!="NA")
+
+```
+
+# 2. Select variables 
+```{r}
+coord_clust <- data_ENI %>% 
+  dplyr::select(id_parcelle,TypeCulture,region_biogeo,clust,code_postal,coord_x,coord_y) %>% 
+  distinct()
+  
+
+dataset_500_ENI_Lea <- data_ENI %>% 
+    mutate(annee=as.factor(annee)) %>% 
+  dplyr::select(id_parcelle,id_parc_an,annee, type_production,RegionAgricole,region_biogeo,TypeCulture,clust,FRic_flow,FEve_flow, FDiv_flow, entomogame_1,Flow_dur,Flow_on,nectar_present_1, zygomorphe_1,forbs_100 ,perennial_100,neophytes_100 , messicole_100, nat_val_100, weeds_100,rich_sp,  shannon, nb_hill, FRic, FEve, FDiv, nbsp, JulianDay , RisqueDebordement , coord_x , coord_y , exposition2,code_parcelle,Bordure_Largeur,Bordure_BroyageFauchage_ramassage, Bordure_BroyageFauchage_SansRamassage,Bordure_NombreInterventionYEAR,IFT_Herbicide2013_2019,IFT_Biocontrole2013_2019,IFT_Hors_Herbicide2013_2019,DivRotation,SC_Year_Copper.compounds.1,CoefN, IFT_H,IFT_T,p_bio,Soil_Sand_content,Soil_Silt_content,Soil_Clay_content,Soil_Nitrogen,Soil_CEC,Soil_organic_carbon_content,Soil_Ph_h2o,Soil_Bulk_density,xPCA_pays, ShannonCultureTOT, Bordure_Adj_BandeHerbeuse, Bordure_Adj_Zone_humide, Bordure_Adj_Prairie, Bordure_Adj_Autres,Bordure_Adj_HaieBois,Bordure_Adj_BatiRoute,Bordure_Adj_Culture,temp_moy_an,temp_range_an,precip_an, precip_season) 
+```
+
+# 3. Save complete dataset
+```{r}
+#write.csv(dataset_500_ENI_Lea, file="G:/Scripts_data_postdoc/5. Models_par_clusters_pedoclimatiques/5.1. Fusion/Processed/dataset_500_ENI_Lea.csv")
+
+#write.csv(coord_clust, file="G:/Scripts_data_postdoc/5. Models_par_clusters_pedoclimatiques/5.1. Fusion/Processed/coord_clust.csv")
+```
+

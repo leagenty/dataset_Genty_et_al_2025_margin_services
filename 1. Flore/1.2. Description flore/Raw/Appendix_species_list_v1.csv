@@ -1,0 +1,714 @@
+ID_ENI;NOM_SCIENTIFIQUE;ID_TaxRef;Family;Taxa name;RED LIST STATUS FR;POP. TREND;PN;Messicole;Agrotolerance;Native_Status;Residence_Time;Naturalization status;Chorology;FM Type;IndVal;P-value;Rank
+Abies;#N/A;188665;Pinaceae;Abies Mill., 1754;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Acer campestre;Acer campestre L.;79734;Sapindaceae;Acer campestre L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,4;;species
+Acer pseudoplatanus;Acer pseudoplatanus L.;79783;Sapindaceae;Acer pseudoplatanus L., 1753;LC;Stable;-;-;;Native;-;-;european;4;3,4;;species
+Achillea ligustica;Achillea ligustica All.;79903;Asteraceae;Achillea ligustica All., 1773;LC;Not_known;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Achillea millefolium;Achillea millefolium L.;79908;Asteraceae;Achillea millefolium L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;8,5;;species
+Aegilops geniculata;Aegilops geniculata Roth;80278;Poaceae;Aegilops geniculata Roth, 1797;LC;Not_known;-;-;;Native;-;-;subtropical;7;14,4;***;species
+Buglossoides purpurocaerulea;Buglossoides purpurocaerulea (L.) I.M.Johnst.;80317;Boraginaceae;Aegonychon purpurocaeruleum (L.) Holub, 1973;LC;Decrease;-;-;;Native;-;-;european;6;1,5;;species
+Aegopodium podagraria;Aegopodium podagraria L.;80322;Apiaceae;Aegopodium podagraria L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;10,3;***;species
+Aethusa cynapium;Aethusa cynapium L.;80358;Apiaceae;Aethusa cynapium L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;1;2,4;;species
+Agrimonia eupatoria;Agrimonia eupatoria L.;80410;Rosaceae;Agrimonia eupatoria L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;8,9;**;species
+Agrostemma githago;Agrostemma githago L. ;80546;Caryophyllaceae;Agrostemma githago L., 1753;LC;Decrease;-;messicole;;Alien;Archaeophyt;Naturalized;introduced;5;1;;species
+Agrostis canina;Agrostis canina L. ;80590;Poaceae;Agrostis canina L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;1;1,3;;species
+Agrostis capillaris;Agrostis capillaris L. ;80591;Poaceae;Agrostis capillaris L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;6;15,2;***;species
+Agrostis curtisii;Agrostis curtisii KerguÇlen;80605;Poaceae;Agrostis curtisii KerguÇlen, 1976;LC;Stable;-;-;;Native;-;-;atlantic;6;1,5;;species
+Agrostis gigantea;Agrostis gigantea Roth;80639;Poaceae;Agrostis gigantea Roth, 1788;LC;Stable;-;-;;Native;-;-;holarctic;6;3;*;species
+Agrostis stolonifera;Agrostis stolonifera L. ;80759;Poaceae;Agrostis stolonifera L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;6;17,2;***;species
+Aira caryophyllea;Aira caryophyllea L.;80857;Poaceae;Aira caryophyllea L., 1753;LC;Stable;-;-;;Native;-;-;european;6;3,3;;species
+Aira cupaniana;Aira cupaniana Guss. ;80864;Poaceae;Aira cupaniana Guss., 1843;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Ajuga reptans;Ajuga reptans L.;80990;Lamiaceae;Ajuga reptans L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;2;1,3;;species
+Alchemilla;#N/A;188940;Rosaceae;Alchemilla L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Alliaria petiolata;Alliaria petiolata (M.Bieb.) Cavara & Grande;81295;Brassicaceae;Alliaria petiolata (M.Bieb.) Cavara & Grande, 1913;LC;Increase;-;-;;Native;-;-;eurasiatic;3;1,9;;species
+Allium oleraceum;Allium oleraceum L. ;81457;Amaryllidaceae;Allium oleraceum L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Allium polyanthum;Allium polyanthum Schult. & Schult.f.;81479;Amaryllidaceae;Allium polyanthum Schult. & Schult.f., 1830;LC;Stable;-;-;;Native;-;-;mediterranean;7;6,4;**;species
+Allium porrum;Allium porrum L.;81483;Amaryllidaceae;Allium porrum L., 1753;NA;NA;-;-;;Alien;Neophyt;Casual;introduced;7;4,3;*;species
+Allium roseum;Allium roseum L.;81499;Amaryllidaceae;Allium roseum L., 1753;LC;Decrease;-;messicole;;Native;-;-;mediterranean;7;2,1;;species
+Allium rotundum;Allium rotundum L.;81501;Amaryllidaceae;Allium rotundum L., 1762;LC;Decrease;-;-;;Native;-;-;european;2;1;;species
+Allium sphaerocephalon;Allium sphaerocephalon L. ;81520;Amaryllidaceae;Allium sphaerocephalon L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;1,4;;species
+Allium triquetrum;Allium triquetrum L.;81538;Amaryllidaceae;Allium triquetrum L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Allium vineale;Allium vineale L.;81544;Amaryllidaceae;Allium vineale L., 1753;LC;Stable;-;-;;Native;-;-;european;1;2,3;;species
+Alopecurus geniculatus;Alopecurus geniculatus L.;81637;Poaceae;Alopecurus geniculatus L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;5;2,4;;species
+Alopecurus myosuroides;Alopecurus myosuroides Huds.;81648;Poaceae;Alopecurus myosuroides Huds., 1762;LC;Not_known;-;messicole;agrotolerant;Alien;Archaeophyt;Naturalized;introduced;1;11,5;**;species
+Alopecurus pratensis;Alopecurus pratensis L. ;81656;Poaceae;Alopecurus pratensis L., 1753;LC;Decrease;-;-;;Native;-;-;eurasiatic;4;6,2;*;species
+Althaea cannabina;Althaea cannabina L.;81837;Malvaceae;Althaea cannabina L., 1753;LC;Decrease;-;-;;Native;-;-;european;5;1,4;;species
+Althaea officinalis;Althaea officinalis L.;81856;Malvaceae;Althaea officinalis L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;6;3;*;species
+Alyssum alyssoides;Alyssum alyssoides (L.) L.;81878;Brassicaceae;Alyssum alyssoides (L.) L., 1759;LC;Not_known;-;-;;Native;-;-;eurasiatic;7;2,1;;species
+Amaranthus albus;Amaranthus albus L.;81955;Amaranthaceae;Amaranthus albus L., 1759;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;6;1;;species
+Amaranthus deflexus;Amaranthus deflexus L.;81978;Amaranthaceae;Amaranthus deflexus L., 1771;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;1;0,8;;species
+Amaranthus hybridus;Amaranthus hybridus L. ;81992;Amaranthaceae;Amaranthus hybridus L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;5;1,7;;species
+Amaranthus retroflexus;Amaranthus retroflexus L.;82018;Amaranthaceae;Amaranthus retroflexus L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;5;4,7;*;species
+Ambrosia artemisiifolia;Ambrosia artemisiifolia L.;82080;Asteraceae;Ambrosia artemisiifolia L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;1;5,3;*;species
+Ammi majus;Ammi majus L. ;82130;Apiaceae;Ammi majus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;1;0,6;;species
+Anacamptis pyramidalis;Anacamptis pyramidalis (L.) Rich.;82288;Orchidaceae;Anacamptis pyramidalis (L.) Rich., 1817;LC;Stable;-;-;;Native;-;-;european;1;0,5;;species
+Andryala integrifolia;Andryala integrifolia L.;82562;Asteraceae;Andryala integrifolia L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;8,5;**;species
+Angelica sylvestris;Angelica sylvestris L. ;82738;Apiaceae;Angelica sylvestris L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;2,9;;species
+Anisantha diandra;Anisantha diandra (Roth) Tutin ex Tzvelev;82750;Poaceae;Anisantha diandra (Roth) Tutin ex Tzvelev, 1963;LC;Not_known;-;-;;Native;-;-;european;7;18,7;***;species
+Anisantha madritensis;Anisantha madritensis (L.) Nevski;82753;Poaceae;Anisantha madritensis (L.) Nevski, 1934;LC;Increase;-;-;;Native;-;-;mediterranean;7;43;***;species
+Anisantha rubens;Anisantha rubens (L.) Nevski;82756;Poaceae;Anisantha rubens (L.) Nevski, 1934;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Anisantha sterilis;Anisantha sterilis (L.) Nevski;82757;Poaceae;Anisantha sterilis (L.) Nevski, 1934;LC;Stable;-;-;agrotolerant;Native;-;-;eurasiatic;4;22,7;***;species
+Anisantha tectorum;Anisantha tectorum (L.) Nevski;82758;Poaceae;Anisantha tectorum (L.) Nevski, 1934;LC;Decrease;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Anthemis arvensis;Anthemis arvensis L.;82817;Asteraceae;Anthemis arvensis L., 1753;LC;Decrease;-;-;;Native;-;-;eurasiatic;7;12;***;species
+Anthemis cotula;Anthemis cotula L.;82833;Asteraceae;Anthemis cotula L., 1753;LC;Not_known;-;messicole;;Native;-;-;eurasiatic;6;5,8;**;species
+Anthoxanthum odoratum;Anthoxanthum odoratum L. ;82922;Poaceae;Anthoxanthum odoratum L., 1753;LC;Not_known;-;-;;Native;-;-;holarctic;6;11,4;***;species
+Anthriscus caucalis;Anthriscus caucalis M.Bieb.;82931;Apiaceae;Anthriscus caucalis M.Bieb., 1808;LC;Not_known;-;-;;Native;-;-;eurasiatic;1;2,3;;species
+Anthriscus sylvestris;Anthriscus sylvestris (L.) Hoffm.;82952;Apiaceae;Anthriscus sylvestris (L.) Hoffm., 1814;LC;Stable;-;-;;Native;-;-;eurasiatic;4;15;***;species
+Hymenocarpos circinnatus;Anthyllis circinnata (L.) D.D.Sokoloff;717086;Fabaceae;Anthyllis circinnata (L.) D.D.Sokoloff, 2003;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Apera spica-venti;Apera spica-venti (L.) P.Beauv.;83156;Poaceae;Apera spica-venti (L.) P.Beauv., 1812;LC;Stable;-;messicole;;Alien;Archaeophyt;Naturalized;introduced;4;6,6;**;species
+Aphanes arvensis;Aphanes arvensis L.;83159;Rosaceae;Aphanes arvensis L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;european;4;9,4;***;species
+Arabidopsis;#N/A;189375;Brassicaceae;Arabidopsis Heynh., 1842;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Arabis hirsuta;Arabis hirsuta (L.) Scop.;83332;Brassicaceae;Arabis hirsuta (L.) Scop., 1772;LC;Stable;-;-;;Native;-;-;holarctic;5;1,4;;species
+Arctium lappa;Arctium lappa L.;83499;Asteraceae;Arctium lappa L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Arctium minus;Arctium minus (Hill) Bernh.;83502;Asteraceae;Arctium minus (Hill) Bernh., 1800;LC;Stable;-;-;;Native;-;-;european;2;5,1;;species
+ARENARIA LEPTOCLADOS;Arenaria leptoclados (Rchb.) Guss.;83596;Caryophyllaceae;Arenaria leptoclados (Rchb.) Guss., 1844;LC;Stable;-;-;;Native;-;-;holarctic;7;8,5;***;species
+Arenaria serpyllifolia;Arenaria serpyllifolia L.;83653;Caryophyllaceae;Arenaria serpyllifolia L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;4;1;;species
+Argentina anserina;Argentina anserina (L.) Rydb.;83714;Rosaceae;Argentina anserina (L.) Rydb., 1899;LC;Not_known;-;-;;Native;-;-;holarctic;5;2,5;;species
+Arisarum vulgare;Arisarum vulgare O.Targ.Tozz.;83755;Araceae;Arisarum vulgare O.Targ.Tozz., 1810;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Aristolochia clematitis;Aristolochia clematitis L.;83777;Aristolochiaceae;Aristolochia clematitis L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Arrhenatherum elatius subsp. bulbosum;Arrhenatherum elatius (L.) P.Beauv. ex J.Presl & C.Presl ;131692;Poaceae;Arrhenatherum elatius subsp. bulbosum (Willd.) SchÅbl. & G.Martens, 1834;LC;Stable;-;messicole;;Alien;Archaeophyt;Naturalized;introduced;4;30,7;***;subsp
+Arrhenatherum elatius subsp. elatius;Arrhenatherum elatius (L.) P.Beauv. ex J.Presl & C.Presl ;131693;Poaceae;Arrhenatherum elatius subsp. elatius (L.) P.Beauv. ex J.Presl & C.Presl, 1819;LC;Not_known;-;-;;Native;-;-;european;4;23,7;***;subsp
+Artemisia verlotiorum;Artemisia verlotiorum Lamotte;84057;Asteraceae;Artemisia verlotiorum Lamotte, 1877;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;7;2,1;;species
+Artemisia vulgaris;Artemisia vulgaris L.;84061;Asteraceae;Artemisia vulgaris L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;11,4;**;species
+Arum italicum;Arum italicum Mill.;84110;Araceae;Arum italicum Mill., 1768;LC;Not_known;-;-;;Native;-;-;mediterranean;5;2,2;;species
+Arum maculatum;Arum maculatum L.;84112;Araceae;Arum maculatum L., 1753;LC;Not_known;-;-;;Native;-;-;european;5;0,9;;species
+Asparagus acutifolius;Asparagus acutifolius L.;84264;Asparagaceae;Asparagus acutifolius L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Asparagus officinalis;Asparagus officinalis L.;84279;Asparagaceae;Asparagus officinalis L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,9;;species
+Asperula;#N/A;189539;Rubiaceae;Asperula L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Aster;#N/A;189558;Asparagaceae;Aster L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+ASTRAGALUS HAMOSUS;Astragalus hamosus L.;84846;Fabaceae;Astragalus hamosus L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Atocion armeria;Atocion armeria (L.) Raf.;85017;Caryophyllaceae;Atocion armeria (L.) Raf., 1840;LC;Stable;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Atriplex patula;Atriplex patula L. ;85102;Amaranthaceae;Atriplex patula L., 1753;LC;Not_known;-;-;;Native;-;-;circumboreal;4;3;;species
+Atriplex prostrata;Atriplex prostrata Boucher ex DC.;85112;Amaranthaceae;Atriplex prostrata Boucher ex DC., 1805;LC;Stable;-;-;;Native;-;-;circumboreal;2;1;;species
+Avena barbata;Avena barbata Pott ex Link;85208;Poaceae;Avena barbata Pott ex Link, 1799;LC;Not_known;-;-;;Native;-;-;cosmopolit;7;75,6;***;species
+Avena sativa gpe;Avena fatua L.;85250;Poaceae;Avena fatua L., 1753;LC;Not_known;-;-;;Alien;Archaeophyt;Naturalized;introduced;5;13,6;**;species
+AVENA STERILIS;Avena sterilis L.;85374;Poaceae;Avena sterilis L., 1762;LC;Stable;-;-;;Alien;Archaeophyt;Naturalized;introduced;NA;NA;;species
+Avenula pubescens;Avenula pubescens (Huds.) Dumort.;85439;Poaceae;Avenula pubescens (Huds.) Dumort., 1868;LC;Stable;-;-;;Native;-;-;eurasiatic;6;3;;species
+Ballota nigra;Ballota nigra L.;85502;Lamiaceae;Ballota nigra L., 1753;LC;Stable;-;-;;Native;-;-;european;1;0,8;;species
+Barbarea intermedia;Barbarea intermedia Boreau;85536;Brassicaceae;Barbarea intermedia Boreau, 1840;LC;Stable;-;-;;Native;-;-;atlantic;5;1,4;;species
+Bartsia trixago;Bartsia trixago L.;85617;Orobanchaceae;Bartsia trixago L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Bellis perennis;Bellis perennis L. ;85740;Asteraceae;Bellis perennis L., 1753;LC;Stable;-;-;;Native;-;-;european;6;17,7;***;species
+Berula erecta;Berula erecta (Huds.) Coville;85798;Apiaceae;Berula erecta (Huds.) Coville, 1893;LC;Stable;-;-;;Native;-;-;circumboreal;4;3,4;;species
+Beta vulgaris subsp. maritima;Beta vulgaris L. subsp. vulgaris;132119;Amaranthaceae;Beta vulgaris subsp. maritima (L.) Arcang., 1882;LC;Stable;-;-;;Native;-;-;mediterranean;7;6,4;**;subsp
+Beta vulgaris subsp. vulgaris;Beta vulgaris subsp. maritima (L.) Arcang.;132121;Amaranthaceae;Beta vulgaris subsp. vulgaris L., 1753;NA;Not_assessed;-;-;;Alien;Archaeophyt;Casual;introduced;NA;0,9;;subsp
+Betula pendula;Betula pendula Roth;85903;Betulaceae;Betula pendula Roth, 1788;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Bidens tripartita;Bidens tripartita L.;85986;Asteraceae;Bidens tripartita L., 1753;LC;Decrease;-;-;;Native;-;-;eurasiatic;2;1;;species
+Astragalus pelecinus;Astragalus pelecinus (L.) Barneby;86073;Fabaceae;Biserrula pelecinus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Bituminaria bituminosa;Bituminaria bituminosa (L.) C.H.Stirt.;86083;Brassicaceae;Bituminaria bituminosa (L.) C.H.Stirt., 1981;LC;Not_known;-;-;;Native;-;-;eurasiatic;5;1,8;;species
+Borago officinalis;Borago officinalis L.;86156;Boraginaceae;Borago officinalis L., 1753;LC;Stable;-;-;;Alien;Archaeophyt;Naturalized;introduced;7;2,1;;species
+Brachypodium distachyon;Brachypodium distachyon (L.) P.Beauv.;86262;Poaceae;Brachypodium distachyon (L.) P.Beauv., 1812;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Brachypodium phoenicoides;Brachypodium phoenicoides (L.) Roem. & Schult.;86288;Poaceae;Brachypodium phoenicoides (L.) Roem. & Schult., 1817;LC;Not_known;-;-;;Native;-;-;mediterranean;7;6,7;**;species
+Brachypodium retusum;Brachypodium retusum (Pers.) P.Beauv.;86297;Poaceae;Brachypodium retusum (Pers.) P.Beauv., 1812;LC;Stable;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Brachypodium rupestre;Brachypodium rupestre (Host) Roem. & Schult.;86301;Poaceae;Brachypodium rupestre (Host) Roem. & Schult., 1817;LC;Stable;-;-;;Native;-;-;mediterranean;6;4,2;;species
+Brachypodium sylvaticum;Brachypodium sylvaticum (Huds.) P.Beauv.;86305;Poaceae;Brachypodium sylvaticum (Huds.) P.Beauv., 1812;LC;Stable;-;-;;Native;-;-;european;5;4,3;*;species
+Brassica napus;Brassica napus L.;86399;Brassicaceae;Brassica napus L., 1753;NA;Not_assessed;-;-;;Alien;Archaeophyt;Casual;introduced;1;2,3;;species
+Brassica nigra;Brassica nigra (L.) W.D.J.Koch;86400;Brassicaceae;Brassica nigra (L.) W.D.J.Koch, 1833;LC;Stable;-;-;;Native;-;-;cosmopolit;5;2,9;;species
+Briza media;Briza media L.;86490;Poaceae;Briza media L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Briza minor;Briza minor L.;86492;Poaceae;Briza minor L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;3,3;;species
+Bromopsis erecta;Bromopsis erecta (Huds.) Fourr.;86512;Poaceae;Bromopsis erecta (Huds.) Fourr., 1869;LC;Not_known;-;-;;Native;-;-;eurasiatic;7;1,1;;species
+Bromopsis inermis;Bromopsis inermis (Leyss.) Holub;86513;Poaceae;Bromopsis inermis (Leyss.) Holub, 1973;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;5;1,1;;species
+Bromopsis ramosa;Bromopsis ramosa (Huds.) Holub;86514;Poaceae;Bromopsis ramosa (Huds.) Holub, 1973;LC;Not_known;-;-;;Native;-;-;mediterranean;5;0,8;;species
+Bromus arvensis;Bromus arvensis L. ;86537;Poaceae;Bromus arvensis L., 1753;LC;Decrease;-;messicole;;Native;-;-;eurasiatic;2;2,1;;species
+Bromus commutatus gpe;Bromus commutatus Schrad. ;86571;Poaceae;Bromus commutatus Schrad., 1806;LC;Stable;-;-;;Native;-;-;european;6;9,4;***;species
+Bromus hordeaceus;Bromus hordeaceus L. ;86634;Poaceae;Bromus hordeaceus L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;13;;species
+Bromus secalinus;Bromus secalinus L.;86751;Poaceae;Bromus secalinus L., 1753;LC;Decrease;-;messicole;;Alien;Archaeophyt;Naturalized;introduced;1;3,6;;species
+Bryonia cretica subsp. dioica;Bryonia cretica subsp. dioica (Jacq.) Tutin;86828;Cucurbitaceae;Bryonia dioica Jacq., 1774;LC;Stable;-;-;;Native;-;-;european;4;6,9;**;species
+Buglossoides arvensis;Buglossoides arvensis (L.) I.M.Johnst.;86890;Boraginaceae;Buglossoides arvensis (L.) I.M.Johnst., 1954;LC;Decrease;-;messicole;;Native;-;-;european;1;1,1;;species
+Bunias erucago;Bunias erucago L.;86969;Brassicaceae;Bunias erucago L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;6;0,9;;species
+Calamagrostis;#N/A;190165;Poaceae;Calamagrostis Adans., 1763;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Calendula arvensis;Calendula arvensis L.;87420;Asteraceae;Calendula arvensis L., 1763;LC;Stable;-;messicole;;Native;-;-;european;7;22,3;***;species
+Campanula erinus;Campanula erinus L.;87636;Campanulaceae;Campanula erinus L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Campanula rapunculus;Campanula rapunculoides L. ;87712;Campanulaceae;Campanula rapunculus L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;1,3;;species
+Campanula rotundifolia;Campanula rotundifolia L. ;87720;Campanulaceae;Campanula rotundifolia L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,3;;species
+Capsella bursa-pastoris;Capsella bursa-pastoris (L.) Medik. ;87849;Brassicaceae;Capsella bursa-pastoris (L.) Medik., 1792;LC;Not_known;-;-;agrotolerant;Native;-;-;cosmopolit;NA;NA;;species
+Cardamine hirsuta;Cardamine hirsuta L.;87930;Brassicaceae;Cardamine hirsuta L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;circumboreal;7;7,4;**;species
+Cardamine pratensis;Cardamine pratensis L.;87964;Brassicaceae;Cardamine pratensis L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;5;1,2;;species
+Carduus nigrescens;Carduus nigrescens Vill.;88165;Asteraceae;Carduus nigrescens Vill., 1779;LC;Stable;-;-;;Native;-;-;european;7;2,1;;species
+Carduus nutans;Carduus nutans L.;88167;Asteraceae;Carduus nutans L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;1;0,8;;species
+Carduus pycnocephalus;Carduus pycnocephalus L. ;88191;Asteraceae;Carduus pycnocephalus L., 1763;LC;Increase;-;-;;Native;-;-;mediterranean;7;25,5;***;species
+Carduus tenuiflorus;Carduus tenuiflorus Curtis;88207;Asteraceae;Carduus tenuiflorus Curtis, 1793;LC;Increase;-;-;;Native;-;-;european;1;1,6;;species
+Carex divulsa;Carex divulsa Stokes;88483;Cyperaceae;Carex divulsa Stokes, 1787;LC;Stable;-;-;;Native;-;-;eurasiatic;6;3,5;;species
+Carex flacca;Carex flacca Schreb.;88510;Cyperaceae;Carex flacca Schreb., 1771;LC;Stable;-;-;;Native;-;-;holarctic;6;1,6;;species
+Carex halleriana;Carex halleriana Asso ;88560;Cyperaceae;Carex halleriana Asso, 1779;LC;Not_known;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Carex hirta;Carex hirta L. ;88569;Cyperaceae;Carex hirta L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;4,3;*;species
+Carex cuprina;Carex cuprina (Sandor ex Heuff.) Nendtv. ex A.Kern.;88741;Cyperaceae;Carex otrubae Podp., 1922;LC;Stable;-;-;;Native;-;-;eurasiatic;6;1;;species
+Carex riparia;Carex riparia Curtis;88833;Cyperaceae;Carex riparia Curtis, 1783;LC;Not_known;-;-;;Native;-;-;eurasiatic;7;2,1;;species
+Carex vulpina;Carex vulpina L.;88952;Cyperaceae;Carex vulpina L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;6;1,5;;species
+Carpinus;#N/A;190365;Betulaceae;Carpinus L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Carthamus lanatus;Carlina lanata L.;89232;Asteraceae;Carthamus lanatus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Catapodium rigidum;Catapodium rigidum (L.) C.E.Hubb.;89338;Poaceae;Catapodium rigidum (L.) C.E.Hubb., 1953;LC;Not_known;-;-;;Native;-;-;european;7;6,4;**;species
+Centaurea aspera;Centaurea aspera L. ;89525;Asteraceae;Centaurea aspera L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;6,4;**;species
+Centaurea jacea;Centaurea jacea L.;89619;Asteraceae;Centaurea jacea L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;5,5;*;species
+Centaurea scabiosa;Centaurea scabiosa L.;89697;Asteraceae;Centaurea scabiosa L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,2;;species
+Centaurea solstitialis;Centaurea solstitialis L. ;89710;Asteraceae;Centaurea solstitialis L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Centaurium erythraea;Centaurium erythraea Raf.;89840;Gentianaceae;Centaurium erythraea Rafn, 1800;LC;Not_known;-;-;;Native;-;-;eurasiatic;6;2,3;;species
+Centaurium tenuiflorum;Centaurium tenuiflorum (Hoffmanns. & Link) Fritsch ;89858;Gentianaceae;Centaurium tenuiflorum (Hoffmanns. & Link) Fritsch, 1907;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Centranthus calcitrapae;Centaurea calcitrapa L.;89881;Asteraceae;Centranthus calcitrapae (L.) Dufr., 1811;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Cerastium arvense;Cerastium arvense L.;89968;Caryophyllaceae;Cerastium arvense L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;1;0,8;;species
+Cerastium brachypetalum;Cerastium brachypetalum Desp. ex Pers.;89979;Caryophyllaceae;Cerastium brachypetalum Pers., 1805;LC;Stable;-;-;;Native;-;-;mediterranean;1;0,8;;species
+Cerastium diffusum;Cerastium diffusum Pers. ;89998;Caryophyllaceae;Cerastium diffusum Pers., 1805;LC;Stable;-;-;;Native;-;-;atlantic;NA;NA;;species
+Cerastium fontanum subsp. vulgare;Cerastium fontanum subsp. vulgare (Hartm.) Greuter & Burdet;133108;Caryophyllaceae;Cerastium fontanum subsp. vulgare (Hartm.) Greuter & Burdet, 1982;LC;Stable;-;-;;Native;-;-;cosmopolit;6;14,8;***;subsp
+Cerastium glomeratum;Cerastium glomeratum Thuill.;90017;Caryophyllaceae;Cerastium glomeratum Thuill., 1799;LC;Stable;-;-;;Native;-;-;cosmopolit;7;22,4;***;species
+Cerastium pumilum;Cerastium pumilum Curtis ;90076;Caryophyllaceae;Cerastium pumilum Curtis, 1777;LC;Stable;-;-;;Native;-;-;mediterranean;6;4,5;*;species
+Ceratochloa cathartica;Ceratochloa cathartica (Vahl) Herter;90192;Poaceae;Ceratochloa cathartica (Vahl) Herter, 1940;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;6;10,8;***;species
+Cervaria rivini;Cervaria rivini Gaertn.;90278;Apiaceae;Cervaria rivini Gaertn., 1788;LC;Stable;-;-;;Native;-;-;european;6;1,5;;species
+Chaerophyllum temulum;Chaerophyllum temulum L.;90356;Apiaceae;Chaerophyllum temulum L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;1;1,6;;species
+Chelidonium majus;Chelidonium majus L.;90669;Papaveraceae;Chelidonium majus L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;2;0,6;;species
+Chenopodium album;Chenopodium album L.;90681;Amaranthaceae;Chenopodium album L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;1;17;**;species
+Chenopodium vulvaria;Chenopodium vulvaria L.;90836;Amaranthaceae;Chenopodium vulvaria L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Chondrilla juncea;Chondrilla juncea L.;90954;Asteraceae;Chondrilla juncea L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;27,2;***;species
+Chrysanthemum;#N/A;190778;Asteraceae;Chrysanthemum L., 1753;NA;NA;-;-;;Alien;NA;NA;introduced;NA;NA;;genus
+Cichorium intybus;Cichorium intybus L.;91169;Asteraceae;Cichorium intybus L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;7,3;**;species
+Cirsium arvense;Cirsium arvense (L.) Scop.;91289;Asteraceae;Cirsium arvense (L.) Scop., 1772;LC;Increase;-;-;agrotolerant;Native;-;-;eurasiatic;1;13,4;;species
+Cirsium oleraceum;Cirsium oleraceum (L.) Scop.;91378;Asteraceae;Cirsium oleraceum (L.) Scop., 1769;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Cirsium palustre;Cirsium palustre (L.) Scop.;91382;Asteraceae;Cirsium palustre (L.) Scop., 1772;LC;Stable;-;-;;Native;-;-;eurasiatic;4;3,4;;species
+Cirsium vulgare;Cirsium vulgare (Savi) Ten.;91430;Asteraceae;Cirsium vulgare (Savi) Ten., 1838;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,2;;species
+Cistus salviifolius;Cistus salviifolius L.;91715;Cistaceae;Cistus salviifolius L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Cladanthus mixtus;Cladanthus mixtus (L.) Chevall.;91819;Asteraceae;Cladanthus mixtus (L.) Chevall., 1827;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Clematis flammula;Clematis flammula L. ;91867;Ranunculaceae;Clematis flammula L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Clematis vitalba;Clematis vitalba L.;91886;Ranunculaceae;Clematis vitalba L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;7;7,8;**;species
+Clinopodium vulgare;Clinopodium vulgare L.;91912;Lamiaceae;Clinopodium vulgare L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;6;1,5;;species
+Cochlearia;#N/A;190984;Brassicaceae;Cochlearia L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Coleostephus myconis;Coleostephus myconis (L.) Cass. ex Rchb.f.;92175;Asteraceae;Coleostephus myconis (L.) Cass. ex Rchb.f., 1854;LC;Stable;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Conium maculatum;Conium maculatum L.;92237;Apiaceae;Conium maculatum L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;3;2,2;;species
+Conopodium majus;Conopodium majus (Gouan) Loret;92242;Apiaceae;Conopodium majus (Gouan) Loret, 1886;LC;Stable;-;-;;Native;-;-;atlantic;4;2,1;;species
+Convolvulus arvensis;Convolvulus arvensis L. ;92302;Convolvulaceae;Convolvulus arvensis L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;3;17,8;**;species
+Convolvulus sepium;Convolvulus sepium L.;92353;Convolvulaceae;Convolvulus sepium L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;4;23,2;***;species
+Cornus mas;Cornus mas L.;92497;Cornaceae;Cornus mas L., 1753;LC;Not_known;-;-;;Native;-;-;european;5;5,8;**;species
+Cornus sanguinea;Cornus sanguinea L. ;92501;Cornaceae;Cornus sanguinea L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;5,3;**;species
+CORONILLA SCORPIOIDES;Coronilla scorpioides (L.) W.D.J.Koch;92536;Fabaceae;Coronilla scorpioides (L.) W.D.J.Koch, 1837;LC;Not_known;-;-;;Native;-;-;european;3;2,3;;species
+Securigera varia;Coronilla varia L.;92546;Fabaceae;Coronilla varia L., 1753;LC;Stable;-;-;;Native;-;-;european;5;2,9;;species
+Cosmos;#N/A;191204;Asteraceae;Cosmos Cav., 1791;NA;NA;-;-;;Alien;Neophyt;NA;introduced;NA;NA;;genus
+Cota tinctoria;Cota tinctoria (L.) J.Gay ex Guss.;92629;Asteraceae;Cota tinctoria (L.) J.Gay ex Guss., 1844;DD;Not_known;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Crassula tillaea;Crassula tillaea Lest.-Garl.;92806;Crassulaceae;Crassula tillaea Lest.-Garl., 1903;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Crataegus monogyna;Crataegus monogyna Jacq. ;92876;Rosaceae;Crataegus monogyna Jacq., 1775;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,3;;species
+Crepis biennis;Crepis biennis L.;93015;Asteraceae;Crepis biennis L., 1753;LC;Stable;-;-;;Native;-;-;european;5;1,7;;species
+CREPIS BURSIFOLIA;Crepis bursifolia L.;93020;Asteraceae;Crepis bursifolia L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;7;2,1;;species
+Crepis capillaris;Crepis capillaris (L.) Wallr.;93023;Asteraceae;Crepis capillaris (L.) Wallr., 1840;LC;Increase;-;-;;Native;-;-;european;3;1,5;;species
+Crepis foetida;Crepis foetida L.;93045;Asteraceae;Crepis foetida L., 1753;LC;Decrease;-;-;;Native;-;-;european;7;14,9;***;species
+Crepis leontodontoides;Crepis leontodontoides All.;93079;Asteraceae;Crepis leontodontoides All., 1789;LC;Not_known;-;-;;Native;-;-;mediterranean;7;2,1;;species
+CREPIS MICRANTHA;Crepis micrantha Czerep.;93086;Asteraceae;Crepis micrantha Czerep., 1964;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;7;2,1;;species
+Crepis sancta;Crepis sancta (L.) Bornm.;93129;Asteraceae;Crepis sancta (L.) Bornm., 1913;NA;Not_assessed;-;-;agrotolerant;Alien;Neophyt;Naturalized;introduced;7;47,1;***;species
+Crepis setosa;Crepis setosa Haller f.;93134;Asteraceae;Crepis setosa Haller f., 1797;LC;Increase;-;-;;Native;-;-;european;6;8,6;***;species
+Crepis vesicaria subsp. taraxacifolia;Crepis vesicaria subsp. taraxacifolia (Thuill.) Thell. ex Schinz & R.Keller;133531;Asteraceae;Crepis vesicaria subsp. taraxacifolia (Thuill.) Thell., 1914;LC;Stable;-;-;;Native;-;-;mediterranean;7;9,1;**;subsp
+Cruciata glabra;Cruciata glabra (L.) Ehrend.;93307;Rubiaceae;Cruciata glabra (L.) Ehrend., 1958;LC;Stable;-;-;;Native;-;-;european;7;2,1;;species
+Cruciata laevipes;Cruciata laevipes Opiz;93308;Rubiaceae;Cruciata laevipes Opiz, 1852;LC;Stable;-;-;;Native;-;-;european;4;26,1;***;species
+Cyanus segetum;Cyanus segetum Hill;93680;Asteraceae;Cyanus segetum Hill, 1762;LC;Not_known;-;messicole;;Alien;Archaeophyt;Naturalized;introduced;5;2,1;;species
+Cynodon dactylon;Cynodon dactylon (L.) Pers.;93803;Poaceae;Cynodon dactylon (L.) Pers., 1805;LC;Stable;-;-;;Native;-;-;thermo-cosmopolit;7;31,6;***;species
+Cynoglossum creticum;Cynoglossum creticum Mill.;93828;Boraginaceae;Cynoglossum creticum Mill., 1768;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Cynosurus cristatus;Cynosurus cristatus L.;93860;Poaceae;Cynosurus cristatus L., 1753;LC;Stable;-;-;;Native;-;-;european;2;1;;species
+Cyperus eragrostis;Cyperus eragrostis Lam.;93923;Cyperaceae;Cyperus eragrostis Lam., 1791;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;5;1,4;;species
+Cyperus longus;Cyperus longus L.;93967;Cyperaceae;Cyperus longus L., 1753;LC;Not_known;-;-;;Native;-;-;subtropical;6;7,6;**;species
+Dactylis glomerata;Dactylis glomerata L. ;94207;Poaceae;Dactylis glomerata L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;19,8;***;species
+Datura stramonium;Datura stramonium L. ;94489;Solanaceae;Datura stramonium L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;5;1,5;;species
+Daucus carota;Daucus carota L. ;94503;Apiaceae;Daucus carota L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;european;5;16,6;**;species
+Dianthus armeria;Dianthus armeria L. ;94693;Caryophyllaceae;Dianthus armeria L., 1753;LC;Stable;-;-;;Native;-;-;european;5;4,3;*;species
+Digitalis purpurea;Digitalis purpurea L.;94959;Plantaginaceae;Digitalis purpurea L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;2;1;;species
+Digitaria ischaemum;Digitaria ischaemum (Schreb.) Muhl.;94985;Poaceae;Digitaria ischaemum (Schreb.) Schreb. ex Muhl., 1817;LC;Stable;-;-;;Native;-;-;thermo-cosmopolit;5;1,4;;species
+Digitaria sanguinalis;Digitaria sanguinalis (L.) Scop.;94995;Poaceae;Digitaria sanguinalis (L.) Scop., 1771;LC;Stable;-;-;;Native;-;-;thermo-cosmopolit;5;11,5;***;species
+Diplotaxis erucoides;Diplotaxis erucoides (L.) DC.;95111;Brassicaceae;Diplotaxis erucoides (L.) DC., 1821;LC;Stable;-;-;agrotolerant;Native;-;-;mediterranean;7;40,4;***;species
+Diplotaxis tenuifolia;Diplotaxis tenuifolia (L.) DC.;95136;Brassicaceae;Diplotaxis tenuifolia (L.) DC., 1821;LC;Not_known;-;-;;Native;-;-;european;7;2,1;;species
+Dipsacus fullonum;Dipsacus fullonum L.;95149;Caprifoliaceae;Dipsacus fullonum L., 1753;LC;Stable;-;-;;Native;-;-;european;7;2;;species
+Dittrichia viscosa;Dittrichia viscosa (L.) Greuter ;95187;Asteraceae;Dittrichia viscosa (L.) Greuter, 1973;LC;Not_known;-;-;;Native;-;-;mediterranean;7;17;***;species
+Draba;#N/A;191944;Brassicaceae;Draba L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Dryopteris filix-mas;Dryopteris filix-mas (L.) Schott;95567;Dryopteridaceae;Dryopteris filix-mas (L.) Schott, 1834;LC;Stable;-;-;;Native;-;-;holarctic;NA;NA;;species
+Dysphania ambrosioides;Dysphania ambrosioides (L.) Mosyakin & Clemants;611753;Amaranthaceae;Dysphania ambrosioides (L.) Mosyakin & Clemants, 2002;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;7;2,1;;species
+Echinochloa crus-galli;Echinochloa crus-galli (L.) P.Beauv.;95671;Poaceae;Echinochloa crus-galli (L.) P.Beauv., 1812;LC;Stable;-;-;agrotolerant;Native;-;-;thermo-cosmopolit;5;8,9;*;species
+Echium plantagineum;Echium plantagineum L.;95774;Boraginaceae;Echium plantagineum L., 1771;LC;Stable;-;-;;Native;-;-;european;7;12,8;***;species
+Echium vulgare;Echium vulgare L.;95793;Boraginaceae;Echium vulgare L., 1753;LC;Stable;-;-;;Native;-;-;european;5;5,4;*;species
+Roegneria canina;Elymus caninus (L.) L.;95992;Poaceae;Elymus caninus (L.) L., 1755;LC;Stable;-;-;;Native;-;-;holarctic;5;1,1;;species
+Elytrigia campestris;Elytrigia campestris (Godr. & Gren.) KerguÇlen ex Carreras;96029;Poaceae;Elytrigia campestris (Godr. & Gren.) KerguÇlen ex Carreras, 1986;LC;Not_known;-;-;;Native;-;-;mediterranean;6;5,4;*;species
+Elytrigia repens;Elytrigia repens (L.) Desv. ex Nevski;96046;Poaceae;Elytrigia repens (L.) Desv. ex Nevski, 1934;LC;Not_known;-;-;;Native;-;-;holarctic;5;15,7;*;species
+Epilobium angustifolium;Epilobium angustifolium L.;96136;Onagraceae;Epilobium angustifolium L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;5;1,4;;species
+Epilobium ciliatum;Epilobium ciliatum Raf.;96149;Onagraceae;Epilobium ciliatum Raf., 1808;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;5;1,4;;species
+Epilobium hirsutum;Epilobium hirsutum L.;96180;Onagraceae;Epilobium hirsutum L., 1753;LC;Not_known;-;-;;Native;-;-;european;4;5,5;*;species
+Epilobium lanceolatum;Epilobium lanceolatum Sebast. & Mauri ;96191;Onagraceae;Epilobium lanceolatum Sebast. & Mauri, 1818;LC;Stable;-;-;;Native;-;-;atlantic;5;1,4;;species
+Epilobium parviflorum;Epilobium parviflorum Schreb.;96229;Onagraceae;Epilobium parviflorum Schreb., 1771;LC;Stable;-;-;;Native;-;-;european;5;1,4;;species
+Epilobium roseum;Epilobium roseum Schreb. ;96251;Onagraceae;Epilobium roseum Schreb., 1771;LC;Not_known;-;-;;Native;-;-;eurasiatic;4;3,2;;species
+Epilobium tetragonum;Epilobium tetragonum L.;96271;Onagraceae;Epilobium tetragonum L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;6;6,4;;species
+Equisetum arvense;Equisetum arvense L.;96508;Equisetaceae;Equisetum arvense L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;4;12,5;**;species
+Equisetum ramosissimum;Equisetum ramosissimum Desf.;96539;Equisetaceae;Equisetum ramosissimum Desf., 1799;LC;Stable;-;-;;Native;-;-;cosmopolit;7;3,8;;species
+Equisetum telmateia;Equisetum telmateia Ehrh.;96546;Equisetaceae;Equisetum telmateia Ehrh., 1783;LC;Stable;-;-;;Native;-;-;eurasiatic;7;5,8;**;species
+Erigeron annuus;Erigeron annuus (L.) Desf.;96739;Asteraceae;Erigeron annuus (L.) Desf., 1804;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;5;4;*;species
+Erigeron bonariensis;Erigeron bonariensis L.;96746;Asteraceae;Erigeron bonariensis L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;7;2,1;;species
+Erigeron canadensis;Erigeron canadensis L.;96749;Asteraceae;Erigeron canadensis L., 1753;NA;Not_assessed;-;-;agrotolerant;Alien;Neophyt;Invasive;introduced;5;12,2;***;species
+Erigeron sumatrensis;Erigeron sumatrensis Retz.;96814;Asteraceae;Erigeron sumatrensis Retz., 1810;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;6;8,5;**;species
+Erodium ciconium;Erodium ciconium (L.) L'HÇr.;96894;Geraniaceae;Erodium ciconium (L.) L'HÇr., 1789;LC;Decrease;-;-;;Native;-;-;mediterranean;7;20;***;species
+Erodium cicutarium;Erodium cicutarium (L.) L'HÇr.;96895;Geraniaceae;Erodium cicutarium (L.) L'HÇr., 1789;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;7;28,9;***;species
+Erodium malacoides;Erodium malacoides (L.) L'HÇr. ;96919;Geraniaceae;Erodium malacoides (L.) L'HÇr., 1789;LC;Decrease;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Erodium moschatum;Erodium moschatum (L.) L'HÇr.;96925;Geraniaceae;Erodium moschatum (L.) L'HÇr., 1789;LC;Stable;-;-;;Native;-;-;mediterranean;7;14,9;***;species
+Eruca sativa;Eruca sativa Mill.;97041;Brassicaceae;Eruca vesicaria (L.) Cav., 1802;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;7;4,3;*;species
+Ervilia hirsuta;Vicia hirsuta (L.) Gray;97084;Fabaceae;Ervilia hirsuta (L.) Opiz, 1852;LC;Stable;-;-;;Native;-;-;eurasiatic;6;10,2;**;species
+Vicia pubescens;Vicia pubescens (DC.) Link;97116;Fabaceae;Ervum pubescens DC., 1813;LC;Not_known;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Ervum tetraspermum;Vicia tetrasperma (L.) Schreb.;97128;Fabaceae;Ervum tetraspermum L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;4;1,8;;species
+Eryngium campestre;Eryngium campestre L.;97141;Apiaceae;Eryngium campestre L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;4,1;;species
+Erysimum cheiranthoides;Erysimum cheiranthoides L. ;97183;Brassicaceae;Erysimum cheiranthoides L., 1753;LC;Not_known;-;-;;Native;-;-;holarctic;5;0,9;;species
+Eschscholzia californica;Eschscholzia californica Cham.;97346;Papaveraceae;Eschscholzia californica Cham., 1820;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;6;1,5;;species
+Euonymus europaeus;Euonymus europaeus L.;609982;Celastraceae;Euonymus europaeus L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+EUPATORIUM CANNABINUM;Eupatorium cannabinum L.;97434;Asteraceae;Eupatorium cannabinum L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;7;2,1;;species
+Euphorbia characias;Euphorbia characias L. ;97478;Euphorbiaceae;Euphorbia characias L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;8,5;***;species
+Euphorbia cyparissias;Euphorbia cyparissias L.;97490;Euphorbiaceae;Euphorbia cyparissias L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;8,7;***;species
+Euphorbia exigua;Euphorbia exigua L. ;97511;Euphorbiaceae;Euphorbia exigua L., 1753;LC;Decrease;-;-;;Native;-;-;european;2;0,7;;species
+Euphorbia segetalis;Euphorbia segetalis L.;97511;Euphorbiaceae;Euphorbia exigua L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;6,4;*;species
+Euphorbia falcata;Euphorbia falcata L. ;97513;Euphorbiaceae;Euphorbia falcata L., 1753;LC;Decrease;-;messicole;;Native;-;-;mediterranean;7;2,1;;species
+Euphorbia flavicoma;Euphorbia flavicoma DC.;97516;Euphorbiaceae;Euphorbia flavicoma DC., 1813;LC;Not_known;-;-;;Native;-;-;european;6;3;*;species
+Euphorbia helioscopia;Euphorbia helioscopia L.;97537;Euphorbiaceae;Euphorbia helioscopia L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;7;29,9;***;species
+Euphorbia peplus;Euphorbia peplis L.;97609;Euphorbiaceae;Euphorbia peplus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;6,4;**;species
+Euphorbia serrata;Euphorbia serrata L.;97667;Euphorbiaceae;Euphorbia serrata L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;23,4;***;species
+Euphorbia stricta;Euphorbia stricta L.;97676;Euphorbiaceae;Euphorbia stricta L., 1759;LC;Not_known;-;-;;Native;-;-;european;5;1,4;;species
+Fagopyrum esculentum;Fagopyrum esculentum Moench;97935;Polygonaceae;Fagopyrum esculentum Moench, 1794;NA;Not_assessed;-;-;;Alien;Archaeophyt;Casual;introduced;6;0,6;;species
+Falcaria vulgaris;Falcaria vulgaris Bernh.;97956;Apiaceae;Falcaria vulgaris Bernh., 1800;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,1;;species
+Fallopia baldschuanica;Fallopia baldschuanica (Regel) Holub;97961;Polygonaceae;Fallopia baldschuanica (Regel) Holub, 1971;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;1;0,8;;species
+Fallopia convolvulus;Fallopia convolvulus (L.) µ.Lîve;97962;Polygonaceae;Fallopia convolvulus (L.) µ.Lîve, 1970;LC;Stable;-;-;agrotolerant;Native;-;-;eurasiatic;1;17;***;species
+Festuca ovina gpe;Festuca ovina L.;98425;Poaceae;Festuca ovina L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;9,5;**;species
+Festuca rubra;Festuca rubra L.;98512;Poaceae;Festuca rubra L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;4;11,4;***;species
+Ranunculus ficaria;Ficaria verna Huds.;98651;Ranunculaceae;Ficaria verna Huds., 1762;LC;Stable;-;-;;Native;-;-;european;5;1,3;;species
+Filago germanica;Filago germanica L.;98681;Asteraceae;Filago germanica L., 1763;LC;Stable;-;-;;Native;-;-;mediterranean;5;0,8;;species
+Filago pyramidata;Filago pyramidata L.;98699;Asteraceae;Filago pyramidata L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;1,2;;species
+Filipendula ulmaria;Filipendula ulmaria (L.) Maxim.;98717;Rosaceae;Filipendula ulmaria (L.) Maxim., 1879;LC;Stable;-;-;;Native;-;-;eurasiatic;6;0,8;;species
+Filipendula vulgaris;Filipendula vulgaris Moench;98718;Rosaceae;Filipendula vulgaris Moench, 1794;LC;Decrease;-;-;;Native;-;-;eurasiatic;6;1,5;;species
+Foeniculum vulgare;Foeniculum vulgare Mill.;98756;Apiaceae;Foeniculum vulgare Mill., 1768;LC;Stable;-;-;;Native;-;-;mediterranean;7;21,8;***;species
+Fragaria vesca;Fragaria vesca L.;98865;Rosaceae;Fragaria vesca L., 1753;LC;Not_known;-;-;;Native;-;-;cosmopolit;4;1,8;;species
+Fraxinus angustifolia;Fraxinus angustifolia Vahl;98910;Oleaceae;Fraxinus angustifolia Vahl, 1804;LC;Not_known;-;-;;Native;-;-;european;7;4,3;*;species
+Fraxinus excelsior;Fraxinus excelsior L. ;98921;Oleaceae;Fraxinus excelsior L., 1753;LC;Not_known;-;-;;Native;-;-;european;4;1,2;;species
+Fraxinus ornus;Fraxinus ornus L. ;98933;Oleaceae;Fraxinus ornus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Fumaria bastardii;Fumaria bastardii Boreau;99051;Papaveraceae;Fumaria bastardii Boreau, 1847;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Fumaria capreolata;Fumaria capreolata L. ;99062;Papaveraceae;Fumaria capreolata L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;10,6;***;species
+Fumaria gaillardotii;#N/A;159678;Papaveraceae;Fumaria gaillardotii Boiss., 1867;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Fumaria muralis;Fumaria muralis Sond. ex W.D.J.Koch;99106;Papaveraceae;Fumaria muralis Sond. ex W.D.J.Koch, 1845;LC;Stable;-;-;;Native;-;-;european;2;2,5;;species
+Fumaria officinalis;Fumaria officinalis L.;99108;Papaveraceae;Fumaria officinalis L., 1753;LC;Not_known;-;-;agrotolerant;Native;-;-;circumboreal;7;11,3;***;species
+Galactites tomentosus;Galactites tomentosus Moench;99224;Asteraceae;Galactites tomentosus Moench, 1794;LC;Stable;-;-;;Native;-;-;mediterranean;7;7,2;**;species
+Galega officinalis;Galega officinalis L.;99260;Fabaceae;Galega officinalis L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;6;1,5;;species
+Galeopsis tetrahit;Galeopsis tetrahit L.;99334;Lamiaceae;Galeopsis tetrahit L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;4;3,3;;species
+Galinsoga parviflora;Galinsoga parviflora Cav.;99358;Asteraceae;Galinsoga parviflora Cav., 1795;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;1;1,6;;species
+Galinsoga quadriradiata;Galinsoga quadriradiata Ruiz & Pav.;99359;Asteraceae;Galinsoga quadriradiata Ruiz & Pav., 1798;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;2;1,5;;species
+GALIUM ALBUM;Galium album Mill.;99366;Rubiaceae;Galium album Mill., 1768;LC;Stable;-;-;;Native;-;-;european;NA;NA;;species
+Galium aparine subsp. aparine;Galium aparine L.;99373;Rubiaceae;Galium aparine L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;eurasiatic;4;33,2;**;species
+Galium elongatum;Galium elongatum C.Presl;99418;Rubiaceae;Galium elongatum C.Presl, 1822;LC;Not_known;-;-;;Native;-;-;holarctic;7;2,1;;species
+GALIUM MOLLUGO;Galium mollugo L. ;99473;Rubiaceae;Galium mollugo L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;17,5;**;species
+Galium murale;Galium murale (L.) All.;99479;Rubiaceae;Galium murale (L.) All., 1785;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Galium palustre;Galium palustre L.;99494;Rubiaceae;Galium palustre L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;4;3,4;;species
+GALIUM PARISIENSE;Galium parisiense L. ;99496;Rubiaceae;Galium parisiense L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Galium rotundifolium;Galium rotundifolium L.;99518;Rubiaceae;Galium rotundifolium L., 1753;LC;Stable;-;-;;Native;-;-;european;2;1;;species
+Galium verum;Galium verum L.;99582;Rubiaceae;Galium verum L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;4;1,4;;species
+Gnaphalium antillanum;Gnaphalium antillanum Urb.;619555;Asteraceae;Gamochaeta antillana (Urb.) Anderb., 1991;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;5;1,4;;species
+Gastridium ventricosum;Gastridium ventricosum (Gouan) Schinz & Thell.;99668;Poaceae;Gastridium ventricosum (Gouan) Schinz & Thell., 1913;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Gaudinia fragilis;Gaudinia fragilis (L.) P.Beauv. Çcoph. annuel;99683;Poaceae;Gaudinia fragilis (L.) P.Beauv., 1812;LC;Not_known;-;-;;Native;-;-;mediterranean;7;7,6;**;species
+Geranium columbinum;Geranium columbinum L.;100045;Geraniaceae;Geranium columbinum L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;eurasiatic;6;10,5;**;species
+Geranium dissectum;Geranium dissectum L.;100052;Geraniaceae;Geranium dissectum L., 1755;LC;Not_known;-;-;agrotolerant;Native;-;-;eurasiatic;6;15,1;*;species
+Geranium molle;Geranium molle L. ;100104;Geraniaceae;Geranium molle L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;11,9;*;species
+Geranium pusillum;Geranium pusillum L.;100133;Geraniaceae;Geranium pusillum L., 1759;LC;Stable;-;-;;Native;-;-;eurasiatic;1;3,1;;species
+Geranium pyrenaicum;Geranium pyrenaicum Burm.f. ;100136;Geraniaceae;Geranium pyrenaicum Burm.f., 1759;LC;Stable;-;-;;Native;-;-;eurasiatic;6;2,1;;species
+Geranium robertianum;Geranium robertianum L.;100142;Geraniaceae;Geranium robertianum L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;5;7,1;**;species
+Geranium rotundifolium;Geranium rotundifolium L.;100144;Geraniaceae;Geranium rotundifolium L., 1753;LC;Not_known;-;-;agrotolerant;Native;-;-;european;7;25,8;***;species
+Geum urbanum;Geum urbanum L.;100225;Rosaceae;Geum urbanum L., 1753;LC;Stable;-;-;;Native;-;-;european;5;5,9;*;species
+Glebionis segetum;Glebionis segetum (L.) Fourr.;100304;Asteraceae;Glebionis segetum (L.) Fourr., 1869;LC;Decrease;-;messicole;;Native;-;-;european;5;1,4;;species
+Glechoma hederacea;Glechoma hederacea L.;100310;Lamiaceae;Glechoma hederacea L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;6,8;*;species
+Globularia bisnagarica;Globularia bisnagarica L.;100338;Plantaginaceae;Globularia bisnagarica L., 1753;LC;Not_known;-;-;;Native;-;-;european;6;1,5;;species
+Glyceria;#N/A;192847;Poaceae;Glyceria R.Br., 1810;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Gnaphalium uliginosum;Gnaphalium uliginosum L. ;100519;Asteraceae;Gnaphalium uliginosum L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;3;2,3;;species
+Hainardia cylindrica;Hainardia cylindrica (Willd.) Greuter;100710;Poaceae;Hainardia cylindrica (Willd.) Greuter, 1967;LC;Not_known;-;-;;Native;-;-;mediterranean;6;3;*;species
+Hedera helix;Hedera helix L.;100787;Araliaceae;Hedera helix L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;6,6;*;species
+Hedypnois rhagadioloides;Hedypnois rhagadioloides (L.) F.W.Schmidt;100813;Asteraceae;Hedypnois rhagadioloides (L.) F.W.Schmidt, 1795;LC;Not_known;-;-;;Native;-;-;mediterranean;7;8,5;**;species
+Helianthus annuus;Helianthus annuus L.;101027;Asteraceae;Helianthus annuus L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Casual;introduced;1;0,8;;species
+Avenula pratensis;Helictochloa pratensis (L.) Romero Zarco;717224;Poaceae;Helictochloa pratensis (L.) Romero Zarco, 2011;LC;Stable;-;-;;Native;-;-;eurasiatic;6;1,5;;species
+Heliotropium europaeum;Heliotropium europaeum L.;101144;Boraginaceae;Heliotropium europaeum L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;4,2;*;species
+Helminthotheca echioides;Helminthotheca echioides (L.) Holub;101210;Asteraceae;Helminthotheca echioides (L.) Holub, 1973;LC;Stable;-;-;;Native;-;-;mediterranean;7;12;**;species
+Helosciadium nodiflorum;Helosciadium nodiflorum (L.) W.D.J.Koch;101221;Apiaceae;Helosciadium nodiflorum (L.) W.D.J.Koch, 1824;LC;Stable;-;-;;Native;-;-;eurasiatic;4;3,4;;species
+Heracleum sphondylium;Heracleum sphondylium L.;101300;Apiaceae;Heracleum sphondylium L., 1753;LC;Stable;-;-;;Native;-;-;european;4;28,9;***;species
+Hieracium;#N/A;193276;Asteraceae;Hieracium L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Himantoglossum hircinum;Himantoglossum hircinum (L.) Spreng. ;102797;Orchidaceae;Himantoglossum hircinum (L.) Spreng., 1826;LC;Stable;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Holcus lanatus;Holcus lanatus L.;102900;Poaceae;Holcus lanatus L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;2;17,8;**;species
+Holcus mollis;Holcus mollis L. ;102901;Poaceae;Holcus mollis L., 1759;LC;Stable;-;-;;Native;-;-;atlantic;4;7,2;*;species
+Hordeum murinum;Hordeum murinum L.;102974;Poaceae;Hordeum murinum L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;7;68,5;***;species
+Hordeum vulgare;Hordeum vulgare L.;102999;Poaceae;Hordeum vulgare L., 1753;NA;Not_assessed;-;-;;Alien;Archaeophyt;Casual;introduced;4;1,1;;species
+HUMULUS LUPULUS;Humulus lupulus L.;103031;Cannabaceae;Humulus lupulus L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;2,1;;species
+Hylotelephium telephium;Hylotelephium telephium (L.) H.Ohba;103162;Crassulaceae;Hylotelephium telephium (L.) H.Ohba, 1977;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,9;;species
+Hyoseris radiata;Hyoseris radiata L. ;103205;Asteraceae;Hyoseris radiata L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Hypericum australe;Hypericum australe Ten.;103246;Hypericaceae;Hypericum australe Ten., 1826;LC;Not_known;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Hypericum hirsutum;Hypericum hirsutum L.;103287;Hypericaceae;Hypericum hirsutum L., 1753;LC;Not_known;-;-;;Native;-;-;european;6;1,5;;species
+Hypericum humifusum;Hypericum humifusum L.;103288;Hypericaceae;Hypericum humifusum L., 1753;LC;Not_known;-;-;;Native;-;-;cosmopolit;6;3,2;;species
+Hypericum perforatum;Hypericum perforatum L.;103316;Hypericaceae;Hypericum perforatum L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;5;14,3;***;species
+Hypericum tetrapterum;Hypericum tetrapterum Fr.;103329;Hypericaceae;Hypericum tetrapterum Fr., 1823;LC;Stable;-;-;;Native;-;-;eurasiatic;6;1,5;;species
+Hypochaeris glabra;Hypochaeris glabra L.;103364;Asteraceae;Hypochaeris glabra L., 1753;LC;Not_known;-;-;;Native;-;-;european;7;8,5;**;species
+Hypochaeris radicata;Hypochaeris radicata L.;103375;Asteraceae;Hypochaeris radicata L., 1753;LC;Not_known;-;-;;Native;-;-;european;6;28;***;species
+Impatiens glandulifera;Impatiens glandulifera Royle;103547;Balsaminaceae;Impatiens glandulifera Royle, 1833;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;4;2,4;;species
+Inula conyza;Inula conyza DC.;945856;Asteraceae;Inula conyzae (Greiss.) DC., 1836;LC;Not_known;-;-;;Native;-;-;eurasiatic;7;2,1;;species
+Jacobaea erucifolia;Jacobaea erucifolia (L.) P.Gaertn., B.Mey. & Scherb.;103991;Asteraceae;Jacobaea erucifolia (L.) G.Gaertn., B.Mey. & Scherb., 1801;LC;Not_known;-;-;;Native;-;-;eurasiatic;4;3,4;;species
+Jacobaea vulgaris;Jacobaea vulgaris Gaertn.;610646;Asteraceae;Jacobaea vulgaris Gaertn., 1791;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,3;;species
+Jasione montana;Jasione montana L.;104022;Campanulaceae;Jasione montana L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Juglans regia;Juglans regia L.;104076;Juglandaceae;Juglans regia L., 1753;NA;Not_assessed;-;-;;Alien;Archaeophyt;Naturalized;introduced;6;0,6;;species
+Juncus bufonius;Juncus bufonius L. ;104144;Juncaceae;Juncus bufonius L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;6;4;;species
+Juncus conglomeratus;Juncus conglomeratus L. ;104160;Juncaceae;Juncus conglomeratus L., 1753;LC;Stable;-;-;;Native;-;-;european;6;1,5;;species
+Juncus effusus;Juncus effusus L.;104173;Juncaceae;Juncus effusus L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;4;2,4;;species
+Kickxia commutata;Kickxia commutata (Bernh. ex Rchb.) Fritsch ;104501;Plantaginaceae;Kickxia commutata (Bernh. ex Rchb.) Fritsch, 1897;LC;Stable;Article 1;-;;Native;-;-;mediterranean;NA;NA;;species
+Kickxia elatine;Kickxia elatine (L.) Dumort.;104502;Plantaginaceae;Kickxia elatine (L.) Dumort., 1827;LC;Stable;-;-;;Native;-;-;mediterranean;6;4,8;*;species
+Kickxia spuria;Kickxia spuria (L.) Dumort.;104506;Plantaginaceae;Kickxia spuria (L.) Dumort., 1827;LC;Stable;-;-;;Native;-;-;eurasiatic;4;2,1;;species
+Knautia arvensis;Knautia arvensis (L.) Coult. ;104516;Caprifoliaceae;Knautia arvensis (L.) Coult., 1828;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,4;;species
+Lactuca muralis;Lactuca muralis (L.) Gaertn.;610995;Asteraceae;Lactuca muralis (L.) Gaertn., 1791;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Lactuca perennis;Lactuca perennis L. ;104764;Asteraceae;Lactuca perennis L., 1753;LC;Decrease;-;-;;Native;-;-;european;1;0,9;;species
+Lactuca serriola;Lactuca serriola L.;104775;Asteraceae;Lactuca serriola L., 1756;LC;Stable;-;-;agrotolerant;Native;-;-;european;7;13;**;species
+Lactuca viminea;Lactuca viminea (L.) J.Presl & C.Presl;104786;Asteraceae;Lactuca viminea (L.) J.Presl & C.Presl, 1819;LC;Not_known;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Lactuca virosa;Lactuca virosa L.;104787;Asteraceae;Lactuca virosa L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;6;1,5;;species
+Lamium album;Lamium album L.;104854;Lamiaceae;Lamium album L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;22,2;***;species
+Lamium amplexicaule;Lamium amplexicaule L. ;104855;Lamiaceae;Lamium amplexicaule L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;7;11,1;***;species
+Lamium purpureum;Lamium purpureum L.;104903;Lamiaceae;Lamium purpureum L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;eurasiatic;4;11,7;**;species
+Lapsana communis;Lapsana communis L.;105017;Asteraceae;Lapsana communis L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;25,7;***;species
+Lathyrus angulatus;Lathyrus angulatus L.;105159;Fabaceae;Lathyrus angulatus L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Lathyrus annuus;Lathyrus annuus L.;105161;Fabaceae;Lathyrus annuus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;5,8;*;species
+Lathyrus aphaca;Lathyrus aphaca L.;105162;Fabaceae;Lathyrus aphaca L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;5;0,5;;species
+Lathyrus cicera;Lathyrus cicera L.;105175;Fabaceae;Lathyrus cicera L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;8,5;***;species
+Lathyrus clymenum;Lathyrus clymenum L. ;105178;Fabaceae;Lathyrus clymenum L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Lathyrus hirsutus;Lathyrus hirsutus L.;105201;Fabaceae;Lathyrus hirsutus L., 1753;LC;Decrease;-;-;;Native;-;-;eurasiatic;6;6,1;**;species
+Lathyrus latifolius;Lathyrus latifolius L.;105211;Fabaceae;Lathyrus latifolius L., 1753;LC;Stable;-;-;;Native;-;-;european;5;1,4;;species
+Lathyrus linifolius;Lathyrus linifolius (Reichard) BÑssler;105214;Fabaceae;Lathyrus linifolius (Reichard) BÑssler, 1971;LC;Stable;-;-;;Native;-;-;european;6;1,5;;species
+Lathyrus niger;Lathyrus niger (L.) Bernh.;105230;Fabaceae;Lathyrus niger (L.) Bernh., 1800;LC;Decrease;-;-;;Native;-;-;european;6;1,5;;species
+Lathyrus nissolia;Lathyrus nissolia L.;105232;Fabaceae;Lathyrus nissolia L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;6;12,1;***;species
+Lathyrus pratensis;Lathyrus pratensis L.;105247;Fabaceae;Lathyrus pratensis L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;7;*;species
+Lathyrus sylvestris;Lathyrus sylvestris L.;105266;Fabaceae;Lathyrus sylvestris L., 1753;LC;Stable;-;-;;Native;-;-;european;5;1,4;;species
+Lathyrus tuberosus;Lathyrus tuberosus L.;105273;Fabaceae;Lathyrus tuberosus L., 1753;LC;Decrease;-;-;;Native;-;-;eurasiatic;3;1,2;;species
+Leersia oryzoides;Leersia oryzoides (L.) Sw.;105400;Poaceae;Leersia oryzoides (L.) Sw., 1788;LC;Stable;-;-;;Native;-;-;cosmopolit;5;1,4;;species
+Legousia speculum-veneris;Legousia speculum-veneris (L.) Chaix;105410;Campanulaceae;Legousia speculum-veneris (L.) Chaix, 1785;LC;Stable;-;messicole;;Alien;Archaeophyt;Naturalized;introduced;NA;NA;;species
+Leontodon hispidus;Leontodon hispidus L.;105502;Asteraceae;Leontodon hispidus L., 1753;LC;Not_known;-;-;;Native;-;-;european;6;6,1;**;species
+Leontodon saxatilis;Leontodon saxatilis Lam. ;105521;Asteraceae;Leontodon saxatilis Lam., 1779;LC;Stable;-;-;;Native;-;-;european;6;1,5;;species
+Lepidium campestre;Lepidium campestre (L.) R.Br.;105607;Brassicaceae;Lepidium campestre (L.) W.T.Aiton, 1812;LC;Stable;-;-;;Native;-;-;european;5;2,5;;species
+Lepidium didymum;Lepidium didymum L.;105615;Brassicaceae;Lepidium didymum L., 1767;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;7;2,1;;species
+Lepidium draba;Lepidium draba L.;105621;Brassicaceae;Lepidium draba L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;23,2;***;species
+Lepidium heterophyllum;Lepidium heterophyllum Benth.;105630;Brassicaceae;Lepidium heterophyllum Benth., 1826;LC;Stable;-;-;;Native;-;-;european;6;1,5;;species
+Leucanthemum vulgare gpe;Leucanthemum vulgare Lam.;105817;Asteraceae;Leucanthemum vulgare Lam., 1779;DD;Not_known;-;-;;Native;-;-;eurasiatic;5;2,7;;species
+Ligustrum vulgare;Ligustrum vulgare L.;105966;Oleaceae;Ligustrum vulgare L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,9;;species
+Linaria arvensis;Linaria arvensis (L.) Desf.;106150;Plantaginaceae;Linaria arvensis (L.) Desf., 1799;LC;Decrease;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Linaria repens;Linaria repens (L.) Mill.;106213;Plantaginaceae;Linaria repens (L.) Mill., 1768;LC;Stable;-;-;;Native;-;-;atlantic;2;1;;species
+LINARIA SIMPLEX;Linaria simplex Desf.;106220;Plantaginaceae;Linaria simplex (Willd.) DC., 1805;LC;Not_known;-;-;;Native;-;-;european;7;2,1;;species
+Linaria vulgaris;Linaria vulgaris Mill.;106234;Plantaginaceae;Linaria vulgaris Mill., 1768;LC;Not_known;-;-;;Native;-;-;eurasiatic;5;6,7;*;species
+Linum strictum;Linum strictum L.;106342;Linaceae;Linum strictum L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;1,2;;species
+Linum usitatissimum subsp. angustifolium;Linum usitatissimum L.;137388;Linaceae;Linum usitatissimum subsp. angustifolium (Huds.) Thell., 1912;LC;Stable;-;-;;Native;-;-;eurasiatic;6;7;**;subsp
+Linum usitatissimum;Linum usitatissimum L.;137388;Linaceae;Linum usitatissimum subsp. angustifolium (Huds.) Thell., 1912;LC;Stable;-;-;;Native;-;-;eurasiatic;6;7;**;subsp
+Lipandra polyspermum;Lipandra polysperma (L.) S.Fuentes, Uotila & Borsch;717294;Amaranthaceae;Lipandra polysperma (L.) S.Fuentes, Uotila & Borsch, 2012;LC;Stable;-;-;;Native;-;-;eurasiatic;5;3,2;;species
+Lobularia maritima;Lobularia maritima (L.) Desv. ;106439;Brassicaceae;Lobularia maritima (L.) Desv., 1815;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Logfia gallica;Logfia gallica (L.) Coss. & Germ.;106449;Asteraceae;Logfia gallica (L.) Coss. & Germ., 1843;LC;Decrease;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Lolium multiflorum;Lolium multiflorum Lam.;106497;Poaceae;Lolium multiflorum Lam., 1779;LC;Stable;-;-;agrotolerant;Native;-;-;mediterranean;7;23,4;***;species
+Lolium perenne;Lolium perenne L.;106499;Poaceae;Lolium perenne L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;1;18,6;***;species
+Lolium rigidum;Lolium rigidum Gaudin;106507;Poaceae;Lolium rigidum Gaudin, 1811;LC;Stable;-;-;agrotolerant;Native;-;-;eurasiatic;7;31,6;***;species
+Lolium x boucheanum;Lolium x boucheanum Kunth [Lolium multiflorum Lam. x Lolium perenne L.];106523;Poaceae;Lolium x boucheanum Kunth, 1830;NA;NA;-;-;;Alien;Neophyt;Naturalized;introduced;6;4,3;*;hybrid
+Lotus angustissimus;Lotus angustissimus L.;106634;Fabaceae;Lotus angustissimus L., 1753;LC;Decrease;-;-;;Native;-;-;eurasiatic;7;7,6;**;species
+Lotus corniculatus;Lotus corniculatus L.;106653;Fabaceae;Lotus corniculatus L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;6;24,7;***;species
+Lotus edulis;Lotus edulis L.;106666;Fabaceae;Lotus edulis L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Lotus ornithopodioides;Lotus ornithopodioides L.;106694;Fabaceae;Lotus ornithopodioides L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;6,4;*;species
+Lotus parviflorus;Lotus parviflorus Desf.;106696;Fabaceae;Lotus parviflorus Desf., 1799;LC;Stable;-;-;;Native;-;-;mediterranean;7;6,4;**;species
+Lotus pedunculatus;Lotus pedunculatus Cav.;106698;Fabaceae;Lotus pedunculatus Cav., 1793;LC;Stable;-;-;;Native;-;-;eurasiatic;4;3,4;;species
+Dorycnium rectum;Dorycnium rectum (L.) Ser.;106708;Fabaceae;Lotus rectus L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Lunaria;#N/A;194312;Brassicaceae;Lunaria L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Lupinus;#N/A;194315;Fabaceae;Lupinus L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Silene flos-cuculi;Lychnis flos-cuculi L.;106918;Caryophyllaceae;Lychnis flos-cuculi L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;4,5;**;species
+Lycopsis arvensis;Lycopsis arvensis L.;107027;Boraginaceae;Lycopsis arvensis L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;0,6;;species
+Lycopus europaeus;Lycopus europaeus L.;107038;Lamiaceae;Lycopus europaeus L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;1;0,8;;species
+Lysimachia arvensis;Lysimachia arvensis (L.) U.Manns & Anderb.;610909;Primulaceae;Lysimachia arvensis (L.) U.Manns & Anderb., 2009;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;7;8,8;;species
+Lysimachia foemina;Lysimachia foemina (Mill.) U.Manns & Anderb.;706505;Primulaceae;Lysimachia foemina (Mill.) U.Manns & Anderb., 2009;LC;Stable;-;-;;Native;-;-;cosmopolit;7;5,1;*;species
+Lysimachia nummularia;Lysimachia nummularia L.;107073;Primulaceae;Lysimachia nummularia L., 1753;LC;Not_known;-;-;;Native;-;-;european;5;1,4;;species
+Lysimachia vulgaris;Lysimachia vulgaris L. ;107090;Primulaceae;Lysimachia vulgaris L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;17;***;species
+Lythrum borysthenicum;Lythrum borysthenicum (Schrank) Litv.;107097;Lythraceae;Lythrum borysthenicum (Schrank) Litv., 1917;LC;Not_known;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Lythrum hyssopifolia;Lythrum hyssopifolia L.;107106;Lythraceae;Lythrum hyssopifolia L., 1753;LC;Decrease;-;-;;Native;-;-;eurasiatic;7;1;;species
+Lythrum salicaria;Lythrum salicaria L.;107117;Lythraceae;Lythrum salicaria L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;2,5;;species
+Malus domestica;Malus domestica Borkh.;107207;Rosaceae;Malus domestica Borkh., 1803 [nom. cons.];NA;Not_assessed;-;-;;Alien;Archaeophyt;Casual;introduced;5;1,4;;species
+Malva moschata;Malva moschata L.;107282;Malvaceae;Malva moschata L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Malva multiflora;Malva multiflora (Cav.) Soldano;717790;Malvaceae;Malva multiflora (Cav.) Soldano & Banfi & Galasso, 2005;LC;Increase;-;-;;Native;-;-;mediterranean;7;12,8;***;species
+Malva neglecta;Malva neglecta Wallr.;107284;Malvaceae;Malva neglecta Wallr., 1824;LC;Stable;-;-;;Native;-;-;eurasiatic;3;3,3;;species
+Lavatera olbia;Malva olbia (L.) Alef.;107290;Malvaceae;Malva olbia (L.) Alef., 1862;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Lavatera punctata;Malva punctata (L.) Alef.;107302;Malvaceae;Malva punctata (L.) Alef., 1862;LC;Decrease;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Malva sylvestris;Malva sylvestris L.;107318;Malvaceae;Malva sylvestris L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;european;7;44,7;***;species
+Matricaria chamomilla;Matricaria chamomilla L. nom. ambig. ;107440;Asteraceae;Matricaria chamomilla L., 1753;LC;Not_known;-;-;agrotolerant;Alien;Archaeophyt;Naturalized;introduced;1;31,4;***;species
+Matricaria discoidea;Matricaria discoidea DC.;107446;Asteraceae;Matricaria discoidea DC., 1838;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;1;1,4;;species
+Medicago arabica;Medicago arabica (L.) Huds.;107574;Fabaceae;Medicago arabica (L.) Huds., 1762;LC;Not_known;-;-;;Native;-;-;eurasiatic;6;9,2;**;species
+Medicago laciniata;Medicago laciniata (L.) Mill.;107639;Fabaceae;Medicago laciniata (L.) Mill., 1768;NA;Not_assessed;-;-;;Alien;Neophyt;-;introduced;7;2,1;;species
+Medicago lupulina;Medicago lupulina L.;107649;Fabaceae;Medicago lupulina L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;11,7;**;species
+Medicago minima;Medicago minima (L.) L.;107658;Fabaceae;Medicago minima (L.) L., 1754;LC;Stable;-;-;;Native;-;-;mediterranean;7;48;***;species
+MEDICAGO MONSPELIACA;Medicago monspeliaca (L.) Trautv.;107662;Fabaceae;Medicago monspeliaca (L.) Trautv., 1841;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Medicago murex;Medicago murex Willd.;107665;Fabaceae;Medicago murex Willd., 1802;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Medicago orbicularis;Medicago orbicularis (L.) Bartal.;107677;Fabaceae;Medicago orbicularis (L.) Bartal., 1776;LC;Decrease;-;-;;Native;-;-;mediterranean;7;13,8;***;species
+Medicago polymorpha;Medicago polymorpha L. ;107689;Fabaceae;Medicago polymorpha L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;7;29,5;***;species
+MEDICAGO RIGIDULA;Medicago rigidula (L.) All.;107706;Fabaceae;Medicago rigidula (L.) All., 1785;LC;Not_known;-;-;;Native;-;-;mediterranean;3;2,3;;species
+Medicago sativa;Medicago sativa L.;107711;Fabaceae;Medicago sativa L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;12,2;**;species
+Medicago truncatula;Medicago truncatula Gaertn.;107739;Fabaceae;Medicago truncatula Gaertn., 1791;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Melica ciliata;Melica ciliata L.;107851;Poaceae;Melica ciliata L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;2,1;;species
+Trigonella alba;Melilotus albus Medik.;107886;Fabaceae;Melilotus albus Medik., 1787;LC;Stable;-;-;;Alien;Neophyt;Naturalized;introduced;5;1,4;;species
+Trigonella officinalis;Melilotus officinalis Lam.;107942;Fabaceae;Melilotus officinalis (L.) Lam., 1779;LC;Stable;-;-;;Native;-;-;eurasiatic;6;0,8;;species
+Melissa officinalis;Melilotus officinalis Lam.;107992;Fabaceae;Melissa officinalis L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;2,1;;species
+Mentha aquatica;Mentha aquatica L.;108027;Lamiaceae;Mentha aquatica L., 1753;LC;Stable;-;-;;Native;-;-;european;7;4,3;*;species
+Mentha arvensis;Mentha arvensis L.;108029;Lamiaceae;Mentha arvensis L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;6;2,7;;species
+Mentha pulegium;Mentha pulegium L. ;108138;Lamiaceae;Mentha pulegium L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;4,3;*;species
+Mentha suaveolens;Mentha suaveolens Ehrh. ;108168;Lamiaceae;Mentha suaveolens Ehrh., 1792;LC;Stable;-;-;;Native;-;-;mediterranean;6;8,8;**;species
+Mentha x villosa;Mentha x villosa Huds. [Mentha spicata L. x Mentha suaveolens Ehrh.];108332;Lamiaceae;Mentha x villosa Huds., 1778;NA;NA;-;-;;Native;-;-;mediterranean;2;1;;hybrid
+Mercurialis annua;Mercurialis annua L.;108351;Euphorbiaceae;Mercurialis annua L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;european;1;4,6;;species
+Misopates orontium;Misopates orontium (L.) Raf.;108645;Plantaginaceae;Misopates orontium (L.) Raf., 1840;LC;Stable;-;-;;Native;-;-;european;7;2,5;;species
+Morus;#N/A;194913;Moraceae;Morus L., 1753;NA;NA;-;-;;Alien;NA;NA;introduced;NA;NA;;genus
+Muscari neglectum;Muscari neglectum Guss. ex Ten.;108898;Asparagaceae;Muscari neglectum Guss. ex Ten., 1842;LC;Stable;-;messicole;;Native;-;-;european;7;17;***;species
+Myosotis arvensis;Myosotis arvensis Hill;108996;Boraginaceae;Myosotis arvensis (L.) Hill, 1764;LC;Stable;-;-;;Native;-;-;circumboreal;4;13,6;***;species
+Myosotis discolor;Myosotis discolor Pers.;109019;Boraginaceae;Myosotis discolor Pers., 1797;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Myosotis ramosissima;Myosotis ramosissima Rochel;109084;Boraginaceae;Myosotis ramosissima Rochel, 1814;LC;Stable;-;-;;Native;-;-;eurasiatic;6;1,5;;species
+Myosotis stricta;Myosotis stricta Link ex Roem. & Schult.;109102;Boraginaceae;Myosotis stricta Link ex Roem. & Schult., 1819;LC;Not_known;-;-;;Native;-;-;eurasiatic;6;1,5;;species
+Nasturtium officinale;Nasturtium officinale R.Br. ;109422;Brassicaceae;Nasturtium officinale W.T.Aiton, 1812;LC;Not_known;-;-;;Native;-;-;cosmopolit;7;2,1;;species
+Nigella damascena;Nigella damascena L.;109625;Ranunculaceae;Nigella damascena L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;6;1,5;;species
+Oenanthe pimpinelloides;Oenanthe pimpinelloides L.;109893;Apiaceae;Oenanthe pimpinelloides L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;6;6,1;**;species
+Oloptum miliaceum;Oloptum miliaceum (L.) Rîser & Hamasha;717338;Poaceae;Oloptum miliaceum (L.) Rîser & Hamasha, 2012;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Ononis spinosa;Ononis spinosa L.;110236;Fabaceae;Ononis spinosa L., 1753;LC;Stable;-;-;;Native;-;-;european;5;2,1;;species
+Ophrys apifera;Ophrys apifera Huds. ;110335;Orchidaceae;Ophrys apifera Huds., 1762;LC;Stable;-;-;;Native;-;-;european;5;1,4;;species
+OPHRYS SP;Ophrys exaltata Ten.;110385;Orchidaceae;Ophrys exaltata Ten., 1819;LC;Stable;-;;;Native;-;-;mediterranean;3;2,3;;species
+Origanum majorana;Origanum majorana L.;111272;Lamiaceae;Origanum majorana L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Casual;introduced;6;1,5;;species
+Origanum vulgare;Origanum vulgare L.;111289;Lamiaceae;Origanum vulgare L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;1;0,6;;species
+Orlaya grandiflora;Orlaya grandiflora (L.) Hoffm.;111297;Apiaceae;Orlaya grandiflora (L.) Hoffm., 1814;LC;Stable;-;messicole;;Native;-;-;european;7;4,3;*;species
+Ornithogalum umbellatum;Ornithogalum umbellatum L.;111391;Asparagaceae;Ornithogalum umbellatum L., 1753;LC;Not_known;-;-;;Native;-;-;holarctic;7;4,3;*;species
+Ornithopus compressus;Ornithopus compressus L.;111406;Fabaceae;Ornithopus compressus L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;6,7;**;species
+Ornithopus perpusillus;Ornithopus perpusillus L.;111419;Fabaceae;Ornithopus perpusillus L., 1753;LC;Stable;-;-;;Native;-;-;european;7;2,1;;species
+Ornithopus sativus;Ornithopus sativus Brot.;111424;Fabaceae;Ornithopus sativus Brot., 1804;NT;Decrease;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Orobanche minor;Orobanche minor Sm. ;111614;Orobanchaceae;Orobanche minor Sm., 1797;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Oxalis acetosella;Oxalis acetosella L.;111859;Oxalidaceae;Oxalis acetosella L., 1753;LC;Not_known;-;-;;Native;-;-;circumboreal;5;1,3;;species
+Oxalis corniculata;Oxalis corniculata L.;111876;Oxalidaceae;Oxalis corniculata L., 1753;LC;Stable;-;-;;Alien;Archaeophyt;Naturalized;introduced;7;10,5;**;species
+Oxalis fontana;Oxalis fontana Bunge;111921;Oxalidaceae;Oxalis fontana Bunge, 1833;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;7;1,3;;species
+Oxalis pes-caprae;Oxalis pes-caprae L.;111910;Oxalidaceae;Oxalis pes-caprae L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;7;8,5;**;species
+Oxybasis glauca;Oxybasis glauca (L.) S.Fuentes, Uotila & Borsch;717359;Amaranthaceae;Oxybasis glauca (L.) S.Fuentes, Uotila & Borsch, 2012;LC;Stable;-;-;;Native;-;-;holarctic;2;1;;species
+Pallenis spinosa;Paliurus spina-christi Mill.;112065;Rhamnaceae;Pallenis spinosa (L.) Cass., 1825;LC;Decrease;-;-;;Native;-;-;european;7;2,1;;species
+Panicum miliaceum;Panicum miliaceum L.;112195;Poaceae;Panicum miliaceum L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;2;0,4;;species
+Papaver dubium;Papaver dubium L.;112303;Papaveraceae;Papaver dubium L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;1,6;;species
+Papaver rhoeas;Papaver rhoeas L. ;112355;Papaveraceae;Papaver rhoeas L., 1753;LC;Stable;-;messicole;agrotolerant;Alien;Archaeophyt;Naturalized;introduced;1;16,3;**;species
+Parentucellia latifolia;Parentucellia latifolia (L.) Caruel;112404;Orobanchaceae;Parentucellia latifolia (L.) Caruel, 1885;LC;Not_known;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Parentucellia viscosa;Parentucellia viscosa (L.) Caruel;112405;Orobanchaceae;Parentucellia viscosa (L.) Caruel, 1885;LC;Stable;-;-;;Native;-;-;mediterranean;7;8,5;***;species
+Parietaria judaica;Parietaria judaica L.;112410;Urticaceae;Parietaria judaica L., 1756;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Parthenocissus inserta;Parthenocissus inserta (A.Kern.) Fritsch;112463;Vitaceae;Parthenocissus inserta (A.Kern.) Fritsch, 1922;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;4;3,4;;species
+Paspalum dilatatum;Paspalum dilatatum Poir.;112482;Poaceae;Paspalum dilatatum Poir., 1804;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;6;4,5;*;species
+Paspalum distichum;Paspalum distichum L.;112483;Poaceae;Paspalum distichum L., 1759;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;7;3,9;*;species
+Pastinaca sativa;Pastinaca sativa L.;112550;Apiaceae;Pastinaca sativa L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;3,3;;species
+Persicaria amphibia;Persicaria amphibia (L.) Gray;112727;Polygonaceae;Persicaria amphibia (L.) Gray, 1821;LC;Stable;-;-;;Native;-;-;cosmopolit;4;8,4;**;species
+Persicaria lapathifolia;Persicaria lapathifolia (L.) Delarbre;112741;Polygonaceae;Persicaria lapathifolia (L.) Delarbre, 1800;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;1;3,4;;species
+Persicaria maculosa;Persicaria maculosa Gray;112745;Polygonaceae;Persicaria maculosa Gray, 1821;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;6;4,4;;species
+Petrorhagia prolifera;Petrorhagia prolifera (L.) P.W.Ball & Heywood;112808;Caryophyllaceae;Petrorhagia prolifera (L.) P.W.Ball & Heywood, 1964;LC;Stable;-;-;;Native;-;-;european;7;3,2;;species
+Phacelia tanacetifolia;Phacelia tanacetifolia Benth.;112915;Boraginaceae;Phacelia tanacetifolia Benth., 1837;NA;Not_assessed;-;-;;Alien;Neophyt;Casual;introduced;6;1,7;;species
+Phalaris aquatica;Phalaris aquatica L.;112972;Poaceae;Phalaris aquatica L., 1755;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Phalaris arundinacea;Phalaris arundinacea L.;112975;Poaceae;Phalaris arundinacea L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;6;1,2;;species
+Phalaris paradoxa;Phalaris paradoxa L.;113016;Poaceae;Phalaris paradoxa L., 1763;LC;Stable;-;messicole;;Native;-;-;mediterranean;6;3;*;species
+Phelipanche nana;Phelipanche nana (Reut.) Soj†k;113098;Orobanchaceae;Phelipanche nana (Reut.) Soj†k, 1972;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Phleum arenarium;Phleum arenarium L.;113178;Poaceae;Phleum arenarium L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;1;0,8;;species
+Phleum pratense;Phleum pratense L.;113221;Poaceae;Phleum pratense L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;6;5,2;;species
+Phragmites australis;Phragmites australis (Cav.) Steud.;113260;Poaceae;Phragmites australis (Cav.) Trin. ex Steud., 1840;LC;Stable;-;-;;Native;-;-;cosmopolit;7;0,9;;species
+Phytolacca americana;Phytolacca americana L.;113418;Rosaceae;Phytolacca americana L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;6;1,5;;species
+Picris hieracioides;Picris hieracioides L.;113474;Asteraceae;Picris hieracioides L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;5;15;**;species
+Pilosella officinarum;Pilosella officinarum F.W.Schultz & Sch.Bip.;113525;Asteraceae;Pilosella officinarum F.W.Schultz & Sch.Bip., 1862;LC;Not_known;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Pimpinella major;Pimpinella major (L.) Huds.;113579;Apiaceae;Pimpinella major (L.) Huds., 1762;LC;Stable;-;-;;Native;-;-;european;4;6,9;**;species
+Pistacia lentiscus;Pistacia lentiscus L.;113744;Anacardiaceae;Pistacia lentiscus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Pisum sativum;Pisum sativum L.;113778;Fabaceae;Pisum sativum L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;4;2,2;;species
+Plantago coronopus;Plantago coronopus L.;113842;Plantaginaceae;Plantago coronopus L., 1753;LC;Increase;-;-;;Native;-;-;eurasiatic;7;2;;species
+Plantago lagopus;Plantago lagopus L. ;113889;Plantaginaceae;Plantago lagopus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Plantago lanceolata;Plantago lanceolata L.;113893;Plantaginaceae;Plantago lanceolata L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;eurasiatic;6;17,1;**;species
+Plantago major;Plantago major L. ;113904;Plantaginaceae;Plantago major L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;eurasiatic;1;26,5;***;species
+Plantago media;Plantago media L.;113906;Plantaginaceae;Plantago media L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;1;0,9;;species
+Poa annua;Poa annua L.;114114;Poaceae;Poa annua L., 1753;LC;Not_known;-;-;agrotolerant;Native;-;-;cosmopolit;1;20,4;***;species
+Poa bulbosa;Poa bulbosa L.;114136;Poaceae;Poa bulbosa L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;6,5;**;species
+Poa pratensis;Poa pratensis L.;114332;Poaceae;Poa pratensis L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;2;19,9;***;species
+Poa trivialis;Poa trivialis L.;114416;Poaceae;Poa trivialis L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;4;18,2;**;species
+Podospermum laciniatum;Podospermum laciniatum (L.) DC.;114468;Asteraceae;Podospermum laciniatum (L.) DC., 1805;LC;Decrease;-;-;;Native;-;-;mediterranean;7;6,5;**;species
+Polycarpon tetraphyllum;Polycarpon tetraphyllum (L.) L.;114517;Caryophyllaceae;Polycarpon tetraphyllum (L.) L., 1759;LC;Stable;-;-;;Native;-;-;european;7;4,3;*;species
+Polygonatum multiflorum;Polygonatum multiflorum (L.) All.;114611;Asparagaceae;Polygonatum multiflorum (L.) All., 1785;LC;Stable;-;-;;Native;-;-;circumboreal;4;3,4;;species
+Polygonum aviculare;Polygonum aviculare L.;114658;Polygonaceae;Polygonum aviculare L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;1;24;***;species
+Polypogon monspeliensis;Polypogon monspeliensis (L.) Desf.;115027;Poaceae;Polypogon monspeliensis (L.) Desf., 1798;LC;Decrease;-;-;;Native;-;-;subtropical;7;2,1;;species
+Populus nigra;Populus nigra L.;115145;Salicaceae;Populus nigra L., 1753;LC;Not_known;-;-;;Native;-;-;european;6;0,8;;species
+Populus tremula;Populus tremula L.;115156;Salicaceae;Populus tremula L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;6;1,5;;species
+Portulaca oleracea;Portulaca oleracea L.;115215;Portulacaceae;Portulaca oleracea L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;5;5,5;*;species
+Potentilla erecta;Potentilla erecta (L.) RÑusch.;115470;Rosaceae;Potentilla erecta (L.) Raeusch., 1797;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,4;;species
+Potentilla reptans;Potentilla reptans L.;115624;Rosaceae;Potentilla reptans L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;6;26,4;***;species
+Potentilla sterilis;Potentilla sterilis (L.) Garcke;115655;Rosaceae;Potentilla sterilis (L.) Garcke, 1856;LC;Stable;-;-;;Native;-;-;european;5;1,4;;species
+Potentilla neumanniana;Potentilla verna L.;115694;Rosaceae;Potentilla verna L., 1753;LC;Stable;-;-;;Native;-;-;european;5;1,1;;species
+Poterium sanguisorba;Poterium sanguisorba L.;115789;Rosaceae;Poterium sanguisorba L., 1753;LC;Not_known;-;-;;Native;-;-;eurasiatic;7;4,3;*;species
+Poterium verrucosum;Poterium verrucosum Link ex G.Don;115792;Rosaceae;Poterium verrucosum Link ex G.Don, 1832;LC;Not_known;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Primula elatior;Primula elatior (L.) Hill;115865;Primulaceae;Primula elatior (L.) Hill, 1765;LC;Not_known;-;-;;Native;-;-;mediterranean;6;1,5;;species
+Primula veris;Primula veris L.;115918;Primulaceae;Primula veris L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2,6;;species
+Primula vulgaris;Primula vulgaris Huds.;115925;Primulaceae;Primula vulgaris Huds., 1762;LC;Stable;-;-;;Native;-;-;mediterranean;2;1;;species
+Prunella vulgaris;Prunella vulgaris L. ;116012;Lamiaceae;Prunella vulgaris L., 1753;LC;Not_known;-;-;;Native;-;-;cosmopolit;6;13,3;***;species
+Prunus cerasus;Prunus cerasus L. ;116054;Rosaceae;Prunus cerasus L., 1753;NA;Not_assessed;-;-;;Alien;Archaeophyt;Naturalized;introduced;4;3,4;;species
+Prunus spinosa;Prunus spinosa L.;116142;Rosaceae;Prunus spinosa L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;7,5;**;species
+Pteridium aquilinum;Pteridium aquilinum (L.) Kuhn ;116265;Dennstaedtiaceae;Pteridium aquilinum (L.) Kuhn, 1879;LC;Stable;-;-;;Native;-;-;cosmopolit;4;9,3;***;species
+Pulicaria dysenterica;Pulicaria dysenterica (L.) Bernh.;116392;Asteraceae;Pulicaria dysenterica (L.) Bernh., 1800;LC;Stable;-;-;;Native;-;-;european;4;1,7;;species
+Pulicaria odora;Pulicaria odora (L.) Rchb.;116396;Asteraceae;Pulicaria odora (L.) Rchb., 1831;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Quercus ilex;Quercus ilex L.;116704;Fagaceae;Quercus ilex L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;2,5;;species
+Quercus petraea;Quercus petraea Liebl.;521658;Fagaceae;Quercus petraea (Matt.) Liebl., 1784;LC;Not_known;-;-;;Native;-;-;european;6;3;;species
+Quercus pubescens;Quercus pubescens Willd.;116751;Fagaceae;Quercus pubescens Willd., 1805;LC;Not_known;-;-;;Native;-;-;european;5;5,5;*;species
+Quercus robur;Quercus robur L. ;116759;Fagaceae;Quercus robur L., 1753;LC;Stable;-;-;;Native;-;-;european;5;1,8;;species
+Quercus suber;Quercus suber L.;116774;Fagaceae;Quercus suber L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Ranunculus acris;Ranunculus acris L.;116903;Ranunculaceae;Ranunculus acris L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;6;7,9;**;species
+Ranunculus arvensis;Ranunculus arvensis L.;116932;Ranunculaceae;Ranunculus arvensis L., 1753;LC;Not_known;-;messicole;;Alien;Archaeophyt;Naturalized;introduced;4;7,8;**;species
+Ranunculus bulbosus;Ranunculus bulbosus L.;116952;Ranunculaceae;Ranunculus bulbosus L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;6;12,8;**;species
+Ranunculus muricatus;Ranunculus muricatus L.;117128;Ranunculaceae;Ranunculus muricatus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Ranunculus parviflorus;Ranunculus parviflorus L.;117156;Ranunculaceae;Ranunculus parviflorus L., 1758;LC;Decrease;-;-;;Native;-;-;mediterranean;6;3,8;;species
+Ranunculus repens;Ranunculus repens L.;117201;Ranunculaceae;Ranunculus repens L., 1753;LC;Stable;-;-;;Native;-;-;holarctic;4;23;***;species
+Ranunculus sardous;Ranunculus sardous Crantz;117221;Ranunculaceae;Ranunculus sardous Crantz, 1763;LC;Decrease;-;-;;Native;-;-;eurasiatic;7;4,3;*;species
+Raphanus raphanistrum;Raphanus raphanistrum L. ;117353;Brassicaceae;Raphanus raphanistrum L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;eurasiatic;7;6,1;*;species
+Rapistrum rugosum;Rapistrum rugosum (L.) All.;117393;Brassicaceae;Rapistrum rugosum (L.) All., 1785;LC;Stable;-;-;;Native;-;-;cosmopolit;5;1,4;;species
+Reichardia picroides;Reichardia picroides (L.) Roth;117426;Asteraceae;Reichardia picroides (L.) Roth, 1787;LC;Not_known;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Reseda lutea;Reseda lutea L. ;117458;Resedaceae;Reseda lutea L., 1753;LC;Stable;-;-;;Native;-;-;european;3;2,3;;species
+Reseda luteola;Reseda luteola L.;117459;Resedaceae;Reseda luteola L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;3;2,3;;species
+Rhagadiolus edulis;Rhagadiolus edulis Gaertn.;117512;Polygonaceae;Rhagadiolus edulis Gaertn., 1791;LC;Not_known;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Rhamnus;#N/A;197112;Rhamnaceae;Rhamnus L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Rhinanthus alectorolophus;Rhinanthus alectorolophus (Scop.) Pollich;117587;Orobanchaceae;Rhinanthus alectorolophus (Scop.) Pollich, 1777;LC;Not_known;-;-;;Native;-;-;european;5;1,4;;species
+Rhinanthus minor;Rhinanthus minor L.;117616;Orobanchaceae;Rhinanthus minor L., 1756;LC;Stable;-;-;;Native;-;-;circumboreal;5;1,4;;species
+Robinia pseudoacacia;Robinia pseudoacacia L.;117860;Fabaceae;Robinia pseudoacacia L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;4;3,4;;species
+Rorippa sylvestris;Rorippa sylvestris (L.) Besser ;117951;Brassicaceae;Rorippa sylvestris (L.) Besser, 1821;LC;Decrease;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Rosa arvensis;Rosa arvensis Huds.;118016;Rosaceae;Rosa arvensis Huds., 1762;LC;Stable;-;-;;Native;-;-;european;6;1,8;;species
+Rosa canina;Rosa canina L. ;118073;Rosaceae;Rosa canina L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;2,3;;species
+Rostraria cristata;Rostraria cristata (L.) Tzvelev;118872;Poaceae;Rostraria cristata (L.) Tzvelev, 1971;LC;Stable;-;-;;Native;-;-;mediterranean;7;8,5;***;species
+Rubia peregrina;Rubia peregrina L.;118916;Rubiaceae;Rubia peregrina L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;8,5;**;species
+Rubia tinctorum;Rubia tinctorum L.;118920;Rubiaceae;Rubia tinctorum L., 1753;LC;Not_known;-;-;;Alien;Neophyt;Naturalized;introduced;7;2,1;;species
+RUBUS SP;Rubus ulmifolius Schott;197281;Rosaceae;Rubus L., 1753;NA;NA;-;-;;Native;-;-;mediterranean;5;18,3;**;genus
+Rumex acetosa;Rumex acetosa L.;119418;Polygonaceae;Rumex acetosa L., 1753;LC;Not_known;-;-;;Native;-;-;holarctic;5;8,4;;species
+Rumex acetosella;Rumex acetosella L.;119419;Polygonaceae;Rumex acetosella L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;4;17,8;***;species
+Rumex bucephalophorus;Rumex bucephalophorus L. ;119461;Polygonaceae;Rumex bucephalophorus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Rumex conglomeratus;Rumex conglomeratus Murray;119471;Polygonaceae;Rumex conglomeratus Murray, 1770;LC;Stable;-;-;;Native;-;-;eurasiatic;4;1,7;;species
+Rumex crispus;Rumex crispus L.;119473;Polygonaceae;Rumex crispus L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;2;18,3;**;species
+Rumex obtusifolius;Rumex obtusifolius L.;119550;Polygonaceae;Rumex obtusifolius L., 1753;LC;Not_known;-;-;;Native;-;-;holarctic;4;9,5;*;species
+Rumex pulcher;Rumex pulcher L.;119569;Polygonaceae;Rumex pulcher L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;8;**;species
+Rumex sanguineus;Rumex sanguineus L.;119585;Polygonaceae;Rumex sanguineus L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Ruscus;#N/A;197291;Asparagaceae;Ruscus L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Sagina apetala;Sagina apetala Ard.;119780;Caryophyllaceae;Sagina apetala Ard., 1763;LC;Stable;-;-;;Native;-;-;european;7;2,1;;species
+Salix atrocinerea;Salix atrocinerea Brot.;119948;Salicaceae;Salix atrocinerea Brot., 1804;LC;Stable;-;-;;Native;-;-;european;5;1,4;;species
+Salix caprea;Salix caprea L.;119977;Salicaceae;Salix caprea L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1;;species
+Salvia pratensis;Salvia pratensis L.;120685;Lamiaceae;Salvia pratensis L., 1753;LC;Stable;-;-;;Native;-;-;european;6;0,7;;species
+Sambucus nigra;Sambucus nigra L.;120717;Adoxaceae;Sambucus nigra L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;0,7;;species
+Saponaria officinalis;Saponaria officinalis L.;120824;Caryophyllaceae;Saponaria officinalis L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;5;1,4;;species
+Satureja;#N/A;197392;Lamiaceae;Satureja L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Scabiosa atropurpurea;Scabiosa atropurpurea L.;121316;Caprifoliaceae;Scabiosa atropurpurea L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;18,9;***;species
+Scandix pecten-veneris;Scandix pecten-veneris L.;121449;Apiaceae;Scandix pecten-veneris L., 1753;LC;Not_known;-;messicole;;Native;-;-;european;NA;NA;;species
+Schedonorus arundinaceus;Schedonorus arundinaceus (Schreb.) Dumort.;717533;Poaceae;Schedonorus arundinaceus (Schreb.) Dumort., 1824;LC;Stable;-;-;;Native;-;-;eurasiatic;6;37,5;***;species
+Schedonorus arundinaceus gpe;Schedonorus arundinaceus (Schreb.) Dumort.;717533;Poaceae;Schedonorus arundinaceus (Schreb.) Dumort., 1824;LC;Stable;-;-;;Native;-;-;eurasiatic;6;37,5;***;species
+Schedonorus pratensis;Schedonorus pratensis (Huds.) P.Beauv.;121479;Poaceae;Schedonorus pratensis (Huds.) P.Beauv., 1812;LC;Not_known;-;-;;Native;-;-;eurasiatic;2;8,5;*;species
+SCIRPUS HOLOSCHOENUS;Scirpoides holoschoenus (L.) Soj†k ;121673;Cyperaceae;Scirpoides holoschoenus (L.) Soj†k, 1972;LC;Not_known;-;-;;Native;-;-;eurasiatic;7;2,1;;species
+Scorpiurus subvillosus;Scorpiurus subvillosus L.;121929;Fabaceae;Scorpiurus subvillosus L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;8,5;**;species
+Scorzoneroides autumnalis;Scorzoneroides autumnalis (L.) Moench;121988;Asteraceae;Scorzoneroides autumnalis (L.) Moench, 1794;LC;Not_known;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Secale cereale;Secale cereale L.;122085;Poaceae;Secale cereale L., 1753;NA;Not_assessed;-;-;;Alien;Archaeophyt;Casual;introduced;6;0,6;;species
+Sedum acre;Sedum acre L. ;122101;Crassulaceae;Sedum acre L., 1753;LC;Not_known;-;-;;Native;-;-;european;5;1,4;;species
+Sedum album;Sedum album L.;122106;Crassulaceae;Sedum album L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;1,8;;species
+Senecio inaequidens;Senecio inaequidens DC.;122630;Asteraceae;Senecio inaequidens DC., 1838;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;5;2,9;;species
+Senecio vulgaris;Senecio vulgaris L.;122745;Asteraceae;Senecio vulgaris L., 1753;LC;Not_known;-;-;agrotolerant;Native;-;-;cosmopolit;7;17,1;**;species
+Setaria italica subsp. italica;Setaria italica (L.) P.Beauv. subsp. italica;718414;Poaceae;Setaria italica subsp. italica (L.) P.Beauv., 1812;NA;Not_assessed;-;-;;Alien;Neophyt;Casual;introduced;NA;1,4;;subsp
+Setaria italica subsp. viridis;Setaria italica subsp. viridis (L.) Thell.;718292;Poaceae;Setaria italica subsp. viridis (L.) Thell., 1912;LC;Stable;-;-;;Native;-;-;thermo-cosmopolit;5;7,6;*;subsp
+Setaria pumila;Setaria pumila (Poir.) Roem. & Schult.;123141;Poaceae;Setaria pumila (Poir.) Roem. & Schult., 1817;LC;Decrease;-;-;;Native;-;-;thermo-cosmopolit;5;4,8;*;species
+Setaria verticillata;Setaria verticillata (L.) P.Beauv. ;123154;Poaceae;Setaria verticillata (L.) P.Beauv., 1812;LC;Stable;-;-;;Native;-;-;thermo-cosmopolit;5;2,4;;species
+Sherardia arvensis;Sherardia arvensis L.;123164;Rubiaceae;Sherardia arvensis L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;5,5;;species
+Sideritis romana;Sideritis romana L. ;123325;Lamiaceae;Sideritis romana L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Silene bellidifolia;Silene bellidifolia Juss. ex Jacq.;123407;Caryophyllaceae;Silene bellidifolia Juss. ex Jacq., 1777;NA;Not_assessed;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Silene dioica;Silene dioica (L.) Clairv.;123471;Caryophyllaceae;Silene dioica (L.) Clairv., 1811;LC;Stable;-;-;;Native;-;-;atlantic;4;12,9;***;species
+Silene gallica;Silene gallica L.;123485;Caryophyllaceae;Silene gallica L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;7;8,3;**;species
+Silene latifolia;Silene latifolia Poir. ;123522;Caryophyllaceae;Silene latifolia Poir., 1789;LC;Stable;-;-;;Native;-;-;european;5;17,5;***;species
+Silene nocturna;Silene noctiflora L.;123563;Caryophyllaceae;Silene nocturna L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;4,3;*;species
+Silene vulgaris;Silene vulgaris (Moench) Garcke;123683;Caryophyllaceae;Silene vulgaris (Moench) Garcke, 1869;LC;Stable;-;-;;Native;-;-;eurasiatic;7;1,4;;species
+Silybum marianum;Silybum marianum (L.) Gaertn.;123705;Asteraceae;Silybum marianum (L.) Gaertn., 1791;LC;Not_known;-;-;;Native;-;-;mediterranean;7;1,9;;species
+Sinapis alba;Sinapis alba L.;123711;Brassicaceae;Sinapis alba L., 1753;LC;Stable;-;messicole;;Alien;Archaeophyt;Naturalized;introduced;1;1,6;;species
+Sinapis arvensis;Sinapis arvensis L. ;123713;Brassicaceae;Sinapis arvensis L., 1753;LC;Decrease;-;-;agrotolerant;Native;-;-;european;7;2,8;;species
+SISYMBRIUM IRIO;Sisymbrium irio L.;123841;Brassicaceae;Sisymbrium irio L., 1753;LC;Decrease;-;-;;Native;-;-;european;7;2,1;;species
+Sisymbrium officinale;Sisymbrium officinale (L.) Scop.;123863;Brassicaceae;Sisymbrium officinale (L.) Scop., 1772;LC;Stable;-;-;;Native;-;-;cosmopolit;4;6,2;*;species
+Smyrnium olusatrum;Smyrnium olusatrum L.;124003;Apiaceae;Smyrnium olusatrum L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Solanum dulcamara;Solanum dulcamara L.;124034;Solanaceae;Solanum dulcamara L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;4;3,3;*;species
+Solanum nigrum;Solanum nigrum L.;124080;Solanaceae;Solanum nigrum L., 1753;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;5;2,9;;species
+Solanum tuberosum;Solanum tuberosum L.;124125;Solanaceae;Solanum tuberosum L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Casual;introduced;2;0,6;;species
+Solidago virgaurea;Solidago virgaurea L.;124205;Asteraceae;Solidago virgaurea L., 1753;LC;Not_known;-;-;;Native;-;-;holarctic;5;1,4;;species
+Sonchus arvensis;Sonchus arvensis L.;124232;Asteraceae;Sonchus arvensis L., 1753;LC;Not_known;-;-;;Native;-;-;cosmopolit;5;5,6;;species
+Sonchus asper;Sonchus asper (L.) Hill;124233;Asteraceae;Sonchus asper (L.) Hill, 1769;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;1;15,6;*;species
+Sonchus oleraceus;Sonchus oleraceus L.;124261;Asteraceae;Sonchus oleraceus L., 1753;LC;Not_known;-;-;agrotolerant;Native;-;-;cosmopolit;7;29;***;species
+Sonchus tenerrimus;Sonchus tenerrimus L.;124278;Asteraceae;Sonchus tenerrimus L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;7;10,6;***;species
+Sorghum halepense;Sorghum halepense (L.) Pers.;124378;Poaceae;Sorghum halepense (L.) Pers., 1805;NA;Not_assessed;-;-;;Alien;Archaeophyt;Naturalized;introduced;7;6,7;**;species
+Spergula arvensis;Spergula arvensis L.;124499;Caryophyllaceae;Spergula arvensis L., 1753;LC;Not_known;-;messicole;;Native;-;-;cosmopolit;7;3,5;*;species
+Spergula rubra;Spergula rubra (L.) D.Dietr.;124528;Caryophyllaceae;Spergula rubra (L.) D.Dietr., 1840;NA;NA;-;-;;Native;-;-;eurasiatic;7;1,7;;species
+Stachys arvensis;Stachys arvensis (L.) L.;124744;Lamiaceae;Stachys arvensis (L.) L., 1763;LC;Decrease;-;-;;Native;-;-;european;4;2,1;;species
+Stachys palustris;Stachys palustris L. ;124798;Lamiaceae;Stachys palustris L., 1753;LC;Decrease;-;-;;Native;-;-;circumboreal;2;0,7;;species
+Stachys sylvatica;Stachys sylvatica L.;124814;Lamiaceae;Stachys sylvatica L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;2;1;;species
+Stellaria graminea;Stellaria graminea L.;125000;Caryophyllaceae;Stellaria graminea L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;5,3;*;species
+Stellaria holostea;Stellaria holostea L.;125006;Caryophyllaceae;Stellaria holostea L., 1753;NA;NA;-;-;;Native;-;-;european;4;25,5;***;species
+Stellaria media;Stellaria media (L.) Vill. ;125014;Caryophyllaceae;Stellaria media (L.) Vill., 1789;LC;Stable;-;-;agrotolerant;Native;-;-;cosmopolit;7;10,7;;species
+Succisa pratensis;Succisa pratensis Moench;125295;Caprifoliaceae;Succisa pratensis Moench, 1794;LC;Not_known;-;-;;Native;-;-;eurasiatic;2;1;;species
+Symphyotrichum subulatum;Symphyotrichum subulatum (Michx.) M.Nesom;448413;Asteraceae;Symphyotrichum subulatum (Michx.) G.L.Nesom, 1995;NA;NA;-;-;;Alien;Neophyt;Invasive;introduced;NA;NA;;species
+Symphytum officinale;Symphytum officinale L. ;125355;Boraginaceae;Symphytum officinale L., 1753;LC;Stable;-;-;;Native;-;-;european;4;8;**;species
+Tanacetum vulgare;Tanacetum vulgare L.;125474;Asteraceae;Tanacetum vulgare L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+TARAXACUM SECT. RUDERALIA;Taraxacum officinale F.H.Wigg.;717630;Asteraceae;Taraxacum officinale F.H.Wigg., 1780;LC;Increase;-;-;agrotolerant;Native;-;-;european;2;16,2;*;species
+Taraxacum section Celtica;Taraxacum section Celtica;NA;Asteraceae;Taraxacum sect. Celtica;NA;NA;-;-;;Native;-;-;european;1;1,6;;section
+Taraxacum section Erythrosperma;Taraxacum section Erythrosperma;NA;Asteraceae;Taraxacum sect. Erythrosperma;NA;NA;-;-;;Native;-;-;european;6;1,5;;section
+Taraxacum section Ruderalia;Taraxacum section Ruderalia;NA;Asteraceae;Taraxacum sect. Taraxacum;NA;NA;-;-;;Native;-;-;european;NA;NA;;section
+Taraxacum section Palustria;Taraxacum section Palustria;NA;Asteraceae;Taraxacumˇsect.ˇPalustria;NA;NA;-;-;;Native;-;-;european;1;0,8;;section
+Teucrium scorodonia;Teucrium scorodonia L. ;126035;Lamiaceae;Teucrium scorodonia L., 1753;LC;Stable;-;-;;Native;-;-;european;2;0,9;;species
+Thlaspi arvense;Thlaspi arvense L.;126332;Brassicaceae;Thlaspi arvense L., 1753;LC;Not_known;-;messicole;;Native;-;-;cosmopolit;2;1,8;;species
+Thymus vulgaris;Thymus vulgaris L. ;126582;Lamiaceae;Thymus vulgaris L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;5;1,4;;species
+Tolpis umbellata;Tolpis umbellata Bertol.;126822;Asteraceae;Tolpis umbellata Bertol., 1803;LC;Decrease;-;-;;Native;-;-;mediterranean;7;1,4;;species
+Tordylium maximum;Tordylium maximum L.;126837;Apiaceae;Tordylium maximum L., 1753;LC;Stable;-;-;;Native;-;-;european;7;9,3;**;species
+Torilis arvensis;Torilis arvensis (Huds.) Link;126846;Apiaceae;Torilis arvensis (Huds.) Link, 1821;LC;Stable;-;-;;Native;-;-;mediterranean;7;7,9;*;species
+Torilis japonica;Torilis japonica (Houtt.) DC.;126859;Apiaceae;Torilis japonica (Houtt.) DC., 1830;LC;Stable;-;-;;Native;-;-;eurasiatic;4;3,7;;species
+Torilis nodosa;Torilis nodosa (L.) Gaertn.;126865;Apiaceae;Torilis nodosa (L.) Gaertn., 1788;LC;Stable;-;-;;Native;-;-;european;5;2,3;;species
+Tragopogon dubius;Tragopogon dubius Scop.;127005;Asteraceae;Tragopogon dubius Scop., 1772;LC;Not_known;-;-;;Native;-;-;european;6;1,2;;species
+Tragopogon porrifolius;Tragopogon porrifolius L.;127028;Asteraceae;Tragopogon porrifolius L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;10,6;***;species
+Tragopogon pratensis;Tragopogon pratensis L.;127029;Asteraceae;Tragopogon pratensis L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;7;3,1;;species
+Trifolium angustifolium;Trifolium angustifolium L. ;127223;Fabaceae;Trifolium angustifolium L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;12,8;***;species
+Trifolium arvense;Trifolium arvense L.;127230;Fabaceae;Trifolium arvense L., 1753;LC;Stable;-;-;;Native;-;-;european;7;2,6;;species
+Trifolium campestre;Trifolium campestre Schreb. ;127259;Fabaceae;Trifolium campestre Schreb., 1804;LC;Stable;-;-;;Native;-;-;cosmopolit;5;3;;species
+Trifolium dubium;Trifolium dubium Sibth.;127294;Fabaceae;Trifolium dubium Sibth., 1794;LC;Decrease;-;-;;Native;-;-;cosmopolit;6;7,3;**;species
+Trifolium fragiferum;Trifolium fragiferum L.;127314;Fabaceae;Trifolium fragiferum L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;6;9,1;***;species
+Trifolium glomeratum;Trifolium glomeratum L.;127326;Fabaceae;Trifolium glomeratum L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;6;2,1;;species
+Trifolium hybridum;Trifolium hybridum L.;127337;Fabaceae;Trifolium hybridum L., 1753;LC;Not_known;-;-;;Native;-;-;european;6;2,5;;species
+Trifolium incarnatum;Trifolium incarnatum L.;127340;Fabaceae;Trifolium incarnatum L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;1;0,8;;species
+Trifolium lappaceum;Trifolium lappaceum L.;127361;Fabaceae;Trifolium lappaceum L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;5;2,9;;species
+Trifolium micranthum;Trifolium micranthum Viv.;127387;Fabaceae;Trifolium micranthum Viv., 1824;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Trifolium montanum;Trifolium montanum L.;127395;Fabaceae;Trifolium montanum L., 1753;LC;Decrease;-;-;;Native;-;-;european;7;2,1;;species
+Trifolium nigrescens;Trifolium nigrescens Viv. ;127402;Fabaceae;Trifolium nigrescens Viv., 1808;LC;Stable;-;-;;Native;-;-;mediterranean;7;8,5;**;species
+Trifolium pratense;Trifolium pratense L.;127439;Fabaceae;Trifolium pratense L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;21,5;***;species
+Trifolium repens;Trifolium repens L.;127454;Fabaceae;Trifolium repens L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;6;23;***;species
+Trifolium resupinatum;Trifolium resupinatum L. ;127457;Fabaceae;Trifolium resupinatum L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Trifolium scabrum;Trifolium scabrum L.;127470;Fabaceae;Trifolium scabrum L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Trifolium subterraneum;Trifolium subterraneum L.;127498;Fabaceae;Trifolium subterraneum L., 1753;LC;Decrease;-;-;;Native;-;-;mediterranean;7;1;;species
+Trifolium tomentosum;Trifolium tomentosum L.;127506;Fabaceae;Trifolium tomentosum L., 1753;LC;Not_known;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Tripleurospermum inodorum;Tripleurospermum inodorum Sch.Bip.;127613;Asteraceae;Tripleurospermum inodorum (L.) Sch.Bip., 1844;LC;Not_known;-;-;;Native;-;-;cosmopolit;4;17,4;***;species
+Trisetum flavescens;Trisetum flavescens (L.) P.Beauv.;127660;Poaceae;Trisetum flavescens (L.) P.Beauv., 1812;LC;Stable;-;-;;Native;-;-;holarctic;6;5,5;*;species
+Triticum aestivum;Triticum aestivum L.;127692;Poaceae;Triticum aestivum L., 1753;NA;Not_assessed;-;-;;Alien;Archaeophyt;Casual;introduced;1;5,5;*;species
+Triticum turgidum;Triticum turgidum L.;127827;Poaceae;Triticum turgidum L., 1753;NA;Not_assessed;-;-;;Alien;Archaeophyt;Casual;introduced;4;2,3;;species
+Ulex;#N/A;198787;Fabaceae;Ulex L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Ulmus minor;Ulmus minor Mill.;128175;Ulmaceae;Ulmus minor Mill., 1768;LC;Stable;-;-;;Native;-;-;european;5;1;;species
+Urospermum dalechampii;Urospermum dalechampii (L.) Scop. ex F.W.Schmidt;128255;Asteraceae;Urospermum dalechampii (L.) Scop. ex F.W.Schmidt, 1795;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,5;*;species
+Urospermum picroides;Urospermum picroides (L.) Scop. ex F.W.Schmidt;128256;Asteraceae;Urospermum picroides (L.) Scop. ex F.W.Schmidt, 1795;LC;Not_known;-;-;;Native;-;-;mediterranean;7;8,5;**;species
+Urtica dioica;Urtica dioica L.;128268;Urticaceae;Urtica dioica L., 1753;LC;Increase;-;-;;Native;-;-;cosmopolit;4;31;***;species
+Valeriana dioica;Valeriana dioica L. ;128394;Caprifoliaceae;Valeriana dioica L., 1753;LC;Not_known;-;-;;Native;-;-;european;5;1,4;;species
+Valeriana officinalis;Valeriana officinalis L.;128419;Caprifoliaceae;Valeriana officinalis L., 1753;LC;Stable;-;-;;Native;-;-;european;5;1,4;;species
+Valerianella dentata;Valerianella dentata (L.) Pollich;128467;Caprifoliaceae;Valerianella dentata (L.) Pollich, 1776;LC;Stable;-;messicole;;Alien;Archaeophyt;Naturalized;introduced;5;1,4;;species
+Valerianella discoidea;Valerianella discoidea (L.) Loisel.;128468;Caprifoliaceae;Valerianella discoidea (L.) Loisel., 1810;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Valerianella eriocarpa;Valerianella eriocarpa Desv.;128470;Caprifoliaceae;Valerianella eriocarpa Desv., 1809;LC;Stable;-;-;;Native;-;-;mediterranean;7;4,3;*;species
+Valerianella locusta;Valerianella locusta (L.) Laterr.;128476;Caprifoliaceae;Valerianella locusta (L.) Laterr., 1821;LC;Stable;-;-;;Native;-;-;european;7;2,5;;species
+Valerianella microcarpa;Valerianella microcarpa Loisel.;128479;Caprifoliaceae;Valerianella microcarpa Loisel., 1810;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Verbascum densiflorum;Verbascum densiflorum Bertol.;128567;Scrophulariaceae;Verbascum densiflorum Bertol., 1810;LC;Stable;-;-;;Native;-;-;european;4;3,4;;species
+Verbascum sinuatum;Verbascum sinuatum L.;128651;Scrophulariaceae;Verbascum sinuatum L., 1753;LC;Stable;-;-;;Native;-;-;mediterranean;5;1;;species
+Verbascum thapsus;Verbascum thapsus L.;128660;Scrophulariaceae;Verbascum thapsus L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;2;;species
+Verbena officinalis;Verbena officinalis L.;128754;Verbenaceae;Verbena officinalis L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;6;6,2;;species
+Veronica anagallis-aquatica;Veronica anagallis-aquatica L.;128792;Plantaginaceae;Veronica anagallis-aquatica L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;NA;NA;;species
+Veronica arvensis;Veronica arvensis L.;128801;Plantaginaceae;Veronica arvensis L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;1;9,7;;species
+Veronica chamaedrys;Veronica chamaedrys L. ;128832;Plantaginaceae;Veronica chamaedrys L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,9;;species
+Veronica cymbalaria;Veronica cymbalaria Bodard;128842;Plantaginaceae;Veronica cymbalaria Bodard, 1798;LC;Not_known;-;-;;Native;-;-;mediterranean;7;10,6;***;species
+Veronica filiformis;Veronica filiformis Sm.;128863;Plantaginaceae;Veronica filiformis Sm., 1791;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;2;1;;species
+Veronica hederifolia;Veronica hederifolia L.;128880;Plantaginaceae;Veronica hederifolia L., 1753;LC;Stable;-;-;;Native;-;-;european;4;8,4;**;species
+Veronica officinalis;Verbena officinalis L.;128938;Verbenaceae;Veronica officinalis L., 1753;LC;Stable;-;-;;Native;-;-;cosmopolit;3;2,3;;species
+Veronica persica;Veronica persica Poir.;128956;Plantaginaceae;Veronica persica Poir., 1808;NA;Not_assessed;-;-;agrotolerant;Alien;Neophyt;Naturalized;introduced;7;15,4;**;species
+Veronica polita;Veronica polita Fr.;128963;Plantaginaceae;Veronica polita Fr., 1819;LC;Stable;-;-;;Native;-;-;european;5;0,6;;species
+Veronica serpyllifolia;Veronica serpyllifolia L.;129003;Plantaginaceae;Veronica serpyllifolia L., 1753;LC;Stable;-;-;;Native;-;-;circumboreal;5;1,8;;species
+Viburnum;#N/A;198901;Viburnaceae;Viburnum L., 1753;NA;NA;-;-;;NA;NA;NA;NA;NA;NA;;genus
+Vicia bithynica;Vicia bithynica (L.) L.;129127;Fabaceae;Vicia bithynica (L.) L., 1759;LC;Decrease;-;-;;Native;-;-;european;7;3,5;;species
+Vicia cracca;Vicia cracca L.;129147;Fabaceae;Vicia cracca L., 1753;LC;Stable;-;-;;Native;-;-;european;5;7,7;*;species
+Vicia villosa subsp. varia;Vicia dasycarpa Ten.;129153;Fabaceae;Vicia dasycarpa Ten., 1829;LC;Not_known;-;-;;Native;-;-;mediterranean;NA;NA;;species
+Vicia faba;Vicia faba L. ;129171;Fabaceae;Vicia faba L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Casual;introduced;1;0,8;;species
+Vicia hybrida;Vicia hybrida L.;129195;Fabaceae;Vicia hybrida L., 1753;LC;Decrease;-;-;;Native;-;-;european;7;12,8;***;species
+Vicia lathyroides;Vicia lathyroides L.;129207;Fabaceae;Vicia lathyroides L., 1753;LC;Decrease;-;-;;Native;-;-;european;7;2,1;;species
+Vicia lutea;Vicia lutea L.;129225;Fabaceae;Vicia lutea L., 1753;LC;Stable;-;-;;Native;-;-;european;6;3,9;;species
+Vicia sativa;Vicia sativa L.;129298;Fabaceae;Vicia sativa L., 1753;NA;Not_assessed;-;-;;Alien;Archaeophyt;Naturalized;introduced;6;16,3;**;species
+Vicia sepium;Vicia sepium L.;129305;Fabaceae;Vicia sepium L., 1753;LC;Not_known;-;-;;Native;-;-;european;4;1,2;;species
+Vicia tenuifolia;Vicia tenuifolia Roth;129322;Fabaceae;Vicia tenuifolia Roth, 1788;LC;Stable;-;-;;Native;-;-;european;5;0,9;;species
+Vicia villosa;Vicia villosa Roth ;129340;Fabaceae;Vicia villosa Roth, 1793;LC;Not_known;-;-;;Native;-;-;european;7;2;;species
+VINCA MINOR;Vinca minor L.;129470;Apocynaceae;Vinca minor L., 1753;LC;Stable;-;-;;Native;-;-;european;5;1,4;;species
+Viola arvensis;Viola arvensis Murray;129506;Violaceae;Viola arvensis Murray, 1770;LC;Stable;-;messicole;agrotolerant;Native;-;-;cosmopolit;4;5;;species
+Viola hirta;Viola hirta L.;129586;Violaceae;Viola hirta L., 1753;LC;Stable;-;-;;Native;-;-;eurasiatic;5;1,4;;species
+Vitis rupestris;Vitis rupestris Scheele;129961;Vitaceae;Vitis rupestris Scheele, 1848;NA;Not_assessed;-;-;;Alien;Neophyt;Naturalized;introduced;7;4,3;*;species
+Vitis vinifera;Vitis vinifera L.;129968;Vitaceae;Vitis vinifera L., 1753;LC;Not_known;-;-;;Alien;Archaeophyt;Casual;introduced;7;2,1;;species
+Vulpia bromoides;Vulpia bromoides (L.) Gray;129997;Poaceae;Vulpia bromoides (L.) Gray, 1821;LC;Not_known;-;-;;Native;-;-;european;6;6;**;species
+Vulpia ciliata;Vulpia ciliata Dumort.;129999;Poaceae;Vulpia ciliata Dumort., 1824;LC;Decrease;-;-;;Native;-;-;eurasiatic;7;1,8;;species
+Vulpia fasciculata;Vulpia fasciculata (Forssk.) Fritsch;130005;Poaceae;Vulpia fasciculata (Forssk.) Fritsch, 1909;LC;Stable;-;-;;Native;-;-;mediterranean;7;2,1;;species
+Vulpia ligustica;Vulpia ligustica (All.) Link;130015;Poaceae;Vulpia ligustica (All.) Link, 1827;LC;Stable;-;-;;Native;-;-;mediterranean;7;8,5;***;species
+Vulpia myuros;Vulpia myuros (L.) C.C.Gmel. ;130028;Poaceae;Vulpia myuros (L.) C.C.Gmel., 1805;LC;Stable;-;-;;Native;-;-;cosmopolit;6;11,6;**;species
+Xanthium orientale subsp. italicum;Xanthium orientale subsp. italicum (Moretti) Greuter;612629;Asteraceae;Xanthium orientale subsp. italicum (Moretti) Greuter, 2003;NA;Not_assessed;-;-;;Alien;Neophyt;Invasive;introduced;7;9,4;**;subsp
+Zea mays;Zea mays L.;130621;Poaceae;Zea mays L., 1753;NA;Not_assessed;-;-;;Alien;Neophyt;Casual;introduced;4;3,3;;species

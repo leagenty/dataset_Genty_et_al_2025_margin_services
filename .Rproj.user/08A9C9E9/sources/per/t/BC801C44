@@ -1,0 +1,27 @@
+{
+    "id": "BC801C44",
+    "path": "G:/dataset_Genty_et_al_2025_margin_services/3. Pedoclim data/3.3. Field clustering/Script/2024-25-01_field_clustering.Rmd",
+    "project_path": "3. Pedoclim data/3.3. Field clustering/Script/2024-25-01_field_clustering.Rmd",
+    "type": "r_markdown",
+    "hash": "1614354132",
+    "contents": "",
+    "dirty": false,
+    "created": 1725889195381.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "chunk_output_type": "console",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "41,0",
+        "scrollLine": "23"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1725886714,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1725886714,
+    "read_only": false,
+    "read_only_alternatives": []
+}

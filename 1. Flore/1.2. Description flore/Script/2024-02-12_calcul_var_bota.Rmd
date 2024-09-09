@@ -1,0 +1,524 @@
+---
+title: "2024-02-12_calcul_var_bota"
+author: "Léa Genty"
+date: "2024-02-12"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(hrbrthemes)
+library(viridis)
+library(FactoMineR)
+library(lubridate)
+library(factoextra)
+library(corrplot)
+library(lme4)
+library(MuMIn)
+library(MASS)
+library(AICcmodavg)
+library(car)
+library(RColorBrewer)
+library(ggpubr)
+library(ggsignif)
+library(ggcorrplot)
+library(vegan)
+library(hillR)
+library(FD)
+library(hypervolume)
+library(BAT)
+library("labdsv")
+library("hypervolume") 
+library("psych")
+library("StatMatch")
+library("TPD")
+library("mice")
+```
+
+# 1. Open data
+```{r}
+type_cult <- read.csv(file="5. Models_par_clusters_pedoclimatiques/5.2. Models/Raw/dataset_500_ENI_Lea.csv") %>% 
+  dplyr::select(id_parc_an,TypeCulture) %>% 
+  distinct()
+
+bota <- read.csv(file="1. Flore/1.2. Description flore/Raw/Flore_500ENI_without_dupplicates_with_synonyms.csv",sep=",")
+
+traits <- read.csv(file="1. Flore/1.2. Description flore/Raw/Trait_ENI_baseflor_try_V1.2.csv",sep=";",fileEncoding="latin1")
+
+nat_val <- read.csv(file="1. Flore/1.2. Description flore/Raw/Appendix_species_list_v1.csv",sep=";") %>% 
+  dplyr::select(ID_ENI,Messicole,Agrotolerance)
+
+key <- read.csv(file="1. Flore/1.2. Description flore/Raw/key_500_ENI_name_species.csv",sep=",")
+
+un_pct <- read.csv(file="1. Flore/1.2. Description flore/Raw/List_1pc_most_frequent_species.csv",sep=";") %>% 
+  dplyr::select(-x) %>% 
+  left_join(key) %>% 
+  dplyr::select(1,3) %>% 
+  distinct()
+```
+
+
+# 2. Clean flora sampling
+```{r}
+bota2 <- bota %>% 
+  dplyr::select(id_parc_an,id_parcelle,annee,nom_eni,total) %>% 
+  pivot_wider(names_from = nom_eni,
+              values_from = total,
+              values_fill = 0) 
+
+names <- bota2 %>% 
+  dplyr::select(id_parc_an,id_parcelle,annee) 
+
+bota_clean <- bota2 %>% 
+  column_to_rownames("id_parc_an")
+```
+
+## 2.2. Extract the list of most abundant species
+```{r}
+list_ab_sp <- bota %>% 
+  dplyr::select(nom_eni,total) %>% 
+  group_by(nom_eni) %>% 
+  summarise_all(sum,na.rm=F)
+```
+
+
+
+
+# 3. Measure richness indicators : Shannon and species richness
+```{r}
+rich <- as_tibble(specnumber(bota_clean)) %>% 
+  cbind(names) %>% 
+  rename(rich_sp = value)
+
+
+shannon <- diversity(bota_clean,index="shannon")
+shannon2 <- as_tibble(shannon)%>% 
+  rename(shannon = value) %>% 
+    cbind(names)
+  
+simpson <- diversity(bota_clean,index="simpson")
+simpson2 <- as_tibble(simpson)%>% 
+  rename(simpson = value) %>% 
+    cbind(names)
+
+invsimp <- diversity(bota_clean,index="invsimpson")
+invsimp2 <- as_tibble(invsimp)%>% 
+  rename(invsimp = value) %>% 
+    cbind(names)
+
+
+div_ind <- rich %>% 
+  left_join(shannon2) %>% 
+   left_join(invsimp2) %>% 
+   left_join(simpson2) %>% 
+  relocate(id_parc_an,id_parcelle,annee)
+```
+
+# 4. Measure % graminoid, % annual, % neophytes and % nature values
+
+## 4.1. Joining data
+```{r}
+bota3 <- bota %>% 
+  dplyr::select(id_parc_an,id_parcelle,annee,nom_eni,total)
+
+carac <- traits %>% 
+  dplyr::select(ID_ENI,Codeconcat,biol_type_simpl,CHOROLOGIE,FAMILLE,weeds_vineyards,weeds_annual_crops,weeds_market_crops) %>% 
+  mutate_all(as.factor) %>% 
+  left_join(nat_val) %>% 
+  rename(nom_eni=ID_ENI)
+
+bota_carac <- bota3 %>% 
+  left_join(carac) %>% 
+  mutate(graminoids = 
+           ifelse(c(FAMILLE=="Poaceae"|FAMILLE=="Juncaceae"|FAMILLE=="Cyperaceae"),"graminoid","forbs")) %>% 
+         mutate(seed_prone = 
+           ifelse(c(FAMILLE=="Poaceae"|FAMILLE=="Amaranthaceae"|FAMILLE=="Polygonaceae"),"seed_prone","other_seeds")) %>% 
+      mutate(life_cycle = 
+           ifelse(biol_type_simpl=="therophyte","annual","perennial")) %>% 
+      mutate(choro = 
+           ifelse(CHOROLOGIE=="Neophyt","neophytes","indigenous"))  %>% 
+        mutate(nat_val = 
+           ifelse(Agrotolerance=="agrotolerant","agrotolerant","nat_val"))%>% 
+        mutate(messi = 
+           ifelse(Messicole=="messicole","messicole","not_messicole"))%>% 
+  dplyr::select(-biol_type_simpl,-CHOROLOGIE,-Agrotolerance,-Messicole) 
+```
+
+## 4.2. % graminoids
+```{r}
+grami <- bota_carac %>% 
+   dplyr::select(id_parc_an,total,graminoids) %>% 
+  group_by(id_parc_an,graminoids) %>% 
+  summarise_all(sum,na.rm=F) %>% 
+  pivot_wider(names_from = graminoids,
+              values_from = total,
+              values_fill=0) %>% 
+  dplyr::select(-"NA") %>% 
+   group_by(id_parc_an) %>% 
+  mutate(tot=sum(forbs+graminoid)) %>% 
+  mutate(forbs_100 = forbs / tot * 100) %>% 
+  mutate(graminoid_100 = graminoid / tot * 100) %>% 
+  dplyr::select(id_parc_an,forbs_100,graminoid_100)
+```
+
+## 4.3. % annual
+```{r}
+annual <- bota_carac %>% 
+   dplyr::select(id_parc_an,total,life_cycle) %>% 
+  group_by(id_parc_an,life_cycle) %>% 
+  summarise_all(sum,na.rm=F) %>% 
+  pivot_wider(names_from = life_cycle,
+              values_from = total,
+              values_fill=0) %>% 
+  dplyr::select(-"NA") %>% 
+   group_by(id_parc_an) %>% 
+  mutate(tot=sum(annual+perennial)) %>% 
+  mutate(annual_100 = annual / tot * 100) %>% 
+  mutate(perennial_100 = perennial / tot * 100) %>% 
+  dplyr::select(id_parc_an,annual_100,perennial_100)
+```
+
+## 4.3. % neophyte
+```{r}
+neophyte <- bota_carac %>% 
+   dplyr::select(id_parc_an,total,choro) %>% 
+  group_by(id_parc_an,choro) %>% 
+  summarise_all(sum,na.rm=F) %>% 
+  pivot_wider(names_from = choro,
+              values_from = total,
+              values_fill=0) %>% 
+  dplyr::select(-"NA") %>% 
+   group_by(id_parc_an) %>% 
+  mutate(tot=sum(indigenous+neophytes)) %>% 
+  mutate(indigenous_100 = indigenous / tot * 100) %>% 
+  mutate(neophytes_100 = neophytes / tot * 100) %>% 
+  dplyr::select(id_parc_an,indigenous_100,neophytes_100)
+```
+
+## 4.4. % nature value
+```{r}
+nat_val <- bota_carac %>% 
+   dplyr::select(id_parc_an,total,nat_val) %>% 
+  group_by(id_parc_an,nat_val) %>% 
+  summarise_all(sum,na.rm=F) %>% 
+  pivot_wider(names_from = nat_val,
+              values_from = total,
+              values_fill=0) %>% 
+  dplyr::select(-"NA") %>% 
+   group_by(id_parc_an) %>% 
+  mutate(tot=sum(nat_val+agrotolerant)) %>% 
+  mutate(nat_val_100 = nat_val / tot * 100) %>% 
+  mutate(agrotolerant_100 = agrotolerant / tot * 100) %>% 
+  dplyr::select(id_parc_an,nat_val_100,agrotolerant_100)
+```
+
+## 4.5. % messicole
+```{r}
+messi <- bota_carac %>% 
+   dplyr::select(id_parc_an,total,messi) %>% 
+  group_by(id_parc_an,messi) %>% 
+  summarise_all(sum,na.rm=F) %>% 
+  pivot_wider(names_from = messi,
+              values_from = total,
+              values_fill=0) %>% 
+  dplyr::select(-"NA") %>% 
+   group_by(id_parc_an) %>% 
+  mutate(tot=sum(messicole+not_messicole)) %>% 
+  mutate(messicole_100 = messicole / tot * 100) %>% 
+  mutate(not_messicole_100 = not_messicole / tot * 100) %>% 
+  dplyr::select(id_parc_an,messicole_100,not_messicole_100)
+```
+
+## 4.6. Seeds
+```{r}
+seeds <- bota_carac %>% 
+   dplyr::select(id_parc_an,total,seed_prone) %>% 
+  group_by(id_parc_an,seed_prone) %>% 
+  summarise_all(sum,na.rm=F) %>% 
+  pivot_wider(names_from = seed_prone,
+              values_from = total,
+              values_fill=0) %>% 
+  dplyr::select(-"NA") %>% 
+   group_by(id_parc_an) %>% 
+  mutate(tot=sum(seed_prone+other_seeds)) %>% 
+  mutate(seed_prone_100 = seed_prone / tot * 100) %>% 
+  mutate(other_seeds_100 = other_seeds / tot * 100) %>% 
+  dplyr::select(id_parc_an,seed_prone_100,other_seeds_100)
+```
+
+## 4.7. Problematic weeds
+### 4.7.1. Cereals
+```{r}
+weed_cereal <- bota_carac %>% 
+  left_join(type_cult) %>% 
+  filter(TypeCulture=="GrandesCultures") %>% 
+   dplyr::select(id_parc_an,total,weeds_annual_crops) %>% 
+  group_by(id_parc_an,weeds_annual_crops) %>% 
+  summarise_all(sum,na.rm=F) %>% 
+  pivot_wider(names_from = weeds_annual_crops,
+              values_from = total,
+              values_fill=0) %>% 
+  dplyr::select(-"NA") %>% 
+   group_by(id_parc_an) %>% 
+  mutate(tot=sum(yes+no)) %>% 
+  mutate(weeds_100 = yes / tot * 100) %>% 
+  mutate(not_weeds_100 = no / tot * 100) %>% 
+  dplyr::select(id_parc_an,weeds_100,not_weeds_100)
+
+```
+
+### 4.7.2. Vineyards
+```{r}
+weed_vineyards <- bota_carac  %>% 
+  left_join(type_cult) %>% 
+  filter(TypeCulture=="Vigne")%>% 
+   dplyr::select(id_parc_an,total,weeds_vineyards) %>% 
+  group_by(id_parc_an,weeds_vineyards) %>% 
+  summarise_all(sum,na.rm=F) %>% 
+  pivot_wider(names_from = weeds_vineyards,
+              values_from = total,
+              values_fill=0) %>% 
+  dplyr::select(-"NA") %>% 
+   group_by(id_parc_an) %>% 
+  mutate(tot=sum(yes+no)) %>% 
+  mutate(weeds_100 = yes / tot * 100) %>% 
+  mutate(not_weeds_100 = no / tot * 100) %>% 
+  dplyr::select(id_parc_an,weeds_100,not_weeds_100)
+```
+
+### 4.7.3. Market gardening
+```{r}
+weeds_market_crops <- bota_carac  %>% 
+  left_join(type_cult) %>% 
+  filter(TypeCulture=="Maraichage")%>% 
+   dplyr::select(id_parc_an,total,weeds_market_crops) %>% 
+  group_by(id_parc_an,weeds_market_crops) %>% 
+  summarise_all(sum,na.rm=F) %>% 
+  pivot_wider(names_from = weeds_market_crops,
+              values_from = total,
+              values_fill=0) %>% 
+  dplyr::select(-"NA") %>% 
+   group_by(id_parc_an) %>% 
+  mutate(tot=sum(yes+no)) %>% 
+  mutate(weeds_100 = yes / tot * 100) %>% 
+  mutate(not_weeds_100 = no / tot * 100) %>% 
+  dplyr::select(id_parc_an,weeds_100,not_weeds_100)
+```
+
+### 4.7.4. Fusion variable weeds
+```{r}
+weeds <- weed_cereal %>% 
+  rbind(weed_vineyards,weeds_market_crops)
+```
+
+
+
+## 4.8. Fusion
+```{r}
+bota_descr <- grami %>% 
+  left_join(annual) %>% 
+  left_join(neophyte) %>% 
+  left_join(div_ind) %>% 
+  left_join(nat_val) %>% 
+  left_join(messi) %>% 
+  left_join(seeds)%>% 
+  left_join(weeds) %>% 
+  relocate(id_parc_an,id_parcelle,annee)
+```
+
+# 5. Functional indicators on floral traits (partie non utiliséeà voir si retirée)
+
+## 5.1. LHS traits
+
+### 5.1.1. Select traits
+
+```{r}
+leaf_traits <- traits %>% 
+dplyr::select(ID_ENI,Codeconcat,SLA_NA,Height_max,Seed_mass_NA,Flow_on) %>% 
+  mutate(SLA_NA=as.numeric(SLA_NA),
+         Seed_mass_NA=as.numeric(Seed_mass_NA))
+summary(leaf_traits$SLA_NA)
+```
+
+### 5.1.2 Fichier bota en gardant seulement les 1% sp les plus communes
+```{r}
+names_un_pct <- un_pct$nom_eni
+
+bota_un_pct <- bota %>% 
+  filter(nom_eni %in% names_un_pct) %>% 
+  mutate(nom_eni=as.factor(nom_eni)) %>% 
+  dplyr::select(id_parc_an,nom_eni,total) %>% 
+  group_by(id_parc_an) %>% 
+  mutate(tot_vg = sum(total)) %>% 
+  ungroup() %>% 
+  group_by(id_parc_an,nom_eni) %>% 
+  mutate(ab_vg= total/tot_vg * 100) %>% 
+  ungroup() %>% 
+  group_by(id_parc_an) %>% 
+  #%>% mutate(test = sum(ab_vg))
+  ungroup() %>% 
+  dplyr::select(1,2,5)
+
+bota_un_pct_wide <- bota_un_pct %>% 
+  pivot_wider( names_from = nom_eni,
+               values_from = ab_vg,
+               values_fill=0) %>% 
+  column_to_rownames("id_parc_an") 
+
+names <- bota_un_pct %>% 
+  dplyr::select(id_parc_an) 
+```
+
+### 5.1.3. Filtrer les data traits selon les 1% d'espèces les plus communes
+```{r}
+leaf_traits2 <- leaf_traits %>% 
+  rename(nom_eni=ID_ENI)
+
+traits_un_pct <- un_pct %>% 
+  left_join(leaf_traits2) %>% 
+  dplyr::select(-nom_eni_fusion_trait_code,-Codeconcat) %>% 
+  column_to_rownames("nom_eni")
+```
+
+Imputer traits manquants pour les 4 NA SLA et le NA de seed mass :
+```{r}
+imputed_data <- mice(data = traits_un_pct, method = "pmm", m = 5, maxit = 50)
+
+traits_un_pct_imp <- complete(imputed_data)
+```
+
+### 5.1.4. FD
+```{r}
+n <- dbFD(traits_un_pct, bota_un_pct_wide, w.abun = TRUE, stand.x = TRUE,
+ord = c("podani", "metric"), asym.bin = NULL,
+corr = c("cailliez"),
+calc.FRic = TRUE, m = "max", stand.FRic = FALSE,
+scale.RaoQ = FALSE, calc.FGR = FALSE, clust.type = "ward",
+km.inf.gr = 2, km.sup.gr = nrow(x) - 1, km.iter = 100,
+km.crit = c("calinski", "ssi"), calc.CWM = TRUE,
+CWM.type = c("dom", "all"), calc.FDiv = TRUE, dist.bin = F,
+print.pco = FALSE, messages = TRUE)
+
+na <- as_tibble(names(n$FRic)) %>% 
+  rename(id_parc_an = value) 
+n2 <- as_tibble(n$FRic) %>% 
+  rename(FRic = value) 
+n3 <- as_tibble(n$FEve)%>% 
+  rename(FEve = value)
+n4 <- as_tibble(n$FDiv)%>% 
+  rename(FDiv = value)
+n5 <- as_tibble(n$FDis) %>% 
+  rename(FDis = value)
+n6 <- as_tibble(n$RaoQ)%>% 
+  rename(RaoQ = value)
+n7 <- as_tibble(n$nbsp) %>% 
+  rename(nbsp = value)
+ind_fonct <- cbind(na,n2,n3,n4,n5,n6,n7)
+
+bota_descr <- bota_descr %>% 
+  left_join(ind_fonct)
+```
+
+
+## 5.2. Floral traits
+
+
+### 5.2.1. Select traits
+
+```{r}
+floral_traits <- traits %>% 
+dplyr::select(ID_ENI,Codeconcat,Flow_on,couleur_fleur,Flo_sym) %>% 
+
+```
+
+### 5.2.2 Fichier bota en gardant seulement les 1% sp les plus communes
+```{r}
+names_un_pct <- un_pct$nom_eni
+
+bota_un_pct <- bota %>% 
+  filter(nom_eni %in% names_un_pct) %>% 
+  mutate(nom_eni=as.factor(nom_eni)) %>% 
+  dplyr::select(id_parc_an,nom_eni,total) %>% 
+  group_by(id_parc_an) %>% 
+  mutate(tot_vg = sum(total)) %>% 
+  ungroup() %>% 
+  group_by(id_parc_an,nom_eni) %>% 
+  mutate(ab_vg= total/tot_vg * 100) %>% 
+  ungroup() %>% 
+  group_by(id_parc_an) %>% 
+  #%>% mutate(test = sum(ab_vg))
+  ungroup() %>% 
+  dplyr::select(1,2,5)
+
+bota_un_pct_wide <- bota_un_pct %>% 
+  pivot_wider( names_from = nom_eni,
+               values_from = ab_vg,
+               values_fill=0) %>% 
+  column_to_rownames("id_parc_an") 
+
+names <- bota_un_pct %>% 
+  dplyr::select(id_parc_an) 
+```
+
+### 5.2.3. Filtrer les data traits selon les 1% d'espèces les plus communes
+```{r}
+floral_traits2 <- floral_traits %>% 
+  rename(nom_eni=ID_ENI)
+
+traits_un_pct <- un_pct %>% 
+  left_join(floral_traits2) %>% 
+  dplyr::select(-nom_eni_fusion_trait_code,-Codeconcat) %>% 
+  column_to_rownames("nom_eni")
+```
+
+Imputer traits manquants pour les 4 NA SLA et le NA de seed mass :
+```{r}
+imputed_data <- mice(data = traits_un_pct, method = "pmm", m = 5, maxit = 50)
+
+traits_un_pct_imp <- complete(imputed_data)
+```
+
+### 5.2.4. FD
+```{r}
+n <- dbFD(traits_un_pct, bota_un_pct_wide, w.abun = TRUE, stand.x = TRUE,
+ord = c("podani", "metric"), asym.bin = NULL,
+corr = c("cailliez"),
+calc.FRic = TRUE, m = "max", stand.FRic = FALSE,
+scale.RaoQ = FALSE, calc.FGR = FALSE, clust.type = "ward",
+km.inf.gr = 2, km.sup.gr = nrow(x) - 1, km.iter = 100,
+km.crit = c("calinski", "ssi"), calc.CWM = TRUE,
+CWM.type = c("dom", "all"), calc.FDiv = TRUE, dist.bin = F,
+print.pco = FALSE, messages = TRUE)
+
+na <- as_tibble(names(n$FRic)) %>% 
+  rename(id_parc_an = value) 
+n2 <- as_tibble(n$FRic) %>% 
+  rename(FRic = value) 
+n3 <- as_tibble(n$FEve)%>% 
+  rename(FEve = value)
+n4 <- as_tibble(n$FDiv)%>% 
+  rename(FDiv = value)
+n5 <- as_tibble(n$FDis) %>% 
+  rename(FDis = value)
+n6 <- as_tibble(n$RaoQ)%>% 
+  rename(RaoQ = value)
+n7 <- as_tibble(n$nbsp) %>% 
+  rename(nbsp = value)
+ind_fonct <- cbind(na,n2,n3,n4,n5,n6,n7)
+
+bota_descr <- bota_descr %>% 
+  left_join(ind_fonct)
+```
+
+
+# 6. Saving
+```{r}
+#write.csv(bota_descr, file="1. Flore/1.2. Description flore/Processed/indicateurs_biodiversite.csv")
+
+
+#write.csv(list_ab_sp, file="1. Flore/1.2. Description flore/Processed/list_ab_sp.csv")
+```
+
